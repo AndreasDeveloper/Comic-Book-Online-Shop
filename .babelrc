@@ -1,0 +1,12 @@
+{
+    "presets": [ // Collection of code transform plugins = preset
+        ["@babel/env", {   // stands for environment
+            "targets": {
+                "browsers": [
+                    "last 5 versions",
+                    "ie >= 8"   // internet explorer greater or equal to version 8
+                ]
+            }
+        }]
+    ]
+}
