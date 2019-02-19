@@ -95,7 +95,7 @@
     top: 7.3rem;
     width: calc(100% - 50px);
     transition: transform .45s cubic-bezier(0.77, 0, 0.175, 1);
-    padding: 15rem 5rem 0 5rem;
+    padding: 15rem 4rem 0 5rem;
   }
 
   .openNav .new-wrapper {
@@ -286,6 +286,7 @@
   box-shadow: .5rem .5rem 1rem rgba($color-black, .10);
   height: 7.4rem;
   width: 100%;
+  z-index: 998;
 }
 
 .secondary-nav {
@@ -320,6 +321,7 @@
   &__input {
       font-family: inherit;
       font-size: inherit;
+      font-weight: 500;
       color: $color-gray-dark-1;
       background-color: $color-gray-1;
       border: none;

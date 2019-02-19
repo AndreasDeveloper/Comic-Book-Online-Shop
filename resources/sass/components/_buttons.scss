@@ -1,0 +1,27 @@
+// * --------------------- * \\
+//        - BUTTONS -
+// * --------------------- * \\
+
+// * ---- SHOP BUTTON ---- * \\
+.btn-1 {
+    display: inline;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: 'Raleway';
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: $color-white;
+    padding: .6rem;
+    margin-bottom: 1rem;
+    border: .2rem solid $color-primary;
+    background-color: $color-primary;
+    transition: all .2s ease-in-out;
+    outline: none;
+    cursor: pointer;
+    // On Hover
+    &:hover {
+        background-color: $color-primary-light;
+        border: .2rem solid $color-primary-light;
+    }
+}

@@ -1,7 +1,7 @@
 {
-  "name": "Winery-website",
+  "name": "comic-book-shop",
   "version": "1.0.0",
-  "description": "Website related to traditional winery.",
+  "description": "Web application related to selling comic books.",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AndreasDeveloper/Winery-Website"
+    "url": "git+https://github.com/AndreasDeveloper/Comic-Book-Online-Shop"
   },
   "author": "AndreasDEV",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AndreasDeveloper/Winery-Website/issues"
+    "url": "https://github.com/AndreasDeveloper/Comic-Book-Online-Shop/issues"
   },
-  "homepage": "https://github.com/AndreasDeveloper/Winery-Website#readme",
+  "homepage": "https://github.com/AndreasDeveloper/Comic-Book-Online-Shop#readme",
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/polyfill": "^7.0.0",

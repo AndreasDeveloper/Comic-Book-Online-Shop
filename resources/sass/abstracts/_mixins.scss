@@ -28,7 +28,8 @@
 /* ------------------------------------------- */
 @mixin img-setup {
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 /* ------------------------------------------- */
@@ -85,11 +86,9 @@
         height: .2rem;
         background-color: $color-primary;
         content: "";
-        width: 10rem;
-        margin: 0 auto;
+        width: 5rem;
         margin-top: 1rem;
-        margin-bottom: 2rem;
-
+        margin-bottom: 1rem;
         // * --- MEDIA QUERIES --- * \\
         @media only screen and (max-width: $bp-vsmall-5) {
             margin-top: 1.4rem;
