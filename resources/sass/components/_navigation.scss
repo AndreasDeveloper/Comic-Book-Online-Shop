@@ -96,6 +96,7 @@
     width: calc(100% - 50px);
     transition: transform .45s cubic-bezier(0.77, 0, 0.175, 1);
     padding: 15rem 4rem 0 5rem;
+    @media only screen and (max-width: $bp-small) { padding: 15rem 0 0 0; }
   }
 
   .openNav .new-wrapper {
@@ -287,12 +288,14 @@
   height: 7.4rem;
   width: 100%;
   z-index: 998;
+  @media only screen and (max-width: $bp-small) { height: 9rem; }
 }
 
 .secondary-nav {
   position: relative;
   display: flex;
   flex-direction: row;
+  align-items: center;
   height: 100%;
 }
 
