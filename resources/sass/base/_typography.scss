@@ -1,0 +1,37 @@
+/* -------------------------- */
+/*       - TYPOGRAPHY -                           
+/* -------------------------- */
+
+// -- Heading 1 Class -- \\
+.heading-1 {
+    font-weight: 400;
+    font-size: 4.6rem;
+    letter-spacing: .2rem;
+    color: $color-white;
+    // * --- MEDIA QUERIES --- * \\
+    @media only screen and (max-width: $bp-small) {
+        padding: 0 3rem;
+    }
+}
+
+// -- Heading 2 Class -- \\
+.heading-2 {
+    font-weight: 400;
+    font-size: 3.2rem;
+    letter-spacing: .1rem;
+    color: $color-black;
+}
+
+// -- Price Class -- \\
+.price {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: $color-primary-dark;
+    padding-top: 4rem;
+    // * --- MEDIA QUERIES --- * \\
+    @media only screen and (max-width: $bp-small) { padding: 0; }
+}
+
+p {
+    font-family: 'Roboto';
+}

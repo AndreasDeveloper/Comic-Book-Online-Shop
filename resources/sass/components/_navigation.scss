@@ -1,0 +1,453 @@
+// * --------------------- * \\
+//    - SIDE NAVIGATION -
+// * --------------------- * \\
+
+// Navigation main wrapper
+.primary-nav {
+	position: fixed;
+	z-index: 999;
+}
+
+.menu { position: relative; }
+
+// Navigation's ul
+.menu ul {
+  margin: 0;
+  padding: 3rem 0;
+  list-style: none;
+}
+
+// Opened panel of nav
+.open-panel {
+  border: none;
+  background-color: $color-white;
+  padding: 0;
+}
+
+// Hamburger icon / button
+.hamburger {
+	background: $color-white;
+	position: relative;
+	display: block;
+	text-align: center;
+	padding: 13px 0;
+	width: 50px;
+  height: 73px;
+	left: 0;
+  top: 0;
+	z-index: 1000;
+  cursor: pointer;
+}
+// Hamburger 
+.hamburger:before {
+  content:"\2630"; /* hamburger icon */
+  display: block;
+  color: $color-black;
+  line-height: 32px;
+  font-size: 16px;
+}
+// X
+.openNav .hamburger:before {
+  content:"\2715"; /* close icon */
+  display: block;
+  color: $color-black;
+  line-height: 32px;
+  font-size: 16px;
+}
+.hamburger:hover:before { color: #777; }
+
+// li
+.primary-nav .menu li { position: relative; }
+
+// Icons
+.menu i {
+  position: absolute;
+  top: 1.2rem;
+  right: .4rem;
+  pointer-events: none;
+  width: 3rem;
+  height: 3rem;
+  color: $color-gray-dark-10;
+  font-size: 1.9rem;
+}
+
+.menu,
+.menu a,
+.menu a:visited {
+  color: $color-gray-dark-10;
+  text-decoration: none !important;
+  position: relative;
+}
+.menu a {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  font-size: 1.4rem;
+}
+
+.menu a:hover, .menu i:hover { color: $color-white; }
+.menu { margin-bottom: 3em; }
+
+// Content on the side of the navigation
+.new-wrapper {
+    position: absolute;
+    left: 50px;
+    top: 7.3rem;
+    width: calc(100% - 50px);
+    transition: transform .45s cubic-bezier(0.77, 0, 0.175, 1);
+    padding: 15rem 5rem 0 5rem;
+  }
+
+  .openNav .new-wrapper {
+    position: absolute;
+    transform: translate3d(200px, 0, 0);
+    width: calc(100% - 250px);
+    transition: transform .45s cubic-bezier(0.77, 0, 0.175, 1);
+  } 
+
+  .menu {
+    position: absolute;
+    display: block;
+    left: -200px;
+    top: 0;
+    width: 250px;
+    transition: all 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+    background-color: $color-black;
+    z-index: 999;
+  }
+  
+  .overflow-container {
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+    border-top: 73px solid #fff;
+    z-index: -1;
+    display:block;
+  }
+  
+  .menu a.logotype {
+    position: absolute!important;
+    top: 11px;
+    left: 55px;
+    display: block;
+    font-family: 'Work Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #000;
+    font-size: 21px;
+    padding: 10px;
+  }
+  
+  .menu a.logotype span { font-weight: 400; }
+  .menu a.logotype:hover { color: #777; }
+  
+  // Expands menu on hover
+  .menu:hover {
+      position: absolute;
+      left: 0;
+      top: 0;
+  }
+  // Stability of menu on hover
+  .openNav .menu:hover {
+      position: absolute;
+      left: -200px;
+  }
+  
+  .openNav .menu {
+    transform: translate3d(200px, 0, 0);
+    transition: transform .45s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+      
+  /* look and feel only, not needed for core menu*/
+  @-webkit-keyframes grow {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    50% {
+      display: block;
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+      
+  }
+  
+  @keyframes grow {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    50% {
+      display: block;
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1
+    }
+      
+  }
+  
+  /* Text meant only for screen readers. */
+  .screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+  
+  .screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: .5rem;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */
+  }
+  
+  /* Resposive Typography */
+  body,
+  button,
+  input,
+  select,
+  optgroup,
+  textarea {
+      color: #000;
+      font-size: 1em;
+      line-height: 1.5;
+      font-weight: 300;
+  }
+
+// * ----- SLIDE EFFECT ON HOVER ----- * \\
+.slide-effect {
+  display: block;
+  position: relative;
+  padding-bottom: .6rem;
+  cursor: pointer;
+  max-width: 10rem;
+}
+.slide-effect:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    height: .1rem;
+    width: 0;
+    transition: width 0s ease, background .5s ease;
+}
+.slide-effect:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: .1rem;
+    width: 0;
+    background: $color-white;
+    transition: width .5s ease;
+}
+.slide-effect:hover:before {
+    width: 90%;
+    background: $color-white;
+    transition: width .5s ease;
+}
+.slide-effect:hover:after {
+    width: 90%;
+    background: transparent;
+    transition: all 0s ease;
+}
+
+
+
+// * --------------------- * \\
+//    - TOP NAVIGATION -
+// * --------------------- * \\
+
+// Top nav wrapper
+.secondary-nav-wrap {
+  position: fixed;
+  background-color: $color-white;
+  box-shadow: .5rem .5rem 1rem rgba($color-black, .10);
+  height: 7.4rem;
+  width: 100%;
+}
+
+.secondary-nav {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+// -- SEARCH CONTAINER -- \\
+.search-form {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25%;
+  position: absolute;
+  @include center-vh;
+  left: 49%;
+
+  // --- MEDIA QUERIES --- \\
+  @media only screen and (max-width: $bp-largest-2) { width: 30%; }
+  @media only screen and (max-width: $bp-medium-2) { width: 35%; top: 41%; }
+  @media only screen and (max-width: $bp-medium-1) { width: 37%; }
+  @media only screen and (max-width: $bp-vsmall-1) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: $color-gray-1;
+  }
+  // -- SEARCH INPUT FIELD -- \\
+  &__input {
+      font-family: inherit;
+      font-size: inherit;
+      color: $color-gray-dark-1;
+      background-color: $color-gray-1;
+      border: none;
+      padding: 1.5rem 2rem;
+      border-radius: 10rem;
+      width: 90%;
+      transition: all .2s;
+      margin-right: -3.25rem;
+
+      &:focus {
+        outline: none;
+        width: 100%;        // WHEN ELEMENT IS FOCUSED (CLICKED) IT WILL EXTENED. 
+        background-color: $color-gray-1;
+      }
+
+      &::-webkit-input-placeholder {
+          font-weight: 100;
+          color: $color-gray-dark-6;
+      }
+  }
+  &__input:focus + &__button {
+      background-color: $color-gray-1;
+  }
+  // -- SEARCH SUGGESTIONS | AUTOCOMPLETE -- \\
+  &__suggestions {
+      position: absolute;
+      top: 100%;
+      width: 75%;
+      list-style: none;
+      max-height: 30rem; // Height of the scroller
+      -ms-overflow: auto;
+      overflow: auto; // Makes ul to have a scroller
+
+      // --- MEDIA QUERIES --- \\
+      @media only screen and (max-width: $bp-desktop) {
+          max-height: 25rem;
+      }
+     & li {
+      background: $color-white;
+      list-style: none;
+      border-bottom: 1px solid #D8D8D8;
+      box-shadow: 0 0 1rem rgba($color-black, .10);
+      margin: 0;
+      padding: 1rem;
+      transition: all 0.2s;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox; 
+      display: flex;
+      justify-content: space-between;
+      text-transform: capitalize;
+      &:hover {
+          background: $color-gray-5;
+      }
+     }
+  }
+  
+  // -- SEARCH BUTTON -- \\
+  &__button {
+      border: none;
+      background-color: $color-gray-1;
+
+      &:focus { outline: none; }
+      &:active { transform: translateY(.2rem); }
+  }
+  // -- SEARCH ICON -- \\
+  &__icon {
+      font-size: 1.5rem;
+      fill: $color-gray-dark-2;
+      color: $color-primary;
+  }
+}
+
+
+
+// * --------------------- * \\
+//    - USER NAVIGATION -
+// * --------------------- * \\
+
+.user-nav {
+  position: absolute;
+  left: 80%;
+  top: 15%;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  // All elements
+  & > * {
+      padding: 0 2rem;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      align-items: center;
+  }
+
+  // Icons
+  &__icon-box { position: relative; }
+  &__icon {
+      height: 2.25rem;
+      width: 2.25rem;
+      font-size: 2rem;
+      fill: $color-gray-5;
+  }
+  // Notification
+  &__notification {
+      font-size: .8rem;
+      height: 1.75rem;
+      width: 1.75rem;
+      border-radius: 50%;
+      background-color: $color-primary;
+      color: $color-white;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.1rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  // User picture and name
+  &__user-photo {
+      height: 3.75rem;
+      border-radius: 50%;
+      margin-right: 1rem;
+      margin-top: 1rem;
+  }
+  &__user-name {
+    margin-top: 1rem;
+    font-weight: 400;
+  }
+}

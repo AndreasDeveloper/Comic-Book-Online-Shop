@@ -1,0 +1,53 @@
+/* ------------------------------------------- */
+/* BASIC SETUP
+/* ------------------------------------------- */
+
+// Reset
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* DEFINES WHAT REM IS */
+    font-size: 62.5%; /* Takes 62.5% of the default font size (16px). 100 / 16 = 62.5  */ /* || 1rem = 10px; 10px/16px = 62.5% || */
+
+    // * --- MEDIA QUERIES --- * \\
+
+    @include respond(phone) {    
+        font-size: 50%;
+    }
+
+    @include respond(tab-land) {    // width < 1200? // IF THEY ARE CONFLICTING. LAST ONE APPLIES!
+        font-size: 56.25%;          // 1 rem = 9px; 9/16 = 56.25%
+    }
+
+    @include respond(tab-port) {    // width < 900?
+        font-size: 50%;             // 1 rem = 8px; 8/16 = 50%
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%;             // 1 rem = 12px; 12/16 = 75%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Raleway', 'Arial', 'serif';
+    background-color: $color-gray-1;
+    overflow-x: hidden;
+    //padding: 3rem;  /* Gives padding all around the body element, making white space on the sides. */
+
+    // * --- MEDIA QUERIES --- * \\
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+// CUSTOM SELECT EFFECT WHEN SELECTING TEXT ON WEBSITE \\
+::selection {
+   
+}

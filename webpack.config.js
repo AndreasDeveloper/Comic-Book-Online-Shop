@@ -53,6 +53,16 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            // IMG/URL LOADER IN HTML
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        attrs: ['img:src', 'link:href', 'img:data-lazy']
+                    }
+                }
             }
         ]
     }

@@ -1,0 +1,171 @@
+/* ------------------------------------------- */
+/* CLAERFIX MIXIN FOR THE GRID
+/* ------------------------------------------- */
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        //clear: both;
+    }
+    &::before {
+        content: "";
+        display: table;
+    }
+}
+
+/* ------------------------------------------- */
+/* MIXIN THAT CENTERS THE ELEMENTS TO VH
+/* ------------------------------------------- */
+@mixin center-vh {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ------------------------------------------- */
+/* MIXIN FOR IMAGE BACKGROUND SETUP
+/* ------------------------------------------- */
+@mixin img-setup {
+    background-position: center;
+    background-size: cover;
+}
+
+/* ------------------------------------------- */
+/* MIXIN FOR ELEMENT POSITIONING | JUSTIFY / ALIGN
+/* ------------------------------------------- */
+@mixin jacont {
+    justify-self: center;
+    align-self: center;
+}
+
+/* ------------------------------------------- */
+/* MIXIN FOR TEXT UNDERLINE | SPLITTER
+/* ------------------------------------------- */
+@mixin underline {
+    &::after {
+        display: block;
+        height: .2rem;
+        background-color: $color-primary;
+        content: "";
+        width: 10rem;
+        margin: 0 auto;
+        margin-top: 1rem;
+
+        // * --- MEDIA QUERIES --- * \\
+        @media only screen and (max-width: $bp-vsmall-5) {
+            margin-top: 1.4rem;
+            width: 8rem;
+        }
+    }
+}
+
+// -- UNDERLINE 2 -- \\
+@mixin underline-2 {
+    &::after {
+        display: block;
+        height: .3rem;
+        background-color: $color-primary-dark;
+        content: "";
+        width: 4rem;
+        margin-top: 2.4rem;
+
+        // * --- MEDIA QUERIES --- * \\
+        @media only screen and (max-width: $bp-vsmall-5) {
+            margin-top: 1.4rem;
+            width: 8rem;
+        }
+    }
+}
+
+// -- UNDERLINE 3 - ABOVE-BEFORE -- \\
+@mixin underline-3 {
+    &::before {
+        display: block;
+        height: .2rem;
+        background-color: $color-primary;
+        content: "";
+        width: 10rem;
+        margin: 0 auto;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+
+        // * --- MEDIA QUERIES --- * \\
+        @media only screen and (max-width: $bp-vsmall-5) {
+            margin-top: 1.4rem;
+            width: 8rem;
+        }
+    }
+}
+
+/* ------------------------------------------- */
+/* MIXIN FOR POSITIONING THE TEXT IN SLIDER
+/* ------------------------------------------- */
+@mixin flex-text-slide {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    padding-top: 10%;
+    color: $color-white;
+}
+
+/* ------------------------------------------- */
+/* MEDIA QUERY MANAGER
+/* ------------------------------------------- */
+
+/* // SIZES / DEVICES \\
+    0 - 600px > Phone
+    600 - 900px > Tablet Portrait
+    900 - 1200px > Tablet Landscape
+    [1200 - 18009 is where our normal style apply]
+    1800px + > Big Desktop
+
+    1em = 16px - KIM
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    // 600px
+    }
+
+    @if $breakpoint == tab-port {
+        @media only screen and  (max-width: 56.25em) { @content };     // 900px
+    }
+
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    // 1200px
+    }
+
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    // 1800px + | min-width > If the size is more than 1800px, content in it will apply, if its less, content in it won't apply
+    }
+}
+
+/* ------------------------------------------- */
+/* MEDIA QUERIES | SHORTCUT VERSION
+/* ------------------------------------------- */
+
+$bp-huge: 120em;       // 1920px
+$bp-desktop-3: 87.5em; // 1400px
+$bp-desktop: 86.875em; // 1390px
+$bp-desktop-2: 81.25em; // 1300px
+$bp-largest: 75em;   // 1200px
+$bp-largest-2: 71.5625em;  // 1145px
+$bp-largest-3: 70.625em;   // 1130px
+$bp-largest-4: 68.75em;    // 1100px
+$bp-largest-5: 65.625em;   // 1050px
+$bp-large: 62.5em;   // 1000px
+$bp-medium-2: 56.25em; // 900px
+$bp-medium-1: 53.125em; // 850px
+$bp-medium: 50em;    // 800px
+$bp-small-lg: 46.875em; // 750px
+$bp-small-md: 43.75em; // 700px
+$bp-small: 37.5em;   // 600px
+$bp-vsmall: 33.25em;  // 532px
+$bp-vsmall-1: 31.25em; // 500px
+$bp-vsmall-1b: 28.125em; // 450px
+$bp-vsmall-2: 25em;   // 400px
+$bp-vsmall-3: 23.75em; // 375px
+$bp-vsmall-3b: 22.5em; // 360px
+$bp-vsmall-4: 20.9375em; // 335px
+$bp-vsmall-5: 18.75em;  // 300px
