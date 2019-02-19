@@ -60,7 +60,7 @@
 .primary-nav .menu li { position: relative; }
 
 // Icons
-.menu i {
+.menu-i {
   position: absolute;
   top: 1.2rem;
   right: .4rem;
@@ -71,6 +71,7 @@
   font-size: 1.9rem;
 }
 
+// Menu anchor tags
 .menu,
 .menu a,
 .menu a:visited {
@@ -84,7 +85,6 @@
   padding: 1em;
   font-size: 1.4rem;
 }
-
 .menu a:hover, .menu i:hover { color: $color-white; }
 .menu { margin-bottom: 3em; }
 
@@ -157,6 +157,81 @@
   .openNav .menu {
     transform: translate3d(200px, 0, 0);
     transition: transform .45s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  // -- Mini user navigation -- \\
+  .user-mini-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  // Image wrapper
+  .user-image-wrap {
+    position: relative;
+    cursor: pointer;
+    // Image
+    &__image {
+      height: 10rem;
+      width: 10rem;  
+      border-radius: 50%;
+    }
+  }
+  // User name
+  .user-name {
+    font-size: 2rem;
+    font-weight: 500;
+    padding-top: 3rem;
+  }
+  // Image circles \\
+  .user-image-wrap__circle-1 {
+    position: absolute;
+    border-width: .1rem;
+    border-style: solid;
+    border-color: $color-white $color-white $color-white transparent;
+    border-radius: 50%;
+    width: 11rem;
+    height: 11rem;
+    transition: all 1.5s ease-in-out;
+    top: -0.5rem;
+    left: -0.5rem;
+  }
+  .user-image-wrap__circle-2 {
+    position: absolute;
+    border-width: .1rem;
+    border-style: solid;
+    border-color: $color-white transparent $color-white $color-white;
+    border-radius: 50%;
+    width: 11.5rem;
+    height: 11.5rem;
+    transition: all 1.5s ease-in-out;
+    top: -.75rem;
+    left: -.8rem;
+  }
+  /* - CIRCLES 'ANIMATION' - */ 
+  .user-image-wrap:hover .user-image-wrap__circle-1 {
+      transform: rotate(360deg);
+  }
+  .user-image-wrap:hover .user-image-wrap__circle-2 {
+      transform: rotate(-360deg);
+  }
+
+  // -- Log Out -- \\
+  .log-out {
+    position: absolute;
+    top: 90%;
+    left: 30%;
+    cursor: pointer;
+    // Log out text
+    &__text {
+      font-size: 1.6rem;
+      font-weight: 500;
+      // On hover
+      &:hover { color: $color-white; }
+      > i { padding-right: 2rem; }
+    }
   }
       
   /* look and feel only, not needed for core menu*/
@@ -297,6 +372,9 @@
   flex-direction: row;
   align-items: center;
   height: 100%;
+  // * -- MEDIA QUERIES -- * \\
+  @media only screen and (max-width: $bp-largest-5) { margin-right: 15rem; }
+  @media only screen and (max-width: $bp-small) { margin-right: 20rem; }
 }
 
 // -- SEARCH CONTAINER -- \\
@@ -312,14 +390,12 @@
   left: 49%;
 
   // --- MEDIA QUERIES --- \\
-  @media only screen and (max-width: $bp-largest-2) { width: 30%; }
-  @media only screen and (max-width: $bp-medium-2) { width: 35%; top: 41%; }
-  @media only screen and (max-width: $bp-medium-1) { width: 37%; }
-  @media only screen and (max-width: $bp-vsmall-1) {
-    order: 1;
-    flex: 0 0 100%;
-    background-color: $color-gray-1;
+  @media only screen and (max-width: $bp-small) {
+    width: 100%;
+    top: 125%;
+    left: 93%;
   }
+
   // -- SEARCH INPUT FIELD -- \\
   &__input {
       font-family: inherit;
@@ -334,12 +410,22 @@
       transition: all .2s;
       margin-right: -3.25rem;
 
+      // * -- MEDIA QUERIES -- * \\
+      @media only screen and (max-width: $bp-small) {
+        background-color: $color-white;
+        border-radius: 0%;
+        width: 100%;
+      }
+
+      // When clicked
       &:focus {
         outline: none;
         width: 100%;        // WHEN ELEMENT IS FOCUSED (CLICKED) IT WILL EXTENED. 
         background-color: $color-gray-1;
+        // * -- MEDIA QUERIE -- * \\
+        @media only screen and (max-width: $bp-small) { background-color: $color-white; width: 100%; }
       }
-
+      // Placeholder
       &::-webkit-input-placeholder {
           font-weight: 100;
           color: $color-gray-dark-6;
@@ -411,6 +497,10 @@
   display: flex;
   align-self: stretch;
   align-items: center;
+  // * -- MEDIA QUERIES -- * \\
+  @media only screen and (max-width: $bp-small) {
+    left: 50%;
+  }
   // All elements
   & > * {
       padding: 0 2rem;

@@ -90,6 +90,7 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
         // * --- MEDIA QUERIES --- * \\
+        @media only screen and (max-width: $bp-small) { margin: 0 auto; margin-top: 1rem; margin-bottom: 1rem; }
         @media only screen and (max-width: $bp-vsmall-5) {
             margin-top: 1.4rem;
             width: 8rem;
