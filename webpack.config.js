@@ -10,7 +10,8 @@ module.exports = {
     },
     devServer: {
         contentBase: './dist',   // live server direction
-        open: true
+        open: true,
+        port: 8080
     },
     plugins: [
         new HtmlWebpackPlugin({

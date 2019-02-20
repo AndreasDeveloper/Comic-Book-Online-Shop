@@ -84,7 +84,6 @@
     }
 }
 
-
 // -- Search Results -- \\
 .results {
     position: absolute;
@@ -93,8 +92,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    
+    @media only screen and (max-width: $bp-small) { top: 2%; left: 33%; }
     // Search text
     &__text {
         font-size: 2rem;
@@ -132,6 +130,8 @@
     opacity: 0;
     transition: all .5s .2s;
     z-index: 999;
+
+    @media only screen and (max-width: $bp-small) { top: 6rem; left: -4rem; }
 
     &__list {
         list-style: none;

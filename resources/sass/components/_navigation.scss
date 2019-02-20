@@ -15,6 +15,8 @@
   margin: 0;
   padding: 3rem 0;
   list-style: none;
+  // * -- MEDIA QUERIE -- * \\
+  @media only screen and (max-width: $bp-desktop) { margin-top: -5rem; }
 }
 
 // Opened panel of nav
@@ -373,6 +375,7 @@
   align-items: center;
   height: 100%;
   // * -- MEDIA QUERIES -- * \\
+  @media only screen and (max-width: $bp-desktop) { margin-right: 5rem; }
   @media only screen and (max-width: $bp-largest-5) { margin-right: 15rem; }
   @media only screen and (max-width: $bp-small) { margin-right: 20rem; }
 }
@@ -483,8 +486,6 @@
       color: $color-primary;
   }
 }
-
-
 
 // * --------------------- * \\
 //    - USER NAVIGATION -
