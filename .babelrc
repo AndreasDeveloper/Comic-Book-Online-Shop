@@ -1,6 +1,6 @@
 {
     "presets": [ // Collection of code transform plugins = preset
-        ["@babel/env", {   // stands for environment
+        ["@babel/preset-env", {   // stands for environment
             "targets": {
                 "browsers": [
                     "last 5 versions",

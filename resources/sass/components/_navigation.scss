@@ -493,15 +493,13 @@
 
 .user-nav {
   position: absolute;
-  left: 80%;
+  left: 75%;
   top: 15%;
   display: flex;
   align-self: stretch;
   align-items: center;
   // * -- MEDIA QUERIES -- * \\
-  @media only screen and (max-width: $bp-small) {
-    left: 50%;
-  }
+  @media only screen and (max-width: $bp-small) { left: 40%; }
   // All elements
   & > * {
       padding: 0 2rem;
