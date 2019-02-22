@@ -5,25 +5,33 @@
 // - Setting up Express & Path - \\
 const path = require('path');
 const express = require('express');
-
-const app = express(),
-            DIST_DIR = __dirname,
-            HTML__FILE = path.join(DIST_DIR, 'index.html');
+const app = express();
 
 // All static files (CSS,JS..)
-app.use(express.static(DIST_DIR));
+app.use(express.static(`${__dirname}/../../dist`));
 
-// - Home Page -
+
+// * ------------- * \\
+// - Routes | Pages - \\
+// * ------------- * \\
+
+// - Home Page - \\
 app.get('/', (req, res) => {
-    //res.sendFile(path.resolve('dist/index.html'));
-    res.sendFile(HTML__FILE);
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    res.sendFile(path.resolve(`${__dirname}/../../dist/index.html`));
 });
 
+// - User Profile - \\
+app.get('/user-profile', (req, res) => {
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    res.send('User Profile');
+});
+
+// - 404 - Page not Found Page - \\
 app.get('*', (req, res) => {
-    res.send('404 Not Found');
+    res.status(404).send('404 - Page Not Found');
 });
 
-// - Port Setup - \\
-const port = 3000;
 // - localHost / Route setup - \\
+const port = 3000;
 app.listen(port, () => console.log(`App Running on port - ${port}`));
