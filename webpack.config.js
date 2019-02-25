@@ -15,8 +15,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: './resources/html/index.html'
+            filename: 'index.ejs',
+            template: './resources/html/index.ejs'
         }),
         new MiniCssExtractPlugin({
             filename: 'css/main.css'
@@ -57,7 +57,7 @@ module.exports = {
             },
             // IMG/URL LOADER IN HTML
             {
-                test: /\.(html)$/,
+                test: /\.(html|ejs)$/,
                 use: {
                     loader: 'html-loader',
                     options: {
