@@ -7,8 +7,7 @@ const path = require('path'),
       express = require('express'),
       app = express(),
       mongoose = require('mongoose'),
-      bodyParser = require('body-parser'),
-      fs = require('fs');
+      bodyParser = require('body-parser');
 
 // - All static files (CSS,JS..) - \\
 app.use(express.static(`${__dirname}/../../dist`));
@@ -62,7 +61,7 @@ app.get('/', (req, res) => {
     Comicbook.find({}, (err, allComicbooks) => {
         if (!err) {
             // Render Data
-            res.render((`${__dirname}/../../dist/index.ejs`), {comicbooks: allComicbooks});
+            res.render((`${__dirname}/../../dist/html/shop/index.ejs`), {comicbooks: allComicbooks});
         } else {
             throw new Error(err);
         }

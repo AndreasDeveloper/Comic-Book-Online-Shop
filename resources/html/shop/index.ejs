@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="openNav">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+    <title>Comic Book - Shop</title>
+</head>
+<body>
+    
+    <% include ../partials/navigation.ejs %>
+
+    <main>
+    <!-- WEBSITE CONTENT -->
+    <div class="new-wrapper">
+        <!-- SEARCH RESULTS | START -->
+        <div class="results">
+            <h3 class="results__text">Search results: <% comicbooks.length %></h3>
+        </div>
+        <!-- SEARCH RESULTS | END -->
+        <!-- SHOP | START -->
+        <section class="shop">
+            <div class="shop-container">
+                <!-- ITEM 1 -->
+                <% comicbooks.forEach(comicbook => { %>
+                <div class="item">
+                    <div class="shop-row shop-row--1"><img data-lazy="<%= comicbook.image %>" alt="Cover 1" class="sp-cover-img"></div>
+                    <div class="item-desc">
+                        <h2 class="item-desc__name"><%= comicbook.name %></h2>
+                        <p class="item-desc__text"><%= comicbook.descriptionShort %></p>
+                        <h3 class="item-desc__rating"><i class="icon ion-ios-star"></i> <%= comicbook.rating %> &dash; <span>Based on <%= comicbook.ratings %> ratings</span></h3>
+                        <h3 class="item-desc__price">&dollar; <%= comicbook.price %> <button class="item-desc__button btn-1 buyBtn" data-itemid='<%= comicbook._id %>'>buy</button></h3>
+                    </div>
+                </div>
+                <% }) %>
+                <!-- ITEM 2  TEMPLATE FOR ITEM
+                <div class="item">
+                    <div class="shop-row shop-row--2"><img data-lazy="https://drive.google.com/uc?export=view&id=1lhvRGGkJ37oCIrJu8tnov2DFDpX7RWfr" alt="Cover 2" class="sp-cover-img"></div>
+                    <div class="item-desc">
+                        <h2 class="item-desc__name">The Amazing Spider-Man <br>The Green Goblin Last Stand</h2>
+                        <p class="item-desc__text">Green goblin and hist last stand.</p>
+                        <h3 class="item-desc__rating"><i class="icon ion-ios-star"></i> 4.2 &dash; <span>Based on 9 ratings</span></h3>
+                        <h3 class="item-desc__price">&dollar; 55 <button class="item-desc__button btn-1">buy</button></h3>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        <!-- SHOP | END -->
+    </div>
+    </main>
+
+</body>
+</html>

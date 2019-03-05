@@ -1,6 +1,7 @@
 const path = require('path');   // path package, stored in path const var.
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+      HtmlWebpackPlugin = require('html-webpack-plugin'),
+      MiniCssExtractPlugin = require("mini-css-extract-plugin"),
+      HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
 
 module.exports = {
     entry: ['@babel/polyfill', './resources/js/index.js'], // Entry point
@@ -14,13 +15,20 @@ module.exports = {
         port: 8080
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.ejs',
-            template: './resources/html/index.ejs'
+        new HtmlWebpackPlugin({ 
+            filename: 'html/shop/index.ejs',
+            template: './resources/html/shop/index.ejs'
+        }),
+        new HtmlWebpackPlugin({ // NAVIGATION PARTIAL
+            filename: 'html/partials/navigation.ejs',
+            template: './resources/html/partials/navigation.ejs',
+            excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
         }),
         new MiniCssExtractPlugin({
             filename: 'css/main.css'
-        })
+        }),
+        // Calling/Activating ExcludeAssets Plugin
+        new HtmlWebpackExcludeAssetsPlugin()
     ],
     module: {
         rules: [
