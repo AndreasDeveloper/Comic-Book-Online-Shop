@@ -7,8 +7,8 @@ export default class Comicbooks {
     async getComicbooks() {
         try {
             const res = await axios('http://localhost:3000/comicbooks_data_api');
-            const data = res.data;
-            console.log(data);
+            this.data = res.data.data; // Accessing data object array
+            console.log(res);
         } catch (err) {
             throw new Error(err);
         }

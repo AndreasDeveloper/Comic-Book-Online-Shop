@@ -23,7 +23,7 @@
         <!-- SHOP | START -->
         <section class="shop">
             <div class="shop-container">
-                <!-- ITEM 1 -->
+                <!-- ITEM 1 EJS WAY
                 <% comicbooks.forEach(comicbook => { %>
                 <div class="item">
                     <div class="shop-row shop-row--1"><img data-lazy="<%= comicbook.image %>" alt="Cover 1" class="sp-cover-img"></div>
@@ -31,10 +31,10 @@
                         <h2 class="item-desc__name"><%= comicbook.name %></h2>
                         <p class="item-desc__text"><%= comicbook.descriptionShort %></p>
                         <h3 class="item-desc__rating"><i class="icon ion-ios-star"></i> <%= comicbook.rating %> &dash; <span>Based on <%= comicbook.ratings %> ratings</span></h3>
-                        <h3 class="item-desc__price">&dollar; <%= comicbook.price %> <a class="item-desc__button btn-1 buyBtn" data-itemid='<%= comicbook._id %>'>buy</a></h3>
+                        <h3 class="item-desc__price">&dollar; <%= comicbook.price %><a class="item-desc__button btn-1 buyBtn" data-itemid='<%= comicbook._id %>'>buy</a></h3>
                     </div>
                 </div>
-                <% }) %>
+                <% }); %> -->
                 <!-- ITEM 2  TEMPLATE FOR ITEM
                 <div class="item">
                     <div class="shop-row shop-row--2"><img data-lazy="https://drive.google.com/uc?export=view&id=1lhvRGGkJ37oCIrJu8tnov2DFDpX7RWfr" alt="Cover 2" class="sp-cover-img"></div>
