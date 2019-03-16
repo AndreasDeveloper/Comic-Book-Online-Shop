@@ -2,37 +2,32 @@
 //   - BACK-END SETUP | NODEJS -
 // * --------------------------- * \\
 
-// - Setting up Express & Path - \\
+// - Setting up Dependencies - \\
 const path = require('path'),
       express = require('express'),
       app = express(),
       mongoose = require('mongoose'),
       bodyParser = require('body-parser');
+// - Importing Models | MVC - \\
+const Comicbook = require('./models/Comicbooks');
+// - Importing Routes Files - \\
+const shopRoutes = require('./routes/shop');
+// - API JSON ROUTE - \\
+const comicbooksShopData = require('./jsonData/comicbooks_json');
 
 // - All static files (CSS,JS..) - \\
 app.use(express.static(`${__dirname}/../../dist`));
 // - Body Parser - \\
 app.use(bodyParser.urlencoded({extended: true }));
+// - JSON Data Display - \\
+app.use(bodyParser.json()); // JSON
+app.set('json spaces', 40); // Pretifier
 // - MongoDB Database - \\
 mongoose.connect('mongodb://localhost/comic_book');
 mongoose.set('useNewUrlParser', true);
 // - View Engine - \\
 app.set('view engine', 'ejs');
 
-// * ------------- * \\
-// - MongoDB Schema - \\
-// * ------------- * \\
-// - Creating Schema for database - \\
-const cbSchema = new mongoose.Schema({
-    name: String,
-    descriptionShort: String,
-    rating: Number,
-    ratings: Number,
-    price: Number,
-    image: String
-});
-// - Compiling mongoose Schema to a model - \\
-const Comicbook = mongoose.model('Comicbook', cbSchema);
 
 /*
 Comicbook.create({
@@ -51,21 +46,21 @@ Comicbook.create({
     }
 });*/
 
+// ============== \\
+// Express Router 
+// ============== \\
+
+// - Using Routes Files - \\
+app.use(shopRoutes);
+app.use(comicbooksShopData);
+
 // * ------------- * \\
 // - Routes | Pages - \\
 // * ------------- * \\
 
-// - Home Page - \\
+// - Landing Page - \\
 app.get('/', (req, res) => {
-    // Get data from DB
-    Comicbook.find({}, (err, allComicbooks) => {
-        if (!err) {
-            // Render Data
-            res.render((`${__dirname}/../../dist/html/shop/index.ejs`), {comicbooks: allComicbooks});
-        } else {
-            throw new Error(err);
-        }
-    })
+    res.sendFile(path.resolve(`${__dirname}/../../dist/html/landing/landing.html`));
 });
 
 // - User Profile - \\

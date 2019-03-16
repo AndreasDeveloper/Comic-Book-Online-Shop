@@ -15,6 +15,10 @@ module.exports = {
         port: 8080
     },
     plugins: [
+        new HtmlWebpackPlugin({ // LANDING PAGE
+            filename: 'html/landing/landing.html',
+            template: './resources/html/landing/landing.html'
+        }),
         new HtmlWebpackPlugin({ 
             filename: 'html/shop/index.ejs',
             template: './resources/html/shop/index.ejs'

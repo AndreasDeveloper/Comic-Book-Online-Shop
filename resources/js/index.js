@@ -5,9 +5,26 @@ import '../sass/main.scss';
 import { elements } from './views/base-views';
 import { sideNavigation, lazyImageLoad } from './models/base-models';
 import Cart from './models/Cart';
+import Comicbooks from './models/Comicbooks';
 import * as cartView from './views/cartView';
 
+// Global State Object
 const state = {};
+
+// --------------------------------------------
+//  COMICBOOKS FUNCTION | CONTROLLER
+// --------------------------------------------
+// ASYNC FUNCTION | - Consuming and manipulating comicbook data
+const controlComicbooks = async () => {
+    state.comicbooks = new Comicbooks();
+    try {
+        await state.comicbooks.getComicbooks();
+    } catch (err) {
+        throw new Error(err);
+    }
+};
+// EVENT LISTENER | - Consumes comicbook data from async function on load
+window.addEventListener('load', () => controlComicbooks());
 
 // --------------------------------------------
 //  CART FUNCTION | CONTROLLER
