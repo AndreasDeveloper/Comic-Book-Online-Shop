@@ -1,0 +1,38 @@
+/* -------------------------- */
+/*   - NAVIGATION TOP -
+/* -------------------------- */
+
+// Logo
+.logotype {
+    text-decoration: none;
+    position: absolute !important;
+    top: .65rem;
+    left: 5.5rem;
+    display: block;
+    font-family: 'Work Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $color-black;
+    font-size: 2.1rem;
+    padding: 1rem;
+    span { font-weight: 400; }
+    &:hover { color: #777; }
+}
+
+// Top Nav Links
+.top-nav {
+    position: absolute;
+    left: 80%;
+    top: 33%;
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+    align-items: center;
+    a { 
+        font-weight: 400;
+        font-size: 1.3rem;
+        text-decoration: none;
+        color: $color-black; 
+        padding: 0 1.5rem;
+    }
+}

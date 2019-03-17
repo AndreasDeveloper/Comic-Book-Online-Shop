@@ -121,18 +121,19 @@ p {
 /* -------------------------- */
 /*   - LAZY-LOAD TRANSITION -
 /* -------------------------- */
+/*
 img {
-  -webkit-transform: translateX(50%);
-  -moz-transform: translateX(50%);
-  -ms-transform: translateX(50%);
-  -o-transform: translateX(50%);
-  transform: translateX(50%);
-  opacity: 0;
-  -webkit-transition: all .5s;
-  -moz-transition: all .5s;
-  -o-transition: all .5s;
-  transition: all .5s; }
-
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    -o-transform: translateX(50%);
+    transform: translateX(50%);
+    opacity: 0;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}*/
 .fade {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
@@ -203,7 +204,7 @@ img {
 .menu-i {
   position: absolute;
   top: 1.2rem;
-  right: .4rem;
+  right: .01rem;
   pointer-events: none;
   width: 3rem;
   height: 3rem;
@@ -464,7 +465,7 @@ textarea {
   position: fixed;
   background-color: #fff;
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  height: 7.4rem;
+  height: 6.2rem;
   width: 100%;
   z-index: 998; }
   @media only screen and (max-width: 37.5em) {
@@ -576,7 +577,7 @@ textarea {
 .user-nav {
   position: absolute;
   left: 75%;
-  top: 15%;
+  top: 2%;
   display: flex;
   align-self: stretch;
   align-items: center; }
@@ -617,6 +618,41 @@ textarea {
   .user-nav__user-name {
     margin-top: 1rem;
     font-weight: 400; }
+
+/* -------------------------- */
+/*   - NAVIGATION TOP -
+/* -------------------------- */
+.logotype {
+  text-decoration: none;
+  position: absolute !important;
+  top: .65rem;
+  left: 5.5rem;
+  display: block;
+  font-family: 'Work Sans', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #000;
+  font-size: 2.1rem;
+  padding: 1rem; }
+  .logotype span {
+    font-weight: 400; }
+  .logotype:hover {
+    color: #777; }
+
+.top-nav {
+  position: absolute;
+  left: 80%;
+  top: 33%;
+  display: flex;
+  flex-direction: row;
+  align-self: stretch;
+  align-items: center; }
+  .top-nav a {
+    font-weight: 400;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: #000;
+    padding: 0 1.5rem; }
 
 .shop {
   position: relative;
@@ -721,6 +757,8 @@ textarea {
   .results__text {
     font-size: 2rem;
     font-weight: 400; }
+    .results__text span {
+      font-weight: 500; }
 
 .user-nav__icon-box:focus {
   position: relative;
@@ -737,7 +775,7 @@ textarea {
 
 .user-list {
   position: absolute;
-  top: 5rem;
+  top: 4.8rem;
   left: -15rem;
   z-index: 10;
   padding: 2rem 0;

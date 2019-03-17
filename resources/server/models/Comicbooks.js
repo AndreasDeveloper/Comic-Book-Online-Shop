@@ -15,5 +15,6 @@ const cbSchema = new mongoose.Schema({
 });
 // - Compiling mongoose Schema to a model - \\
 const Comicbook = mongoose.model('Comicbook', cbSchema);
+
 // Exporting Comicbooks Model
 module.exports = Comicbook;

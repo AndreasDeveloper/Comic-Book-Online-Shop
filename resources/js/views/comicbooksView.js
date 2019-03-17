@@ -5,7 +5,7 @@ import { elements } from './base-views';
 export const renderComics = (comic) => {
     const markup = `
     <div class="item">
-        <div class="shop-row shop-row--2"><img data-lazy="${comic.image}" alt="${comic.name} Cover" class="sp-cover-img"></div>
+        <div class="shop-row shop-row--1"><img src="${comic.image}" alt="${comic.name} Cover" class="sp-cover-img"></div>
         <div class="item-desc">
             <h2 class="item-desc__name">${comic.name}</h2>
             <p class="item-desc__text">${comic.descriptionShort}</p>

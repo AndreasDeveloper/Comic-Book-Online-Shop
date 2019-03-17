@@ -28,11 +28,10 @@ mongoose.set('useNewUrlParser', true);
 // - View Engine - \\
 app.set('view engine', 'ejs');
 
-
 /*
 Comicbook.create({
-    name: 'The Amazing Spider-Man # 141',
-    descriptionShort: 'Mysterio is back, and he is not alone.',
+    name: 'The Amazing Spider-Man #141',
+    descriptionShort: 'Mysterio is back and he is not alone.',
     rating: 4.9,
     ratings: 50,
     price: 50,

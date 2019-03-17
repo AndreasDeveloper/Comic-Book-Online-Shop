@@ -65,7 +65,7 @@
 .menu-i {
   position: absolute;
   top: 1.2rem;
-  right: .4rem;
+  right: .01rem;
   pointer-events: none;
   width: 3rem;
   height: 3rem;
@@ -125,7 +125,7 @@
     overflow-y: auto;
     border-top: 73px solid #fff;
     z-index: -1;
-    display:block;
+    display: block;
   }
   
   .menu a.logotype {
@@ -362,7 +362,7 @@
   position: fixed;
   background-color: $color-white;
   box-shadow: .5rem .5rem 1rem rgba($color-black, .10);
-  height: 7.4rem;
+  height: 6.2rem;
   width: 100%;
   z-index: 998;
   @media only screen and (max-width: $bp-small) { height: 9rem; }
@@ -494,7 +494,7 @@
 .user-nav {
   position: absolute;
   left: 75%;
-  top: 15%;
+  top: 2%;
   display: flex;
   align-self: stretch;
   align-items: center;
