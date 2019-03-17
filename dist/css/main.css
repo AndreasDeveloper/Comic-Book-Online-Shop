@@ -95,9 +95,6 @@ body {
     .price {
       padding: 0; } }
 
-p {
-  font-family: 'Roboto'; }
-
 .btn-1 {
   display: inline;
   font-size: 1.2rem;
@@ -117,6 +114,22 @@ p {
   .btn-1:hover {
     background-color: #B28451;
     border: 0.2rem solid #B28451; }
+
+.btn-main {
+  display: inline;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: .05rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1.4rem;
+  background-color: #c69963;
+  transition: all .2s ease-in-out; }
+  .btn-main:hover {
+    background-color: #B28451; }
+    .btn-main:hover i {
+      margin-left: .8rem; }
 
 /* -------------------------- */
 /*   - LAZY-LOAD TRANSITION -
@@ -653,6 +666,109 @@ textarea {
     text-decoration: none;
     color: #000;
     padding: 0 1.5rem; }
+
+/* -------------------------- */
+/*      - SERVICE BOX -
+/* -------------------------- */
+.service-boxes {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 6rem; }
+  @media only screen and (max-width: 37.5em) {
+    .service-boxes {
+      flex-direction: column; } }
+
+.service-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5rem;
+  margin-top: 6rem;
+  width: 100%; }
+  .service-box__icon {
+    font-size: 6rem;
+    color: #c69963; }
+  .service-box__heading {
+    font-size: 2rem;
+    font-weight: 500;
+    padding-bottom: 2rem; }
+  .service-box__text {
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: center; }
+
+/* -------------------------- */
+/*      - LANDING PAGE -
+/* -------------------------- */
+.landing-wrapper {
+  padding: 6rem 0; }
+
+.landing-header {
+  position: relative;
+  height: 80vh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)), url(/img/landing-header-1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.lh-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  @media only screen and (max-width: 37.5em) {
+    .lh-content {
+      margin: 0 2rem;
+      text-align: center; } }
+  .lh-content__heading-1 {
+    color: #fff;
+    font-weight: 500;
+    font-size: 5rem;
+    letter-spacing: .15rem;
+    text-align: center; }
+    @media only screen and (max-width: 37.5em) {
+      .lh-content__heading-1 {
+        font-size: 4rem; } }
+  .lh-content__heading-2 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: .2rem;
+    margin: 2rem 0 1rem 0; }
+  .lh-content__button {
+    margin-top: 3rem; }
+    .lh-content__button i {
+      margin-left: .8rem; }
+    .lh-content__button i {
+      margin-left: .3rem;
+      transition: margin-left .2s; }
+
+.l-services {
+  display: flex;
+  flex-direction: column;
+  margin: 6rem 6rem 0 6rem; }
+  @media only screen and (max-width: 86.875em) {
+    .l-services {
+      margin: 8rem 1rem 0 1rem; } }
+  .l-services__heading {
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: .15rem; }
+    .l-services__heading::after {
+      display: block;
+      height: .2rem;
+      background-color: #c69963;
+      content: "";
+      width: 10rem;
+      margin: 0 auto;
+      margin-top: 3rem; }
+      @media only screen and (max-width: 18.75em) {
+        .l-services__heading::after {
+          margin-top: 1.4rem;
+          width: 8rem; } }
 
 .shop {
   position: relative;

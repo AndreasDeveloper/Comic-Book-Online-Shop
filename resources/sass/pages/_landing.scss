@@ -1,0 +1,72 @@
+/* -------------------------- */
+/*      - LANDING PAGE -
+/* -------------------------- */
+
+// Main Landing Page Wrapper
+.landing-wrapper {
+    padding: 6rem 0;
+}
+
+// -- HEADER - \\
+.landing-header {
+    position: relative;
+    height: 80vh;
+    background-image: linear-gradient(to bottom, rgba($color-black, .45), rgba($color-black, .75)), url(../img/landing-header-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+// Header content
+.lh-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media only screen and (max-width: $bp-small) { margin: 0 2rem; text-align: center; }
+
+    // Heading 1
+    &__heading-1 {
+        color: $color-white;
+        font-weight: 500;
+        font-size: 5rem;
+        letter-spacing: .15rem;
+        text-align: center;
+        @media only screen and (max-width: $bp-small) { font-size: 4rem; }
+    }
+    // Heading 2
+    &__heading-2 {
+        color: $color-white;
+        font-weight: 300;
+        font-size: 1.5rem;
+        letter-spacing: .2rem;
+        margin: 2rem 0 1rem 0;
+    }
+    // Button
+    &__button {
+        margin-top: 3rem;
+        i { margin-left: .8rem; }
+        & i {
+            margin-left: .3rem;
+            transition: margin-left .2s;
+        }
+    }
+}
+
+// -- SERVICES - \\
+.l-services {
+    display: flex;
+    flex-direction: column;
+    margin: 6rem 6rem 0 6rem;
+    @media only screen and (max-width: $bp-desktop) { margin: 8rem 1rem 0 1rem; }
+
+    // Heading
+    &__heading {
+        font-size: 3rem;
+        font-weight: 500;
+        text-align: center;
+        letter-spacing: .15rem;
+        @include underline;
+    }
+}
