@@ -4,7 +4,7 @@
 
 // Main Landing Page Wrapper
 .landing-wrapper {
-    padding: 6rem 0;
+    padding-top: 6rem;
 }
 
 // -- HEADER - \\
@@ -54,11 +54,51 @@
     }
 }
 
+// -- INTRO - \\
+.l-intro {
+    position: relative;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+
+    // Heading 1
+    &__heading-1 {
+        color: $color-gray-dark-5;
+        font-size: 3rem;
+        font-weight: 600;
+        padding-bottom: .7rem;
+    }
+    // Heading 2
+    &__heading-2 {
+        color: $color-gray-dark-2;
+        font-size: 1.3rem;
+        font-weight: 500;
+        letter-spacing: .1rem;
+        padding-bottom: 2.5rem;
+    }
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        > a { margin: 0 1rem; }
+    }
+}
+
 // -- SERVICES - \\
 .l-services {
     display: flex;
     flex-direction: column;
-    margin: 6rem 6rem 0 6rem;
+    margin: 7rem 8rem 0 8rem;
     @media only screen and (max-width: $bp-desktop) { margin: 8rem 1rem 0 1rem; }
 
     // Heading
@@ -67,6 +107,61 @@
         font-weight: 500;
         text-align: center;
         letter-spacing: .15rem;
+        //margin-left: 10.5rem;
+    }
+    // Sub Heading
+    &__sub-heading {
+        font-size: 1.3rem;
+        font-weight: 400;
+        text-align: center;
+        //margin-left: 10.5rem;
+        padding-top: .5rem;
         @include underline;
     }
+}
+
+// -- SIMPLE AS - \\
+.l-simple-as {
+    display: flex;
+    background-image: linear-gradient(73.47867661039811deg, rgba(198, 153, 99,.50) 35.149739583333336%,rgba(197, 152, 98,.50) 35.149739583333336%,rgba(155, 111, 57,.55) 89.05598958333331%), url(../img/bk-2.png);
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 30vh;
+    margin-top: 10rem;
+    //opacity: 0.9;
+}
+.l-simple-as-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // Text
+    &__text {
+        color: $color-white;
+        font-size: 6rem;
+        font-weight: 600;
+        letter-spacing: .15rem;
+    }
+}
+
+// -- PARTNERS - \\
+.l-partners {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 25vh;
+    margin-top: 2rem;
+}
+.l-partners-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img { filter: grayscale(100%); margin: 0 5rem; }
+    &__img-1 { width: 15rem; height: 5rem; }
+    &__img-2 { width: 10rem; height: 10rem; }
+    &__img-3 { width: 10rem; height: 10rem; }
+    &__img-4 { width: 15rem; height: 5rem; }
 }

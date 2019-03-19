@@ -67,6 +67,16 @@ app.get('/user-profile', (req, res) => {
     res.status(200).send('User Profile Page - Ok');
 });
 
+// - Log In Page - \\
+app.get('/login', (req, res) => {
+    res.send('Log in Page');
+});
+
+// - Sign Up Page - \\
+app.get('/signup', (req, res) => {
+    res.send('Sign up Page');
+});
+
 // - 404 - Page not Found Page - \\
 app.get('*', (req, res) => {
     res.status(404).send('404 - Page Not Found'); 

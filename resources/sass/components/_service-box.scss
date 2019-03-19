@@ -6,7 +6,7 @@
 .service-boxes {
     display: flex;
     flex-direction: row;
-    margin: 2rem 6rem;
+    margin: 1rem 6rem;
     @media only screen and (max-width: $bp-small) { flex-direction: column; }
 }
 
@@ -16,19 +16,19 @@
     flex-direction: column;
     align-items: center;
     padding: 0 5rem;
-    margin-top: 6rem;
+    margin-top: 2.5rem;
     width: 100%;
 
     // Icon
     &__icon {
         font-size: 6rem;
-        color: $color-primary;
+        color: $color-primary-light;
     }
     // Heading
     &__heading {
         font-size: 2rem;
         font-weight: 500;
-        padding-bottom: 2rem;
+        padding-bottom: .5rem;
     }
     // Text 
     &__text {

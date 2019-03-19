@@ -44,3 +44,34 @@
         i { margin-left: .8rem; }
     }
 }
+
+// * ---- SIGN UP & LOG IN BUTTON'S ---- * \\
+.btn-signup,
+.btn-login {
+    display: inline;
+    border-radius: 10rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: .9rem;
+    text-decoration: none;
+    text-align: center;
+    width: 30%;
+}
+
+// * ---- LOG IN BUTTON ---- * \\
+.btn-login {
+    border: none;
+    background-color: $color-primary;
+    color: $color-white;
+    transition: all .1s ease-in-out;
+    // On Hover
+    &:hover { background-color: $color-primary-light; }
+}
+// * ---- SIGN UP BUTTON ---- * \\
+.btn-signup {
+    border: .1rem solid $color-primary;
+    color: $color-gray-dark-1;
+    transition: all .2s ease-in-out;
+    // On Hover
+    &:hover { background-color: $color-primary; color: $color-white; }
+}
