@@ -84,6 +84,8 @@
         font-weight: 500;
         letter-spacing: .1rem;
         padding-bottom: 2.5rem;
+        // -- MEDIA QUERIE -- \\
+        @media only screen and (max-width: $bp-small) { text-align: center; }
     }
     &__buttons {
         display: flex;
@@ -141,6 +143,8 @@
         font-size: 6rem;
         font-weight: 600;
         letter-spacing: .15rem;
+        // -- MEDIA QUERIE -- \\
+        @media only screen and (max-width: $bp-small) { font-size: 4rem; text-align: center; }
     }
 }
 
@@ -151,15 +155,25 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-height: 25vh;
+    min-height: 18vh;
     margin-top: 2rem;
 }
 .l-partners-content {
     display: flex;
     flex-direction: row;
     align-items: center;
+    // -- MEDIA QUERIE -- \\
+    @media only screen and (max-width: $bp-small) { flex-direction: column; }
 
-    img { filter: grayscale(100%); margin: 0 5rem; }
+    img { 
+        filter: grayscale(100%); 
+        margin: 0 5rem; 
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        &:hover { filter: grayscale(0%); }
+        // -- MEDIA QUERIE -- \\
+        @media only screen and (max-width: $bp-small) { margin: 3rem 5rem; }
+    }
     &__img-1 { width: 15rem; height: 5rem; }
     &__img-2 { width: 10rem; height: 10rem; }
     &__img-3 { width: 10rem; height: 10rem; }

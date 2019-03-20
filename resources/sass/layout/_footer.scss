@@ -1,0 +1,56 @@
+/* -------------------------- */
+/*          - FOOTER -
+/* -------------------------- */
+
+.footer {
+    background-color: $footer-color;
+    position: relative;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    // Left side of the footer
+    &__left {
+        // Content block 1
+        &__content-1 {
+            padding-bottom: 2rem;
+            text-transform: uppercase;
+            &__heading-1 {
+                cursor: pointer;
+                color: $color-font-7;
+                font-size: 1.25rem;
+                font-weight: 500;
+                padding: 0 .6rem;
+                transition: all .1s ease-out;
+                // On hover
+                &:hover { color: $color-primary-dark; }
+            }
+        }
+        // Content block 2
+        &__content-2 {
+        }
+        &__content-1, &__content-2 {
+            display: flex;
+        }
+    }
+    // Right side of the footer
+    &__right {
+        &__heading {
+            font-size: 1.4rem;
+            color: $color-font-6;
+        }
+    }
+    &__left, &__right { 
+        margin: 0 10rem; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center;
+    }
+}

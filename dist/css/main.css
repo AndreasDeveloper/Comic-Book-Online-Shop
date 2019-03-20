@@ -725,6 +725,44 @@ textarea {
     text-align: center; }
 
 /* -------------------------- */
+/*          - FOOTER -
+/* -------------------------- */
+.footer {
+  background-color: #EBEDF2;
+  position: relative;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .footer-content__left__content-1 {
+    padding-bottom: 2rem;
+    text-transform: uppercase; }
+    .footer-content__left__content-1__heading-1 {
+      cursor: pointer;
+      color: #868D9B;
+      font-size: 1.25rem;
+      font-weight: 500;
+      padding: 0 .6rem;
+      transition: all .1s ease-out; }
+      .footer-content__left__content-1__heading-1:hover {
+        color: #9b6f39; }
+  .footer-content__left__content-1, .footer-content__left__content-2 {
+    display: flex; }
+  .footer-content__right__heading {
+    font-size: 1.4rem;
+    color: #1e1e1e; }
+  .footer-content__left, .footer-content__right {
+    margin: 0 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+
+/* -------------------------- */
 /*      - LANDING PAGE -
 /* -------------------------- */
 .landing-wrapper {
@@ -796,6 +834,9 @@ textarea {
     font-weight: 500;
     letter-spacing: .1rem;
     padding-bottom: 2.5rem; }
+    @media only screen and (max-width: 37.5em) {
+      .l-intro-content__heading-2 {
+        text-align: center; } }
   .l-intro-content__buttons {
     display: flex;
     flex-direction: row;
@@ -852,6 +893,10 @@ textarea {
     font-size: 6rem;
     font-weight: 600;
     letter-spacing: .15rem; }
+    @media only screen and (max-width: 37.5em) {
+      .l-simple-as-content__text {
+        font-size: 4rem;
+        text-align: center; } }
 
 .l-partners {
   position: relative;
@@ -859,16 +904,26 @@ textarea {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 25vh;
+  min-height: 18vh;
   margin-top: 2rem; }
 
 .l-partners-content {
   display: flex;
   flex-direction: row;
   align-items: center; }
+  @media only screen and (max-width: 37.5em) {
+    .l-partners-content {
+      flex-direction: column; } }
   .l-partners-content img {
     filter: grayscale(100%);
-    margin: 0 5rem; }
+    margin: 0 5rem;
+    transition: all .2s ease-in-out;
+    cursor: pointer; }
+    .l-partners-content img:hover {
+      filter: grayscale(0%); }
+    @media only screen and (max-width: 37.5em) {
+      .l-partners-content img {
+        margin: 3rem 5rem; } }
   .l-partners-content__img-1 {
     width: 15rem;
     height: 5rem; }
@@ -1058,7 +1113,6 @@ textarea {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
     opacity: .4; }
   .user-list__fig > img {
     display: block;
