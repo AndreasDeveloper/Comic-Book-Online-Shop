@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="openNav">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+    <title>Log In - Comicbook</title>
+<link href="../../css/main.css" rel="stylesheet"></head>
+<body>
+
+    <!-- NAVIGATION | START -->
+    <div class="secondary-nav-wrap">
+        <div class="secondary-nav">
+            <nav role="navigation" class="top-menu">
+                <a href="/" class="logotype">COMIC<span>BOOK</span></a> <!-- LOGO -->
+                <form action="#" class="search-form">
+                    <input type="text" class="search-form__input" placeholder="Search Comics, Issues . .">
+                    <button type="submit" class="search-form__button"><i class="icon ion-ios-search search-form__icon"></i></button>
+                </form>
+            </nav>
+            <div class="top-nav">
+                <a href="/user-profile" class="user-nav__link">My Profile</a>
+                <a href="/shop" class="user-nav__link">Shop</a>
+                <a href="/contact" class="user-nav__link">Contact</a> 
+            </div>
+        </div>
+    </div>
+    <!-- NAVIGATION | END -->
+
+    <div class="landing-wrapper">
+        <!-- LOGIN SECTION | START -->
+        <section class="login-section">
+            <div class="login-left">
+                <div class="login-left__content">
+                    <h2 class="login-left__content__heading-1">Not a user?</h2>
+                    <h3 class="login-left__content__heading-2">Sign up right now and dive into the comic book universe!</h3>
+                    <a href="/signup" class="btn btn-signup-2">Sign Up</a>
+                </div>
+            </div>
+            <div class="login-right">
+                <div class="login-right__content">
+                    <h2 class="login-right__content__heading-1">Log In to Comicbook</h2>
+                    <div class="login-right__content__icons">
+                        <i class="icon ion-logo-facebook"></i>
+                        <i class="icon ion-logo-google"></i>
+                        <i class="icon ion-logo-instagram"></i>
+                    </div>
+                    <h4 class="login-right__content__heading-2">Or use your email and password</h4>
+                    <form action="/login" method="POST" class="login-form">
+                        <input type="text" name="email" placeholder="Your Email" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <button type="submit" class="btn btn-login">Log In</button>
+                    </form>
+                    <a href="#"><h4 class="login-right__content__forgot-pw">Forgot Your Password?</h4></a>
+                </div>
+            </div>
+        </section>
+        <!-- LOGIN SECTION | END -->
+
+        <!-- FOOTER | START -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-content__left">
+                    <div class="footer-content__left__content-1">
+                        <h3 class="footer-content__left__content-1__heading-1">About</h3>
+                        <h3 class="footer-content__left__content-1__heading-1">Contact</h3>
+                        <h3 class="footer-content__left__content-1__heading-1">FAQ</h3>
+                    </div>
+                    <div class="footer-content__left__content-2">
+                        <h3 class="footer-content__left__content-1__heading-1">Account</h3>
+                        <h3 class="footer-content__left__content-1__heading-1">Terms Of Use</h3>
+                        <h3 class="footer-content__left__content-1__heading-1">Privacy Policy</h3>
+                    </div>
+                </div>
+                <div class="footer-content__right">
+                    <h4 class="footer-content__right__heading">&copy; 2019 Comicbook</h4>
+                </div>
+            </div>
+        </footer>
+        <!-- FOOTER | END -->
+    </div>
+
+<script type="text/javascript" src="../../js/bundle.js"></script></body>
+</html>

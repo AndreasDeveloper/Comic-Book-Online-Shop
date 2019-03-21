@@ -17,5 +17,5 @@ router.get('/shop', (req, res) => {
     })
 });
 
-// Exporting Campgrounds Router
+// Exporting Shop Router
 module.exports = router;

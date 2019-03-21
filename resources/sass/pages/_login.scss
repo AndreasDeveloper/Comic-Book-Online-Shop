@@ -1,0 +1,131 @@
+/* -------------------------- */
+/*      - LOGIN PAGE -
+/* -------------------------- */
+
+// Main section wrapper
+.login-section {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70vh;
+    width: 100%;
+    margin: 0 auto;
+    //margin-top: 2rem;
+    // -- MEDIA QUERIE -- \\
+    @media only screen and (max-width: $bp-small) { flex-direction: column; }
+}
+
+// Left content side
+.login-left {
+    background-image: linear-gradient(to bottom, rgba($color-black, .50), rgba($color-black, .85)), url(../img/bk-3.jpg);
+    //background-image: linear-gradient(73.47867661039811deg, rgba(198, 153, 99,.50) 35.149739583333336%,rgba(197, 152, 98,.50) 35.149739583333336%,rgba(155, 111, 57,.55) 89.05598958333331%), url(../img/bk-3.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 50%;
+    //margin-left: 5rem;
+    // Content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $color-white;
+        // Heading 1
+        &__heading-1 {
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        // Heading 2
+        &__heading-2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: .05rem;
+            margin-bottom: 3rem;
+            // -- MEDIA QUERIE -- \\
+            @media only screen and (max-width: $bp-small) { margin: 0 1rem 3rem 1rem; text-align: center; }
+        }
+    }
+}
+
+// Right content side
+.login-right {
+    background-color: $color-white;
+    //margin-right: 5rem;
+    // Content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // Heading 1 
+        &__heading-1 {
+            font-size: 3rem;
+            margin-bottom: .6rem;
+        }
+        // Heading 2 
+        &__heading-2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 3rem;
+        }
+        // Log In Icons
+        &__icons {
+            display: flex;
+            i {
+                font-size: 3.5rem;
+                color: $color-primary;
+                margin: 0 1rem;
+                margin-bottom: 1rem;
+                cursor: pointer;
+            }
+        }
+        // Forgot Your Password Text
+        &__forgot-pw {
+            color: $color-black;
+            font-size: 1.4rem;
+            font-weight: 400;
+            text-decoration: underline;
+            margin-top: 5rem;
+            cursor: pointer;
+        }
+    }
+}
+
+// Both left and right side of login section
+.login-left, .login-right {
+    box-shadow: .02rem 1rem 3rem rgba($color-black, .25);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 92.5vh;
+    width: 50%;
+    // -- MEDIA QUERIES -- \\
+    @media only screen and (max-width: $bp-largest-5) { height: 70vh; }
+    @media only screen and (max-width: $bp-small) { height: 60vh; width: 100%; }
+    @media only screen and (max-width: $bp-vsmall-4) { height: 70vh; }
+}
+
+// Log In Form
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    // Input Fields
+    input {
+        background-color: $color-gray-5;
+        border: .1rem solid transparent;
+        font-size: 1.2rem;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        outline: none;
+        transition: all .2s ease-in-out;
+        width: 100%;
+        &:focus { border: .1rem solid $color-primary; }
+    }
+    // Submit Form Button
+    button { margin-top: 2rem; }
+}

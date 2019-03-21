@@ -47,7 +47,8 @@
 
 // * ---- SIGN UP & LOG IN BUTTON'S ---- * \\
 .btn-signup,
-.btn-login {
+.btn-login,
+.btn-signup-2 {
     display: inline;
     border-radius: 10rem;
     font-size: 1.6rem;
@@ -56,6 +57,7 @@
     text-decoration: none;
     text-align: center;
     width: 30%;
+    cursor: pointer;
 }
 
 // * ---- LOG IN BUTTON ---- * \\
@@ -71,6 +73,14 @@
 .btn-signup {
     border: .1rem solid $color-primary;
     color: $color-gray-dark-1;
+    transition: all .2s ease-in-out;
+    // On Hover
+    &:hover { background-color: $color-primary; color: $color-white; }
+}
+// * ---- SIGN UP BUTTON | #2 ---- * \\
+.btn-signup-2 {
+    border: .1rem solid $color-primary;
+    color: $color-white;
     transition: all .2s ease-in-out;
     // On Hover
     &:hover { background-color: $color-primary; color: $color-white; }

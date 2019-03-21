@@ -11,7 +11,8 @@ const path = require('path'),
 // - Importing Models | MVC - \\
 const Comicbook = require('./models/Comicbooks');
 // - Importing Routes Files - \\
-const shopRoutes = require('./routes/shop');
+const shopRoutes = require('./routes/shop'),
+      authenticationRoutes = require('./routes/authentication');
 // - API JSON ROUTE - \\
 const comicbooksShopData = require('./jsonData/comicbooks_json');
 
@@ -51,6 +52,7 @@ Comicbook.create({
 
 // - Using Routes Files - \\
 app.use(shopRoutes);
+app.use(authenticationRoutes);
 app.use(comicbooksShopData);
 
 // * ------------- * \\
@@ -65,16 +67,6 @@ app.get('/', (req, res) => {
 // - User Profile - \\
 app.get('/user-profile', (req, res) => {
     res.status(200).send('User Profile Page - Ok');
-});
-
-// - Log In Page - \\
-app.get('/login', (req, res) => {
-    res.send('Log in Page');
-});
-
-// - Sign Up Page - \\
-app.get('/signup', (req, res) => {
-    res.send('Sign up Page');
 });
 
 // - 404 - Page not Found Page - \\

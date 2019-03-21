@@ -15,19 +15,25 @@ module.exports = {
         port: 8080
     },
     plugins: [
+        // MARKUPS
         new HtmlWebpackPlugin({ // LANDING PAGE
             filename: 'html/landing/landing.html',
             template: './resources/html/landing/landing.html'
         }),
-        new HtmlWebpackPlugin({ 
+        new HtmlWebpackPlugin({ // SHOP PAGE
             filename: 'html/shop/index.ejs',
             template: './resources/html/shop/index.ejs'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'html/authentication/login.html',
+            template: './resources/html/authentication/login.html'
         }),
         new HtmlWebpackPlugin({ // NAVIGATION PARTIAL
             filename: 'html/partials/navigation.ejs',
             template: './resources/html/partials/navigation.ejs',
             excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
         }),
+        // PLUGIN SETUPS
         new MiniCssExtractPlugin({
             filename: 'css/main.css'
         }),
