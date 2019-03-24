@@ -7,12 +7,19 @@ const path = require('path'),
       express = require('express'),
       app = express(),
       mongoose = require('mongoose'),
-      bodyParser = require('body-parser');
+      bodyParser = require('body-parser'),
+      methodOverride = require('method-override'),
+      passport = require('passport'),
+      LocalStrategy = require('passport-local');
 // - Importing Models | MVC - \\
-const Comicbook = require('./models/Comicbooks');
+const Comicbook = require('./models/Comicbooks'),
+      User = require('./models/User');
 // - Importing Routes Files - \\
 const shopRoutes = require('./routes/shop'),
-      authenticationRoutes = require('./routes/authentication');
+      authenticationRoutes = require('./routes/authentication'),
+      userProfileRoutes = require('./routes/user-profile');
+// - Importing Middlewares - \\
+const authMiddleware = require('./middlewares/authMiddleware');
 // - API JSON ROUTE - \\
 const comicbooksShopData = require('./jsonData/comicbooks_json');
 
@@ -28,6 +35,8 @@ mongoose.connect('mongodb://localhost/comic_book');
 mongoose.set('useNewUrlParser', true);
 // - View Engine - \\
 app.set('view engine', 'ejs');
+// - Method Override - \\
+app.use(methodOverride('_method'));
 
 /*
 Comicbook.create({
@@ -46,13 +55,35 @@ Comicbook.create({
     }
 });*/
 
+// ==================== \\
+//  - PASSPORT SETUP - 
+// ==================== \\
+// - Express Session - \\
+app.use(require('express-session')({
+    secret: 'Accessing secret data',
+    resave: false,
+    saveUninitialized: false
+}));
+// - Passport Methods - \\
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// Displays user on every single page (if logged in)
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
+
+
 // ============== \\
 // Express Router 
 // ============== \\
-
 // - Using Routes Files - \\
 app.use(shopRoutes);
 app.use(authenticationRoutes);
+app.use(userProfileRoutes);
 app.use(comicbooksShopData);
 
 // * ------------- * \\
@@ -61,12 +92,7 @@ app.use(comicbooksShopData);
 
 // - Landing Page - \\
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(`${__dirname}/../../dist/html/landing/landing.html`));
-});
-
-// - User Profile - \\
-app.get('/user-profile', (req, res) => {
-    res.status(200).send('User Profile Page - Ok');
+    res.render(path.resolve(`${__dirname}/../../dist/html/landing/landing.ejs`));
 });
 
 // - 404 - Page not Found Page - \\

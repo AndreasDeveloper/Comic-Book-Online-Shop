@@ -17,20 +17,38 @@ module.exports = {
     plugins: [
         // MARKUPS
         new HtmlWebpackPlugin({ // LANDING PAGE
-            filename: 'html/landing/landing.html',
-            template: './resources/html/landing/landing.html'
+            filename: 'html/landing/landing.ejs',
+            template: './resources/html/landing/landing.ejs'
         }),
         new HtmlWebpackPlugin({ // SHOP PAGE
             filename: 'html/shop/index.ejs',
             template: './resources/html/shop/index.ejs'
         }),
-        new HtmlWebpackPlugin({
-            filename: 'html/authentication/login.html',
-            template: './resources/html/authentication/login.html'
+        new HtmlWebpackPlugin({ // AUTHENTICATION - LOGIN
+            filename: 'html/authentication/login.ejs',
+            template: './resources/html/authentication/login.ejs'
+        }),
+        new HtmlWebpackPlugin({ // AUTHENTICATION - SIGNUP
+            filename: 'html/authentication/signup.ejs',
+            template: './resources/html/authentication/signup.ejs'
+        }),
+        new HtmlWebpackPlugin({ // USER PROFILE
+            filename: 'html/user-profile/user-profile.ejs',
+            template: './resources/html/user-profile/user-profile.ejs'
         }),
         new HtmlWebpackPlugin({ // NAVIGATION PARTIAL
             filename: 'html/partials/navigation.ejs',
             template: './resources/html/partials/navigation.ejs',
+            excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
+        }),
+        new HtmlWebpackPlugin({ // MINI-NAVIGATION PARTIAL
+            filename: 'html/partials/miniNavigation.ejs',
+            template: './resources/html/partials/miniNavigation.ejs',
+            excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
+        }),
+        new HtmlWebpackPlugin({ // FOOTER PARTIAL
+            filename: 'html/partials/footer.ejs',
+            template: './resources/html/partials/footer.ejs',
             excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
         }),
         // PLUGIN SETUPS

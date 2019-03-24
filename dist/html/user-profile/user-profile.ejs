@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" class="openNav">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+    <title>Log In - Comicbook</title>
+<link href="../../css/main.css" rel="stylesheet"></head>
+<body>
+
+    <!-- IMPLEMENTING NAVIGATION -->
+    <% include ../partials/navigation.ejs %>
+
+    <div class="new-wrapper">
+        <% if (currentUser) { %>
+            <h1>Username: <%= currentUser.username %></h1>
+            <h1>Email: <%= currentUser.email %> </h1>
+        <% } %>
+    </div>
+
+<script type="text/javascript" src="../../js/bundle.js"></script></body>
+</html>

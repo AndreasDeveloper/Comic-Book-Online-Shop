@@ -7,14 +7,16 @@
     <a href="/" class="logotype">COMIC<span>BOOK</span></a> <!-- LOGO -->
     <div class="overflow-container">
         <div class="user-mini-nav"> <!-- Small user nav -->
-            <a href="/user-profile">
-                <div class="user-image-wrap">
-                    <div class="user-image-wrap__circle-1"></div>
-                    <div class="user-image-wrap__circle-2"></div>
-                    <img data-lazy="../../img/user-1.jpg" alt="Users Image" class="user-image-wrap__image">
-                </div>
-            </a>
-            <h2 class="user-name">AndreasDEV</h2>
+            <% if (currentUser) { %>
+                <a href="/user-profile">
+                    <div class="user-image-wrap">
+                        <div class="user-image-wrap__circle-1"></div>
+                        <div class="user-image-wrap__circle-2"></div>
+                        <img data-lazy="../../img/user-1.jpg" alt="Users Image" class="user-image-wrap__image">
+                    </div>
+                </a>
+                <h2 class="user-name"><%= currentUser.username %></h2>
+            <% } %>
         </div>
         <ul class="menu-dropdown"> <!-- Navigation elements -->
             <li><a href="/" class="slide-effect">Home</a><i class="icon ion-ios-home menu-i"></i></li>
@@ -23,7 +25,7 @@
             <li><a href="#" class="slide-effect">Settings</a><i class="icon ion-ios-settings menu-i"></i></li>
         </ul>
         <div class="log-out">
-            <h3 class="log-out__text"><i class="icon ion-ios-log-out"></i>Log Out</h3>
+            <a href="/logout" class="log-out__text"><i class="icon ion-ios-log-out"></i>Log Out</a>
         </div>
     </div>
 </nav>
@@ -123,8 +125,10 @@
         </div>
         <!-- NOTIFICATIONSS | END-->
         <div class="user-nav__user">
-            <img data-lazy="../../img/user-1.jpg" alt="User Photo" class="user-nav__user-photo">
-            <span class="user-nav__user-name">AndreasDEV</span>
+            <% if (currentUser) { %>
+                <img data-lazy="../../img/user-1.jpg" alt="User Photo" class="user-nav__user-photo">
+                <span class="user-nav__user-name"><%= currentUser.username %></span>
+            <% } %>
         </div>
     </div>
 </div>

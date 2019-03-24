@@ -1,0 +1,24 @@
+<!-- NAVIGATION | START -->
+    <div class="secondary-nav-wrap">
+        <div class="secondary-nav">
+            <nav role="navigation" class="top-menu">
+                <a href="/" class="logotype">COMIC<span>BOOK</span></a> <!-- LOGO -->
+                <form action="#" class="search-form">
+                    <input type="text" class="search-form__input" placeholder="Search Comics, Issues . .">
+                    <button type="submit" class="search-form__button"><i class="icon ion-ios-search search-form__icon"></i></button>
+                </form>
+            </nav>
+            <div class="top-nav">
+                <% if (!currentUser) { %>
+                    <a href="/user-profile" class="user-nav__link">My Profile</a>
+                    <a href="/shop" class="user-nav__link">Shop</a>
+                    <a href="/contact" class="user-nav__link">Contact</a> 
+                <% } else { %>
+                    <a href="/user-profile" class="user-nav__link"><%= currentUser.username %></a>
+                    <a href="/shop" class="user-nav__link">Shop</a>
+                    <a href="/contact" class="user-nav__link">Contact</a> 
+                <% } %>
+            </div>
+        </div>
+    </div>
+<!-- NAVIGATION | END -->
