@@ -1,0 +1,72 @@
+// * --------------------------------- * \\
+//   - SHAPES AND GRAPHICS FOR MARKUP -
+// * --------------------------------- * \\
+
+// === USER IMAGE ROTATING CIRCLES | - BIG === \\
+.user-image-wrap__circle-1-b {
+    border-color: $color-black $color-black $color-black transparent;
+    border-width: .125rem;
+    // width: 28rem;
+    // height: 28rem;
+    // top: -1.2rem;
+    // left: -1.3rem;
+    width: 27rem;
+    height: 27rem;
+    top: -1.2rem;
+    left: -.9rem;
+}
+.user-image-wrap__circle-2-b {
+    border-color: $color-black transparent $color-black $color-black;
+    border-width: .125rem;
+    // width: 29.5rem;
+    // height: 29.5rem;
+    // top: -1.9rem;
+    // left: -1.8rem;
+    width: 28.5rem;
+    height: 28.5rem;
+    top: -1.9rem;
+    left: -1.5rem;
+}
+
+// === USER IMAGE ROTATING CIRCLES | - SMALL === \\
+.user-image-wrap__circle-1 {
+    border-color: $color-white $color-white $color-white transparent;
+    border-width: .1rem;
+    width: 11rem;
+    height: 11rem;
+    top: -0.5rem;
+    left: -0.5rem;
+}
+.user-image-wrap__circle-2 {
+    border-color: $color-white transparent $color-white $color-white;
+    border-width: .1rem;
+    width: 11.5rem;
+    height: 11.5rem;
+    top: -.75rem;
+    left: -.8rem;
+}
+
+// === USER IMAGE ROTATING CIRCLES | - COMMON VALUES === \\
+.user-image-wrap__circle-1,
+.user-image-wrap__circle-1-b {
+    position: absolute;
+    border-style: solid;
+    border-radius: 50%;
+    transition: all 1.5s ease-in-out;
+}
+.user-image-wrap__circle-2,
+.user-image-wrap__circle-2-b {
+    position: absolute;
+    border-style: solid;
+    border-radius: 50%;
+    transition: all 1.5s ease-in-out;
+}
+/* - CIRCLES 'ANIMATION' - */ 
+.user-image-wrap:hover .user-image-wrap__circle-1,
+.user-image:hover .user-image-wrap__circle-1-b {
+    transform: rotate(360deg);
+}
+.user-image-wrap:hover .user-image-wrap__circle-2,
+.user-image:hover .user-image-wrap__circle-2-b {
+    transform: rotate(-360deg);
+}

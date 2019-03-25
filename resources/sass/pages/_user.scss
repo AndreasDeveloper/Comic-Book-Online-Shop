@@ -1,0 +1,50 @@
+// * --------------------- * \\
+//       - USER PAGE -
+// * --------------------- * \\
+
+// - Standard Wrapper - \\
+.standard-wrapper {
+    position: relative;
+    padding-top: 6rem;
+    padding-left: 4.1rem;
+}
+
+// User Header
+.user-header {
+    position: relative;
+    height: 120vh;
+
+    // Images wrapper (User profile image and background)
+    &__images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+// User Background Image
+.user-background-img {
+    width: 100%;
+    height: 100%;
+    &__image {
+        width: 1920px;
+        height: 600px;
+    }
+}
+// User Profile Image
+.user-image {
+    position: relative;
+    margin-top: -25vh;
+    &__image {
+        height: 25rem;
+        width: 25rem;  
+        border-radius: 50%;
+    }
+}
+
+// User Content
+.user-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

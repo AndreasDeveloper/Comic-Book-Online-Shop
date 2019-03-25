@@ -13,11 +13,25 @@
     <!-- IMPLEMENTING NAVIGATION -->
     <% include ../partials/navigation.ejs %>
 
-    <div class="new-wrapper">
-        <% if (currentUser) { %>
-            <h1>Username: <%= currentUser.username %></h1>
-            <h1>Email: <%= currentUser.email %> </h1>
-        <% } %>
+    <div class="standard-wrapper">
+        <header class="user-header">
+            <div class="user-header__images">
+                <div class="user-background-img">
+                    <img data-lazy="/img/bk-4.png" class="user-background-img__image">
+                </div>
+                <div class="user-image">
+                    <div class="user-image-wrap__circle-1-b"></div>
+                    <div class="user-image-wrap__circle-2-b"></div>
+                    <img data-lazy="/img/user-1.jpg" class="user-image__image">
+                </div>
+            </div>
+            <div class="user-content">
+                <h2 class="user-content__username"><%= currentUser.username %></h2>
+            </div>
+        </header>
+
+        <!-- IMPLEMENTING FOOTER -->
+        <% include ../partials/footer.ejs %>
     </div>
 
 <script type="text/javascript" src="../../js/bundle.js"></script></body>

@@ -365,6 +365,8 @@
   height: 6.2rem;
   width: 100%;
   z-index: 998;
+  // -- MEDIA QUERIES -- \\
+  @media only screen and (max-width: $bp-desktop) { height: 7.3rem; }
   @media only screen and (max-width: $bp-small) { height: 9rem; }
 }
 
