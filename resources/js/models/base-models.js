@@ -2,26 +2,23 @@
 //    - MODEL BASE VIEWS - \\
 // * ------------------------- * \\
 
+// -- Importing JS Files -- \\
+import { DOMElements } from '../views/base-views';
 
 // ** --- SIDE NAVIGATION | - Logic --- ** \\
 export const sideNavigation = (() => {
-    // DOM Elements
-    const navigation = document.querySelector('.nav-toggle');
-    const html = document.querySelector('html');
-
     // - Event Listener - | Navigation on click
-    navigation.addEventListener('click', e => {
+    DOMElements.navigationMain.addEventListener('click', e => {
         e.preventDefault();
         
-        html.classList.toggle('openNav');
-        navigation.classList.toggle('active');
+        DOMElements.html.classList.toggle('openNav');
+        DOMElements.navigation.classList.toggle('active');
+        DOMElements.newWrapper.classList.toggle('darken');
     });
 })();
 
 // ** --- IMAGE OBSERVING | OPTIMIZATION | LAZY LOAD --- ** \\
 export const lazyImageLoad = (() => {
-    // DOM Element
-    const images = document.querySelectorAll('img');
     // - Function | - For lazy loading images
     const lazyLoad = target => {
         const io = new IntersectionObserver((entries, observer) => {
@@ -41,5 +38,5 @@ export const lazyImageLoad = (() => {
         });
         io.observe(target); // Calling observer on targets
     };
-images.forEach(lazyLoad); // Lazy load every single img in HTML
+    DOMElements.images.forEach(lazyLoad); // Lazy load every single img in HTML
 })();

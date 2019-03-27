@@ -215,6 +215,9 @@ img {
   background-color: #fff;
   padding: 0; }
 
+.darken {
+  opacity: 2; }
+
 .hamburger {
   background: #fff;
   position: relative;

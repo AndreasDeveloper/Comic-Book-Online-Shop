@@ -3,7 +3,7 @@
 // * ------------------------- * \\
 
 // Importing items
-import { elements } from './base-views';
+import { DOMElements } from './base-views';
 
 // Export Function | Rendering Cart List
 export const renderCart = () => {
@@ -21,7 +21,7 @@ export const renderCart = () => {
         </a>
     </li>
     `;
-    elements.shoppingCartUl.insertAdjacentHTML('beforeend', markup);
+    DOMElements.shoppingCartUl.insertAdjacentHTML('beforeend', markup);
 };
 
 // Export Function | Deleting item from Cart list

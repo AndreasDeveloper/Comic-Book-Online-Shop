@@ -1,5 +1,5 @@
 // -- Importing Files - \\
-import { elements } from './base-views';
+import { DOMElements } from './base-views';
 
 // Exporting Function | - Rendering Comicbooks in Shop page
 export const renderComics = (comic) => {
@@ -14,5 +14,5 @@ export const renderComics = (comic) => {
         </div>
     </div>
     `;
-    elements.shopContainer.insertAdjacentHTML('beforeend', markup);
+    DOMElements.shopContainer.insertAdjacentHTML('beforeend', markup);
 };
