@@ -216,7 +216,7 @@ img {
   padding: 0; }
 
 .darken {
-  opacity: 2; }
+  background-color: rgba(0, 0, 0, 0.8); }
 
 .hamburger {
   background: #fff;
@@ -1021,6 +1021,8 @@ textarea {
   .l-partners-content__img-4 {
     width: 15rem;
     height: 5rem; }
+  .l-partners-content__img-1, .l-partners-content__img-2, .l-partners-content__img-3, .l-partners-content__img-4 {
+    opacity: 1; }
 
 /* -------------------------- */
 /*      - LOGIN PAGE -
@@ -1465,6 +1467,10 @@ textarea {
   .user-background-img__image {
     width: 1920px;
     height: 600px; }
+    @media only screen and (max-width: 86.875em) {
+      .user-background-img__image {
+        width: 1920px;
+        height: 500px; } }
 
 .user-image {
   position: relative;
@@ -1479,4 +1485,8 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+  .user-content__username {
+    font-size: 5rem;
+    font-weight: 500;
+    margin-top: 3rem; }
 

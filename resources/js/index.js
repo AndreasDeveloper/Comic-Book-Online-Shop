@@ -1,6 +1,5 @@
 // * --- WEBPACK IMPORT FILES --- * \\
 import '../sass/main.scss';
-
 // * --- Importing JS Files --- * \\
 import { elements } from './views/base-views';
 import { sideNavigation, lazyImageLoad } from './models/base-models';

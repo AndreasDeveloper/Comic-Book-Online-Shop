@@ -12,7 +12,7 @@
                     <div class="user-image-wrap">
                         <div class="user-image-wrap__circle-1"></div>
                         <div class="user-image-wrap__circle-2"></div>
-                        <img data-lazy="../../img/user-1.jpg" alt="Users Image" class="user-image-wrap__image">
+                        <img data-lazy="<%= currentUser.image %>" alt="Users Image" class="user-image-wrap__image">
                     </div>
                 </a>
                 <h2 class="user-name"><%= currentUser.username %></h2>
@@ -126,7 +126,7 @@
         <!-- NOTIFICATIONSS | END-->
         <div class="user-nav__user">
             <% if (currentUser) { %>
-                <img data-lazy="../../img/user-1.jpg" alt="User Photo" class="user-nav__user-photo">
+                <img data-lazy="<%= currentUser.image %>" alt="User Photo" class="user-nav__user-photo">
                 <span class="user-nav__user-name"><%= currentUser.username %></span>
             <% } %>
         </div>

@@ -13,7 +13,6 @@
 .user-header {
     position: relative;
     height: 120vh;
-
     // Images wrapper (User profile image and background)
     &__images {
         display: flex;
@@ -28,6 +27,7 @@
     &__image {
         width: 1920px;
         height: 600px;
+        @media only screen and (max-width: $bp-desktop) { width: 1920px; height: 500px; }
     }
 }
 // User Profile Image
@@ -47,4 +47,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    // Username
+    &__username {
+        font-size: 5rem;
+        font-weight: 500;
+        margin-top: 3rem;
+    }
 }

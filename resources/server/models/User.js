@@ -6,6 +6,8 @@ const mongoose = require('mongoose'),
 const UserSchema = new mongoose.Schema({
     username: String,
     email: String,
+    bioShort: String,
+    image: String,
     password: String
 });
 // Injects passport local mongoose methods to schema

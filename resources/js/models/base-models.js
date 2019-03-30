@@ -12,8 +12,7 @@ export const sideNavigation = (() => {
         e.preventDefault();
         
         DOMElements.html.classList.toggle('openNav');
-        DOMElements.navigation.classList.toggle('active');
-        DOMElements.newWrapper.classList.toggle('darken');
+        //DOMElements.navigation.classList.toggle('active');
     });
 })();
 

@@ -22,11 +22,12 @@
                 <div class="user-image">
                     <div class="user-image-wrap__circle-1-b"></div>
                     <div class="user-image-wrap__circle-2-b"></div>
-                    <img data-lazy="../../img/user-1.jpg" class="user-image__image">
+                    <img data-lazy="<%= currentUser.image %>" class="user-image__image">
                 </div>
             </div>
             <div class="user-content">
                 <h2 class="user-content__username"><%= currentUser.username %></h2>
+                <p class="user-content__bio-short"><%= currentUser.bioShort %></p>
             </div>
         </header>
 

@@ -10,7 +10,9 @@ const path = require('path'),
       bodyParser = require('body-parser'),
       methodOverride = require('method-override'),
       passport = require('passport'),
-      LocalStrategy = require('passport-local');
+      LocalStrategy = require('passport-local'),
+      multer = require('multer'),
+      cloudinary = require('cloudinary');
 // - Importing Models | MVC - \\
 const Comicbook = require('./models/Comicbooks'),
       User = require('./models/User');
@@ -56,6 +58,15 @@ Comicbook.create({
 });*/
 
 // ==================== \\
+//  - CLOUDINARY SETUP - 
+// ==================== \\
+cloudinary.config({
+    cloud_name: 'andreasdev',
+    api_key: '767997464242296',
+    api_secret: '1By79O46lDIRJL4VJMqf9Tmcvt8',
+}); 
+
+// ==================== \\
 //  - PASSPORT SETUP - 
 // ==================== \\
 // - Express Session - \\
@@ -75,7 +86,6 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
 });
-
 
 // ============== \\
 // Express Router 

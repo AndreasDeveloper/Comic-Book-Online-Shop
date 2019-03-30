@@ -2,9 +2,30 @@
 const express = require('express'),
       router = express.Router(),
       path = require('path'),
-      passport = require('passport');
+      passport = require('passport'),
+      cloudinary = require('cloudinary'),
+      multer = require('multer');
 // - Importing Models - \\
 const User = require('../models/User');
+
+// ==================== \\
+//  - MULTER SETUP - 
+// ==================== \\
+const storage = multer.diskStorage({
+    filename: (req, file, callback) => {
+        callback(null, Date.now() + file.originalname);
+    }
+});
+// Allows image only base file upload
+const imageFilter = (req, file, cb) => {
+    // Accept image files only
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        return cb(new Error('Only image files are allowed'), false);
+    }
+    cb(null, true);
+};
+// All-In-One object
+const upload = multer({ storage: storage, fileFilter: imageFilter });
 
 // - GET - Sign Up Page | - Displays page to sign up - \\
 router.get('/signup', (req, res) => {
@@ -12,19 +33,26 @@ router.get('/signup', (req, res) => {
 });
 
 // - POST - Creates new User | - Create New User - \\
-router.post('/signup', (req, res) => {
-    // User Data
-    const username = req.body.username,
-          email = req.body.email,
-          password = req.body.password;
-    User.register(new User({ username: username, email: email }), password, (err, user) => {
-        if (!err) {
-            passport.authenticate('local')(req, res, () => {
-                res.redirect('/user-profile');
-            });
-        } else {
-            throw new Error(err);
-        }
+router.post('/signup', upload.single('image'), (req, res) => {
+    cloudinary.uploader.upload(req.file.path, (result) => {
+        // Adding cloudinary url for the images to the user object under image property
+        req.body.image = result.secure_url;
+        // Add other user info
+        const username = req.body.username,
+              email = req.body.email,
+              bioShort = req.body.bioShort,
+              image = req.body.image,
+              password = req.body.password;
+        // Register new user with provided elements
+        User.register(new User({ username: username, email: email, bioShort: bioShort, image: image }), password, (err, user) => {
+            if (!err) {
+                passport.authenticate('local')(req, res, () => { // Local Authentication
+                    res.redirect('/user-profile');
+                });
+            } else {
+                throw new Error(err);
+            }
+        });
     });
 });
 

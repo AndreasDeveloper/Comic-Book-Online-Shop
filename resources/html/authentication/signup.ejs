@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
-    <title>Log In - Comicbook</title>
+    <title>Sign Up - Comicbook</title>
 </head>
 <body>
 
@@ -26,9 +26,11 @@
             <div class="signup-right">
                 <div class="signup-right__content">
                     <h2 class="signup-right__content__heading-1">Sign Up to Comicbook</h2>
-                    <form action="/signup" method="POST" class="signup-form">
+                    <form action="/signup" method="POST" class="signup-form" enctype="multipart/form-data">
                         <input type="text" name="username" placeholder="Username" required>
-                        <input type="text" name="email" placeholder="Your Email" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="bioShort" placeholder="Short Description" required>
+                        <input type="file" id="image" name="image" accept="image/*" required>
                         <input type="password" name="password" placeholder="Password" required>
                         <button type="submit" class="btn btn-login">Sign Up</button>
                     </form>
