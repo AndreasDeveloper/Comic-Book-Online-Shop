@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
     email: String,
     bioShort: String,
     image: String,
+    bkImage: String,
     password: String
 });
 // Injects passport local mongoose methods to schema

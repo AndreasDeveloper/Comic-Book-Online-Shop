@@ -103,6 +103,23 @@
         width: 100%;
         &:focus { border: .1rem solid $color-primary; }
     }
+    // Image upload fields
+    &__image-upload {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        // Input
+        input {
+            width: 65%;
+        }
+        // Label
+        label {
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            margin: 0 auto;
+        }
+    }
     // Submit Form Button
     button { margin-top: 2rem; }
 }

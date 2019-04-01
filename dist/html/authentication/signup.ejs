@@ -30,7 +30,14 @@
                         <input type="text" name="username" placeholder="Username" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                         <input type="text" name="bioShort" placeholder="Short Description" required>
-                        <input type="file" id="image" name="image" accept="image/*" required>
+                        <div class="signup-form__image-upload">
+                            <input type="file" id="image" name="image" accept="image/*" required>
+                                <label for="image">Profile Image</label>
+                        </div>
+                        <div class="signup-form__image-upload">
+                            <input type="file" id="bkImage" name="bkImage" accept="image/*" required>
+                                <label for="bkImage">Background Image</label>
+                        </div>
                         <input type="password" name="password" placeholder="Password" required>
                         <button type="submit" class="btn btn-login">Sign Up</button>
                     </form>

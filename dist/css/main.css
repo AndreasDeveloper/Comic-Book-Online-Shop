@@ -1445,6 +1445,17 @@ textarea {
     width: 100%; }
     .signup-form input:focus {
       border: 0.1rem solid #c69963; }
+  .signup-form__image-upload {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%; }
+    .signup-form__image-upload input {
+      width: 65%; }
+    .signup-form__image-upload label {
+      font-size: 1.2rem;
+      margin-left: 1rem;
+      margin: 0 auto; }
   .signup-form button {
     margin-top: 2rem; }
 
@@ -1469,8 +1480,8 @@ textarea {
     height: 600px; }
     @media only screen and (max-width: 86.875em) {
       .user-background-img__image {
-        width: 1920px;
-        height: 500px; } }
+        width: 1500px;
+        height: 490px; } }
 
 .user-image {
   position: relative;

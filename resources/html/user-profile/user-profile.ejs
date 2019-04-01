@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
-    <title>Log In - Comicbook</title>
+    <title><%= currentUser.username %> Profile - Comicbook</title>
 </head>
 <body>
 
@@ -17,12 +17,12 @@
         <header class="user-header">
             <div class="user-header__images">
                 <div class="user-background-img">
-                    <img data-lazy="../../img/bk-4.png" class="user-background-img__image">
+                    <img data-lazy="<%= currentUser.bkImage %>" alt="User's Background Image" class="user-background-img__image">
                 </div>
                 <div class="user-image">
                     <div class="user-image-wrap__circle-1-b"></div>
                     <div class="user-image-wrap__circle-2-b"></div>
-                    <img data-lazy="<%= currentUser.image %>" class="user-image__image">
+                    <img data-lazy="<%= currentUser.image %>" alt="User's Profile Image" class="user-image__image">
                 </div>
             </div>
             <div class="user-content">
