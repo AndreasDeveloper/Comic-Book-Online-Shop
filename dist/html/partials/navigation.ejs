@@ -36,8 +36,9 @@
 <div class="secondary-nav-wrap">
 <div class="secondary-nav">
     <nav role="navigation" class="top-menu">
-        <form action="#" class="search-form">
-            <input type="text" class="search-form__input" placeholder="Search Comics, Issues . .">
+        <!-- SEARCH FORM-->
+        <form action="/shop" method="GET" class="search-form">
+            <input type="text" name="search" class="search-form__input" placeholder="Search Comics, Issues . .">
             <button type="submit" class="search-form__button"><i class="icon ion-ios-search search-form__icon"></i></button>
         </form>
     </nav>
@@ -125,10 +126,12 @@
         </div>
         <!-- NOTIFICATIONSS | END-->
         <div class="user-nav__user">
-            <% if (currentUser) { %>
-                <img data-lazy="<%= currentUser.image %>" alt="User Photo" class="user-nav__user-photo">
-                <span class="user-nav__user-name"><%= currentUser.username %></span>
-            <% } %>
+                <% if (currentUser) { %>
+                <a href="/user-profile" class="user-nav__link-wrap">
+                    <img data-lazy="<%= currentUser.image %>" alt="User Photo" class="user-nav__user-photo">
+                    <span class="user-nav__user-name"><%= currentUser.username %></span>
+                </a>
+                <% } %>
         </div>
     </div>
 </div>

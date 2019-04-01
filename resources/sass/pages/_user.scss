@@ -26,14 +26,18 @@
     height: 100%;
     &__image {
         width: 1920px;
-        height: 600px;
+        height: 650px;
+        // * -- MEDIA QUERIES -- * \\
         @media only screen and (max-width: $bp-desktop) { width: 1500px;  height: 490px; }
+        @media only screen and (max-width: $bp-small) { width: 400px; height: 250px; }
     }
 }
 // User Profile Image
 .user-image {
     position: relative;
     margin-top: -25vh;
+    // * -- MEDIA QUERIES -- * \\
+    @media only screen and (max-width: $bp-small) { margin-top: -15vh; }
     &__image {
         height: 25rem;
         width: 25rem;  

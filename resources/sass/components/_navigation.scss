@@ -128,9 +128,13 @@
     position: relative;
     height: 100vh;
     overflow-y: auto;
-    border-top: 73px solid #fff;
+    border-top: 74px solid $color-white;
     z-index: -1;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // * -- MEDIA QUERIES -- * \\
+    @media only screen and (max-width: $bp-desktop) { border-top: 73px solid $color-white; }
   }
   
   .menu a.logotype {
@@ -173,7 +177,9 @@
     align-items: center;
     justify-content: center;
     margin-top: 5rem;
-    margin-bottom: 5rem;
+    margin-bottom: -8rem;
+    // * -- MEDIA QUERIES -- * \\
+    @media only screen and (max-width: $bp-desktop) { margin-bottom: 0.5rem; }
   }
   // Image wrapper
   .user-image-wrap {
@@ -227,9 +233,8 @@
 
   // -- Log Out -- \\
   .log-out {
-    position: absolute;
-    top: 90%;
-    left: 30%;
+    display: flex;
+    justify-content: center;
     cursor: pointer;
     // Log out text
     &__text {
@@ -365,6 +370,8 @@
 // Top nav wrapper
 .secondary-nav-wrap {
   position: fixed;
+  display: flex;
+  flex-direction: column;
   background-color: $color-white;
   box-shadow: .5rem .5rem 1rem rgba($color-black, .10);
   height: 6.2rem;
@@ -379,12 +386,20 @@
   position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 5rem;
   height: 100%;
   // * -- MEDIA QUERIES -- * \\
   @media only screen and (max-width: $bp-desktop) { margin-right: 5rem; }
   @media only screen and (max-width: $bp-largest-5) { margin-right: 15rem; }
-  @media only screen and (max-width: $bp-small) { margin-right: 20rem; }
+  @media only screen and (max-width: $bp-small) { margin-left: 12rem; }
+}
+
+// - Mini Secondary Nav - \\
+.mini-second-nav {
+  margin: 0 5rem;
+  @media only screen and (max-width: $bp-small) { margin: 0 1rem; }
 }
 
 // -- SEARCH CONTAINER -- \\
@@ -401,9 +416,9 @@
 
   // --- MEDIA QUERIES --- \\
   @media only screen and (max-width: $bp-small) {
-    width: 100%;
+    width: 130%;
     top: 125%;
-    left: 93%;
+    left: 60%;
   }
 
   // -- SEARCH INPUT FIELD -- \\
@@ -494,18 +509,23 @@
   }
 }
 
+// -- Mini Search Form -- \\
+.mini-search-form {
+  width: 30%;
+  left: 50%;
+  @media only screen and (max-width: $bp-small) { width: 60%; }
+}
+
 // * --------------------- * \\
 //    - USER NAVIGATION -
 // * --------------------- * \\
 
 .user-nav {
-  position: absolute;
-  left: 75%;
-  top: 2%;
   display: flex;
   align-self: stretch;
   align-items: center;
   // * -- MEDIA QUERIES -- * \\
+  @media only screen and (max-width: $bp-desktop) { top: 9.5%; }
   @media only screen and (max-width: $bp-small) { left: 40%; }
   // All elements
   & > * {
@@ -514,13 +534,20 @@
       height: 100%;
       display: flex;
       align-items: center;
+      // * -- MEDIA QUERIES -- * \\
+      @media only screen and (max-width: $bp-small) { height: 68%; }
   }
-
+  // Anchor Tag wrapper
+  &__link-wrap {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
   // Icons
   &__icon-box { position: relative; }
   &__icon {
       height: 2.25rem;
-      width: 2.25rem;
       font-size: 2rem;
       fill: $color-gray-5;
   }
@@ -535,7 +562,6 @@
       position: absolute;
       top: 1.5rem;
       right: 1.1rem;
-
       display: flex;
       justify-content: center;
       align-items: center;
@@ -545,10 +571,10 @@
       height: 3.75rem;
       border-radius: 50%;
       margin-right: 1rem;
-      margin-top: 1rem;
   }
   &__user-name {
-    margin-top: 1rem;
+    color: $color-black;
+    font-size: 1.2rem;
     font-weight: 400;
   }
 }

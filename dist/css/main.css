@@ -45,7 +45,8 @@ html {
   /* DEFINES WHAT REM IS */
   font-size: 62.5%;
   /* Takes 62.5% of the default font size (16px). 100 / 16 = 62.5  */
-  /* || 1rem = 10px; 10px/16px = 62.5% || */ }
+  /* || 1rem = 10px; 10px/16px = 62.5% || */
+  overflow-x: hidden; }
   @media only screen and (max-width: 37.5em) {
     html {
       font-size: 50%; } }
@@ -313,9 +314,14 @@ img {
   position: relative;
   height: 100vh;
   overflow-y: auto;
-  border-top: 73px solid #fff;
+  border-top: 74px solid #fff;
   z-index: -1;
-  display: block; }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  @media only screen and (max-width: 86.875em) {
+    .overflow-container {
+      border-top: 73px solid #fff; } }
 
 .menu a.logotype {
   position: absolute !important;
@@ -354,7 +360,10 @@ img {
   align-items: center;
   justify-content: center;
   margin-top: 5rem;
-  margin-bottom: 5rem; }
+  margin-bottom: -8rem; }
+  @media only screen and (max-width: 86.875em) {
+    .user-mini-nav {
+      margin-bottom: 0.5rem; } }
 
 .user-image-wrap {
   position: relative;
@@ -401,9 +410,8 @@ img {
   transform: rotate(-360deg); }
 
 .log-out {
-  position: absolute;
-  top: 90%;
-  left: 30%;
+  display: flex;
+  justify-content: center;
   cursor: pointer; }
   .log-out__text {
     font-size: 1.6rem;
@@ -515,6 +523,8 @@ textarea {
 
 .secondary-nav-wrap {
   position: fixed;
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.1);
   height: 6.2rem;
@@ -531,7 +541,9 @@ textarea {
   position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 5rem;
   height: 100%; }
   @media only screen and (max-width: 86.875em) {
     .secondary-nav {
@@ -541,7 +553,13 @@ textarea {
       margin-right: 15rem; } }
   @media only screen and (max-width: 37.5em) {
     .secondary-nav {
-      margin-right: 20rem; } }
+      margin-left: 12rem; } }
+
+.mini-second-nav {
+  margin: 0 5rem; }
+  @media only screen and (max-width: 37.5em) {
+    .mini-second-nav {
+      margin: 0 1rem; } }
 
 .search-form {
   flex: 0 0 40%;
@@ -557,9 +575,9 @@ textarea {
   left: 49%; }
   @media only screen and (max-width: 37.5em) {
     .search-form {
-      width: 100%;
+      width: 130%;
       top: 125%;
-      left: 93%; } }
+      left: 60%; } }
   .search-form__input {
     font-family: inherit;
     font-size: inherit;
@@ -629,13 +647,20 @@ textarea {
     fill: #4b4b4b;
     color: #c69963; }
 
+.mini-search-form {
+  width: 30%;
+  left: 50%; }
+  @media only screen and (max-width: 37.5em) {
+    .mini-search-form {
+      width: 60%; } }
+
 .user-nav {
-  position: absolute;
-  left: 75%;
-  top: 2%;
   display: flex;
   align-self: stretch;
   align-items: center; }
+  @media only screen and (max-width: 86.875em) {
+    .user-nav {
+      top: 9.5%; } }
   @media only screen and (max-width: 37.5em) {
     .user-nav {
       left: 40%; } }
@@ -645,11 +670,18 @@ textarea {
     height: 100%;
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 37.5em) {
+      .user-nav > * {
+        height: 68%; } }
+  .user-nav__link-wrap {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
   .user-nav__icon-box {
     position: relative; }
   .user-nav__icon {
     height: 2.25rem;
-    width: 2.25rem;
     font-size: 2rem;
     fill: #ecf0f1; }
   .user-nav__notification {
@@ -668,10 +700,10 @@ textarea {
   .user-nav__user-photo {
     height: 3.75rem;
     border-radius: 50%;
-    margin-right: 1rem;
-    margin-top: 1rem; }
+    margin-right: 1rem; }
   .user-nav__user-name {
-    margin-top: 1rem;
+    color: #000;
+    font-size: 1.2rem;
     font-weight: 400; }
 
 /* -------------------------- */
@@ -679,9 +711,6 @@ textarea {
 /* -------------------------- */
 .logotype {
   text-decoration: none;
-  position: absolute !important;
-  top: .65rem;
-  left: 5.5rem;
   display: block;
   font-family: 'Work Sans', sans-serif;
   text-transform: uppercase;
@@ -693,14 +722,13 @@ textarea {
     font-weight: 400; }
   .logotype:hover {
     color: #777; }
+  @media only screen and (max-width: 37.5em) {
+    .logotype {
+      font-size: 1.9rem; } }
 
 .top-nav {
-  position: absolute;
-  left: 80%;
-  top: 33%;
   display: flex;
   flex-direction: row;
-  align-self: stretch;
   align-items: center; }
   .top-nav a {
     font-weight: 400;
@@ -1221,20 +1249,24 @@ textarea {
     margin-left: 3rem; }
 
 .results {
-  position: absolute;
-  top: 3%;
-  left: 45%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: -15vh;
+  margin-bottom: 5rem; }
   @media only screen and (max-width: 37.5em) {
     .results {
-      top: 2%;
-      left: 33%; } }
+      margin-top: -5vh; } }
   .results__text {
     font-size: 2rem;
     font-weight: 400; }
     .results__text span {
+      font-weight: 500; }
+  .results__num {
+    font-size: 1.6rem;
+    font-weight: 300; }
+    .results__num span {
       font-weight: 500; }
 
 .user-nav__icon-box:focus {
@@ -1423,11 +1455,11 @@ textarea {
       height: 70vh; } }
   @media only screen and (max-width: 37.5em) {
     .signup-left, .signup-right {
-      height: 60vh;
+      height: 80vh;
       width: 100%; } }
   @media only screen and (max-width: 20.9375em) {
     .signup-left, .signup-right {
-      height: 70vh; } }
+      height: 90vh; } }
 
 .signup-form {
   display: flex;
@@ -1477,15 +1509,22 @@ textarea {
   height: 100%; }
   .user-background-img__image {
     width: 1920px;
-    height: 600px; }
+    height: 650px; }
     @media only screen and (max-width: 86.875em) {
       .user-background-img__image {
         width: 1500px;
         height: 490px; } }
+    @media only screen and (max-width: 37.5em) {
+      .user-background-img__image {
+        width: 400px;
+        height: 250px; } }
 
 .user-image {
   position: relative;
   margin-top: -25vh; }
+  @media only screen and (max-width: 37.5em) {
+    .user-image {
+      margin-top: -15vh; } }
   .user-image__image {
     height: 25rem;
     width: 25rem;

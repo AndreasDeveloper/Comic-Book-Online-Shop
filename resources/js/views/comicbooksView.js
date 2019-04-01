@@ -2,6 +2,7 @@
 import { DOMElements } from './base-views';
 
 // Exporting Function | - Rendering Comicbooks in Shop page
+/*
 export const renderComics = (comic) => {
     const markup = `
     <div class="item">
@@ -15,4 +16,4 @@ export const renderComics = (comic) => {
     </div>
     `;
     DOMElements.shopContainer.insertAdjacentHTML('beforeend', markup);
-};
+}; */

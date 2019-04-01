@@ -24,6 +24,10 @@ module.exports = {
             filename: 'html/shop/index.ejs',
             template: './resources/html/shop/index.ejs'
         }),
+        new HtmlWebpackPlugin({ // SHOP PAGE
+            filename: 'html/shop/shop-item.ejs',
+            template: './resources/html/shop/shop-item.ejs'
+        }),
         new HtmlWebpackPlugin({ // AUTHENTICATION - LOGIN
             filename: 'html/authentication/login.ejs',
             template: './resources/html/authentication/login.ejs'
