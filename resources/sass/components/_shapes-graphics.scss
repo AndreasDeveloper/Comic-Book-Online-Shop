@@ -6,26 +6,22 @@
 .user-image-wrap__circle-1-b {
     border-color: $color-black $color-black $color-black transparent;
     border-width: .125rem;
-    // width: 28rem;
-    // height: 28rem;
-    // top: -1.2rem;
-    // left: -1.3rem;
     width: 27rem;
     height: 27rem;
     top: -1.2rem;
     left: -.9rem;
+    // * -- MEDIA QUERIES -- * \\
+    @media only screen and (max-width: $bp-small) { width: 20rem; height: 20rem; }
 }
 .user-image-wrap__circle-2-b {
     border-color: $color-black transparent $color-black $color-black;
     border-width: .125rem;
-    // width: 29.5rem;
-    // height: 29.5rem;
-    // top: -1.9rem;
-    // left: -1.8rem;
     width: 28.5rem;
     height: 28.5rem;
     top: -1.9rem;
     left: -1.5rem;
+    // * -- MEDIA QUERIES -- * \\
+    @media only screen and (max-width: $bp-small) { width: 21.5rem; height: 21.5rem; }
 }
 
 // === USER IMAGE ROTATING CIRCLES | - SMALL === \\

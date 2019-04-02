@@ -44,6 +44,10 @@
   top: 0;
 	z-index: 1000;
   cursor: pointer;
+  // * -- MEDIA QUERIES -- * \\
+  @media only screen and (max-width: $bp-largest-5) { height: 64.7px; }
+  @media only screen and (max-width: $bp-medium) { height: 50px; }
+  @media only screen and (max-width: $bp-small) { height: 72px; }
 }
 // Hamburger 
 .hamburger:before {
@@ -135,6 +139,9 @@
     justify-content: space-between;
     // * -- MEDIA QUERIES -- * \\
     @media only screen and (max-width: $bp-desktop) { border-top: 73px solid $color-white; }
+    @media only screen and (max-width: $bp-largest-5) { border-top: 64.7px solid $color-white; }
+    @media only screen and (max-width: $bp-medium) { border-top: 58px solid $color-white; }
+    @media only screen and (max-width: $bp-small) { border-top: 70px solid $color-white; }
   }
   
   .menu a.logotype {
@@ -196,7 +203,7 @@
   .user-name {
     font-size: 2rem;
     font-weight: 500;
-    padding-top: 3rem;
+    padding-top: 1.5rem;
   }
   // Image circles \\
   .user-image-wrap__circle-1 {

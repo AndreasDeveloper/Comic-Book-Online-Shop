@@ -38,10 +38,13 @@
     margin-top: -25vh;
     // * -- MEDIA QUERIES -- * \\
     @media only screen and (max-width: $bp-small) { margin-top: -15vh; }
+    // Profile Image
     &__image {
         height: 25rem;
         width: 25rem;  
         border-radius: 50%;
+        // * -- MEDIA QUERIES -- * \\
+        @media only screen and (max-width: $bp-small) { height: 18rem; width: 18rem; }
     }
 }
 

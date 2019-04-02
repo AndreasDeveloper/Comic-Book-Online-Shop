@@ -14,8 +14,21 @@
     <% include ../partials/navigation.ejs %>
 
     <main>
-        <div class="new-wrapper">
-            <h1>Shop Page Index</h1>
+        <div class="standard-wrapper">
+            <header class="shop-index-header">
+                <div class="header-content">
+                    <h1 class="header-content__heading-1">Dive into our universe!</h1>
+                    <h2 class="header-content__heading-2">Search for Comics, Issues, Publishers ..</h2>
+                </div>
+                <div class="header-form">
+                <form action="/shop" class="search-form header-form__form">
+                    <input type="text" name="search" class="search-form__input" placeholder="Search Comics, Issues . .">
+                    <button type="submit" class="search-form__button"><i class="icon ion-ios-search search-form__icon"></i></button>
+                </form>
+                </div>
+            </header>
+            <!-- IMPLEMENTING FOOTER -->
+            <% include ../partials/footer.ejs %>
         </div>
     </main>
 

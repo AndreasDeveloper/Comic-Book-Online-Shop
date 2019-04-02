@@ -13,27 +13,29 @@
     <!-- IMPLEMENTING NAVIGATION -->
     <% include ../partials/navigation.ejs %>
 
-    <div class="standard-wrapper">
-        <header class="user-header">
-            <div class="user-header__images">
-                <div class="user-background-img">
-                    <img data-lazy="<%= currentUser.bkImage %>" class="user-background-img__image">
+    <main>
+        <div class="standard-wrapper">
+            <header class="user-header">
+                <div class="user-header__images">
+                    <div class="user-background-img">
+                        <img data-lazy="<%= currentUser.bkImage %>" class="user-background-img__image">
+                    </div>
+                    <div class="user-image">
+                        <div class="user-image-wrap__circle-1-b"></div>
+                        <div class="user-image-wrap__circle-2-b"></div>
+                        <img data-lazy="<%= currentUser.image %>" class="user-image__image">
+                    </div>
                 </div>
-                <div class="user-image">
-                    <div class="user-image-wrap__circle-1-b"></div>
-                    <div class="user-image-wrap__circle-2-b"></div>
-                    <img data-lazy="<%= currentUser.image %>" class="user-image__image">
+                <div class="user-content">
+                    <h2 class="user-content__username"><%= currentUser.username %></h2>
+                    <p class="user-content__bio-short"><%= currentUser.bioShort %></p>
                 </div>
-            </div>
-            <div class="user-content">
-                <h2 class="user-content__username"><%= currentUser.username %></h2>
-                <p class="user-content__bio-short"><%= currentUser.bioShort %></p>
-            </div>
-        </header>
+            </header>
 
-        <!-- IMPLEMENTING FOOTER -->
-        <% include ../partials/footer.ejs %>
-    </div>
+            <!-- IMPLEMENTING FOOTER -->
+            <% include ../partials/footer.ejs %>
+        </div>
+    </main>
 
 <script type="text/javascript" src="../../js/bundle.js"></script></body>
 </html>

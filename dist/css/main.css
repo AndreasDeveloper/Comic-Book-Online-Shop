@@ -231,6 +231,15 @@ img {
   top: 0;
   z-index: 1000;
   cursor: pointer; }
+  @media only screen and (max-width: 65.625em) {
+    .hamburger {
+      height: 64.7px; } }
+  @media only screen and (max-width: 50em) {
+    .hamburger {
+      height: 50px; } }
+  @media only screen and (max-width: 37.5em) {
+    .hamburger {
+      height: 72px; } }
 
 .hamburger:before {
   content: "\2630";
@@ -322,6 +331,15 @@ img {
   @media only screen and (max-width: 86.875em) {
     .overflow-container {
       border-top: 73px solid #fff; } }
+  @media only screen and (max-width: 65.625em) {
+    .overflow-container {
+      border-top: 64.7px solid #fff; } }
+  @media only screen and (max-width: 50em) {
+    .overflow-container {
+      border-top: 58px solid #fff; } }
+  @media only screen and (max-width: 37.5em) {
+    .overflow-container {
+      border-top: 70px solid #fff; } }
 
 .menu a.logotype {
   position: absolute !important;
@@ -376,7 +394,7 @@ img {
 .user-name {
   font-size: 2rem;
   font-weight: 500;
-  padding-top: 3rem; }
+  padding-top: 1.5rem; }
 
 .user-image-wrap__circle-1 {
   position: absolute;
@@ -774,6 +792,10 @@ textarea {
   height: 27rem;
   top: -1.2rem;
   left: -.9rem; }
+  @media only screen and (max-width: 37.5em) {
+    .user-image-wrap__circle-1-b {
+      width: 20rem;
+      height: 20rem; } }
 
 .user-image-wrap__circle-2-b {
   border-color: #000 transparent #000 #000;
@@ -782,6 +804,10 @@ textarea {
   height: 28.5rem;
   top: -1.9rem;
   left: -1.5rem; }
+  @media only screen and (max-width: 37.5em) {
+    .user-image-wrap__circle-2-b {
+      width: 21.5rem;
+      height: 21.5rem; } }
 
 .user-image-wrap__circle-1 {
   border-color: #fff #fff #fff transparent;
@@ -1161,7 +1187,7 @@ textarea {
 
 .shop {
   position: relative;
-  min-height: 100vh;
+  min-height: 50vh;
   margin-bottom: 5vh; }
 
 .shop-container {
@@ -1388,6 +1414,74 @@ textarea {
     font-weight: 400;
     align-self: center; }
 
+.shop-index-header {
+  position: relative;
+  min-height: 70vh;
+  background-image: url(/img/bk-4.png);
+  background-position: center;
+  background-size: cover; }
+  @media only screen and (max-width: 65.625em) {
+    .shop-index-header {
+      min-height: 80vh; } }
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  @media only screen and (max-width: 50em) {
+    .header-content {
+      top: 35%; } }
+  @media only screen and (max-width: 37.5em) {
+    .header-content {
+      top: 40%; } }
+  .header-content__heading-1 {
+    font-size: 4rem;
+    font-weight: 500; }
+    @media only screen and (max-width: 65.625em) {
+      .header-content__heading-1 {
+        font-size: 8rem; } }
+    @media only screen and (max-width: 50em) {
+      .header-content__heading-1 {
+        font-size: 6rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .header-content__heading-1 {
+        font-size: 3.5rem; } }
+  .header-content__heading-2 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-top: .6rem; }
+    @media only screen and (max-width: 65.625em) {
+      .header-content__heading-2 {
+        font-size: 2.6rem; } }
+    @media only screen and (max-width: 50em) {
+      .header-content__heading-2 {
+        font-size: 2.2rem; } }
+  .header-content__heading-1, .header-content__heading-2 {
+    color: #fff; }
+    @media only screen and (max-width: 65.625em) {
+      .header-content__heading-1, .header-content__heading-2 {
+        text-align: center; } }
+
+.header-form {
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; }
+  @media only screen and (max-width: 65.625em) {
+    .header-form {
+      width: 160%; } }
+  @media only screen and (max-width: 37.5em) {
+    .header-form {
+      width: 45%;
+      top: 65%;
+      left: 45%; } }
+
 /* -------------------------- */
 /*      - SIGN UP PAGE -
 /* -------------------------- */
@@ -1529,6 +1623,10 @@ textarea {
     height: 25rem;
     width: 25rem;
     border-radius: 50%; }
+    @media only screen and (max-width: 37.5em) {
+      .user-image__image {
+        height: 18rem;
+        width: 18rem; } }
 
 .user-content {
   display: flex;
