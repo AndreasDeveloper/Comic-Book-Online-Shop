@@ -23,11 +23,33 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: relative;
+    justify-content: flex-end;
+    width: 30%;
+    // Anchor tags
     a { 
         font-weight: 400;
         font-size: 1.3rem;
         text-decoration: none;
         color: $color-black; 
         padding: 0 1.5rem;
+    }
+    // Authentication part
+    &__auth-li { // Log In
+        border-left: .1rem solid $color-black;
+    }
+    &__auth-su { // Sign Up
+        border-radius: 10rem;
+        padding: .75rem !important;
+        text-align: center;
+        cursor: pointer;
+        border: .1rem solid $color-primary;
+        transition: all .2s ease-in-out;
+        width: 20%;
+        // On Hover
+        &:hover { background-color: $color-primary; color: $color-white; }
+    }
+    &__auth-lo { // Log Out
+        border-left: .1rem solid $color-black;
     }
 }

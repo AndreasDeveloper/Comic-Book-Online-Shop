@@ -14,7 +14,11 @@
     <% include ../partials/navigation.ejs %>
 
     <main>
+        <% if (!currentUser) { %>
+        <div class="standard-wrapper" style="padding-left: 0;">
+        <% } else { %>
         <div class="standard-wrapper">
+        <% }; %>
             <header class="shop-index-header">
                 <div class="header-content">
                     <h1 class="header-content__heading-1">Dive into our universe!</h1>

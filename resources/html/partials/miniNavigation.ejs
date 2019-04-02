@@ -10,13 +10,16 @@
             </nav>
             <div class="top-nav">
                 <% if (!currentUser) { %>
-                    <a href="/user-profile" class="user-nav__link">My Profile</a>
-                    <a href="/shop" class="user-nav__link">Shop</a>
-                    <a href="/contact" class="user-nav__link">Contact</a> 
+                    <a href="/user-profile" class="top-nav__link">My Profile</a>
+                    <a href="/shop" class="top-nav__link">Shop</a>
+                    <a href="/contact" class="top-nav__link">Contact</a> 
+                    <a href="/login" class="top-nav__link top-nav__auth-li">Log In</a>
+                    <a href="/signup" class="top-nav__link top-nav__auth-su">Sign Up</a>
                 <% } else { %>
-                    <a href="/user-profile" class="user-nav__link"><%= currentUser.username %></a>
-                    <a href="/shop" class="user-nav__link">Shop</a>
-                    <a href="/contact" class="user-nav__link">Contact</a> 
+                    <a href="/user-profile" class="top-nav__link"><%= currentUser.username %></a>
+                    <a href="/shop" class="top-nav__link">Shop</a>
+                    <a href="/contact" class="top-nav__link">Contact</a> 
+                    <a href="/logout" class="top-nav__link top-nav__auth-lo">Log Out</a>
                 <% } %>
             </div>
         </div>
