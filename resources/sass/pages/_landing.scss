@@ -157,14 +157,15 @@
     align-items: center;
     min-height: 18vh;
     margin-top: 2rem;
+    @media only screen and (max-width: $bp-small) { margin-top: 0; }
 }
 .l-partners-content {
     display: flex;
     flex-direction: row;
     align-items: center;
     // -- MEDIA QUERIE -- \\
-    @media only screen and (max-width: $bp-small) { flex-direction: column; }
-
+    @media only screen and (max-width: $bp-small) {  }
+    // Images
     img { 
         filter: grayscale(100%); 
         margin: 0 5rem; 
@@ -172,11 +173,23 @@
         cursor: pointer;
         &:hover { filter: grayscale(0%); }
         // -- MEDIA QUERIE -- \\
-        @media only screen and (max-width: $bp-small) { margin: 3rem 5rem; }
+        @media only screen and (max-width: $bp-small) { margin: 3rem 2rem; }
     }
-    &__img-1 { width: 15rem; height: 5rem; }
-    &__img-2 { width: 10rem; height: 10rem; }
-    &__img-3 { width: 10rem; height: 10rem; }
-    &__img-4 { width: 15rem; height: 5rem; }
+    &__img-1 { // PayPal
+        width: 15rem; height: 5rem; 
+        @media only screen and (max-width: $bp-small) { width: 9rem; height: 3rem; }
+    }
+    &__img-2 { // Marvel
+        width: 10rem; height: 10rem; 
+        @media only screen and (max-width: $bp-small) { width: 5rem; height: 5rem; }
+    }
+    &__img-3 { // DC Comics
+        width: 10rem; height: 10rem; 
+        @media only screen and (max-width: $bp-small) { width: 5rem; height: 5rem; }
+    }
+    &__img-4 { // Dark Horse Comics
+        width: 15rem; height: 5rem; 
+        @media only screen and (max-width: $bp-small) { width: 9rem; height: 3rem; }
+    }
     &__img-1, &__img-2, &__img-3, &__img-4 { opacity: 1; }
 }

@@ -918,6 +918,9 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: center; }
+    @media only screen and (max-width: 37.5em) {
+      .footer-content__left, .footer-content__right {
+        margin: 0; } }
 
 /* -------------------------- */
 /*      - LANDING PAGE -
@@ -1063,14 +1066,14 @@ textarea {
   align-items: center;
   min-height: 18vh;
   margin-top: 2rem; }
+  @media only screen and (max-width: 37.5em) {
+    .l-partners {
+      margin-top: 0; } }
 
 .l-partners-content {
   display: flex;
   flex-direction: row;
   align-items: center; }
-  @media only screen and (max-width: 37.5em) {
-    .l-partners-content {
-      flex-direction: column; } }
   .l-partners-content img {
     filter: grayscale(100%);
     margin: 0 5rem;
@@ -1080,19 +1083,35 @@ textarea {
       filter: grayscale(0%); }
     @media only screen and (max-width: 37.5em) {
       .l-partners-content img {
-        margin: 3rem 5rem; } }
+        margin: 3rem 2rem; } }
   .l-partners-content__img-1 {
     width: 15rem;
     height: 5rem; }
+    @media only screen and (max-width: 37.5em) {
+      .l-partners-content__img-1 {
+        width: 9rem;
+        height: 3rem; } }
   .l-partners-content__img-2 {
     width: 10rem;
     height: 10rem; }
+    @media only screen and (max-width: 37.5em) {
+      .l-partners-content__img-2 {
+        width: 5rem;
+        height: 5rem; } }
   .l-partners-content__img-3 {
     width: 10rem;
     height: 10rem; }
+    @media only screen and (max-width: 37.5em) {
+      .l-partners-content__img-3 {
+        width: 5rem;
+        height: 5rem; } }
   .l-partners-content__img-4 {
     width: 15rem;
     height: 5rem; }
+    @media only screen and (max-width: 37.5em) {
+      .l-partners-content__img-4 {
+        width: 9rem;
+        height: 3rem; } }
   .l-partners-content__img-1, .l-partners-content__img-2, .l-partners-content__img-3, .l-partners-content__img-4 {
     opacity: 1; }
 
@@ -1178,11 +1197,11 @@ textarea {
       height: 70vh; } }
   @media only screen and (max-width: 37.5em) {
     .login-left, .login-right {
-      height: 60vh;
+      min-height: 60vh;
       width: 100%; } }
   @media only screen and (max-width: 20.9375em) {
     .login-left, .login-right {
-      height: 70vh; } }
+      min-height: 70vh; } }
 
 .login-form {
   display: flex;
@@ -1567,11 +1586,11 @@ textarea {
       height: 70vh; } }
   @media only screen and (max-width: 37.5em) {
     .signup-left, .signup-right {
-      height: 80vh;
+      min-height: 60vh;
       width: 100%; } }
   @media only screen and (max-width: 20.9375em) {
     .signup-left, .signup-right {
-      height: 90vh; } }
+      min-height: 90vh; } }
 
 .signup-form {
   display: flex;

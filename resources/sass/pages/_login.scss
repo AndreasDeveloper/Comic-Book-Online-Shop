@@ -103,8 +103,8 @@
     width: 50%;
     // -- MEDIA QUERIES -- \\
     @media only screen and (max-width: $bp-largest-5) { height: 70vh; }
-    @media only screen and (max-width: $bp-small) { height: 60vh; width: 100%; }
-    @media only screen and (max-width: $bp-vsmall-4) { height: 70vh; }
+    @media only screen and (max-width: $bp-small) { min-height: 60vh; width: 100%; }
+    @media only screen and (max-width: $bp-vsmall-4) { min-height: 70vh; }
 }
 
 // Log In Form

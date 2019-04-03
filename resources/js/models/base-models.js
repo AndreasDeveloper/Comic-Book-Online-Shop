@@ -7,13 +7,15 @@ import { DOMElements } from '../views/base-views';
 
 // ** --- SIDE NAVIGATION | - Logic --- ** \\
 export const sideNavigation = (() => {
-    // - Event Listener - | Navigation on click
-    DOMElements.navigationMain.addEventListener('click', e => {
-        e.preventDefault();
-        
-        DOMElements.html.classList.toggle('openNav');
-        //DOMElements.navigation.classList.toggle('active');
-    });
+    if (DOMElements.navigationMain) {
+        // - Event Listener - | Navigation on click
+        DOMElements.navigationMain.addEventListener('click', e => {
+            e.preventDefault();
+            
+            DOMElements.html.classList.toggle('openNav');
+            //DOMElements.navigation.classList.toggle('active');
+        });
+    }
 })();
 
 // ** --- IMAGE OBSERVING | OPTIMIZATION | LAZY LOAD --- ** \\
@@ -29,6 +31,7 @@ export const lazyImageLoad = (() => {
                     const src = img.getAttribute('data-lazy');
                     // Setting attribute to src and adding fade class (effect/transition)
                     img.setAttribute('src', src);
+                    img.removeAttribute('data-lazy', src);
                     img.classList.add('fade');
                     // After everything is done, observer will disconnect
                     observer.disconnect();

@@ -2,7 +2,7 @@
 import '../sass/main.scss';
 // * --- Importing JS Files --- * \\
 import { elements } from './views/base-views';
-import { sideNavigation } from './models/base-models';
+import { sideNavigation, lazyImageLoad } from './models/base-models';
 import Cart from './models/Cart';
 import Comicbooks from './models/Comicbooks';
 import * as comicbooksView from './views/comicbooksView'; 
@@ -34,8 +34,8 @@ window.addEventListener('load', () => controlComicbooks());
 // --------------------------------------------
 //  CART FUNCTION | CONTROLLER
 // --------------------------------------------
-elements.buyItemBtn.addEventListener('click', () => {
-    if (!state.cart) state.cart = new Cart();
+// elements.buyItemBtn.addEventListener('click', () => {
+//     if (!state.cart) state.cart = new Cart();
 
-    cartView.renderCart();
-});
+//     cartView.renderCart();
+// });
