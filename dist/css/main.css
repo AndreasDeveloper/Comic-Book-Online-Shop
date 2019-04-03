@@ -301,7 +301,7 @@ img {
   padding: 15rem 4rem 0 5rem; }
   @media only screen and (max-width: 37.5em) {
     .new-wrapper {
-      padding: 15rem 0 0 0; } }
+      padding: 15rem 0 0 3rem; } }
 
 .openNav .new-wrapper {
   position: absolute;
@@ -318,6 +318,9 @@ img {
   transition: all 0.45s cubic-bezier(0.77, 0, 0.175, 1);
   background-color: #000;
   z-index: 999; }
+  @media only screen and (max-width: 37.5em) {
+    .menu {
+      width: 238px; } }
 
 .overflow-container {
   position: relative;
@@ -751,6 +754,9 @@ textarea {
   position: relative;
   justify-content: flex-end;
   width: 30%; }
+  @media only screen and (max-width: 37.5em) {
+    .top-nav {
+      width: 100%; } }
   .top-nav a {
     font-weight: 400;
     font-size: 1.3rem;
@@ -770,6 +776,9 @@ textarea {
     .top-nav__auth-su:hover {
       background-color: #c69963;
       color: #fff; }
+    @media only screen and (max-width: 37.5em) {
+      .top-nav__auth-su {
+        padding: .5rem !important; } }
   .top-nav__auth-lo {
     border-left: 0.1rem solid #000; }
 
@@ -1456,7 +1465,11 @@ textarea {
   min-height: 70vh;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35)), url(/img/bk-4.png);
   background-position: center;
-  background-size: cover; }
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center; }
   @media only screen and (max-width: 65.625em) {
     .shop-index-header {
       min-height: 80vh; } }
@@ -1464,17 +1477,7 @@ textarea {
 .header-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-  @media only screen and (max-width: 50em) {
-    .header-content {
-      top: 35%; } }
-  @media only screen and (max-width: 37.5em) {
-    .header-content {
-      top: 40%; } }
+  align-items: center; }
   .header-content__heading-1 {
     font-size: 4rem;
     font-weight: 500; }
@@ -1504,20 +1507,14 @@ textarea {
         text-align: center; } }
 
 .header-form {
-  position: absolute;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: -15vh;
   width: 100%; }
   @media only screen and (max-width: 65.625em) {
     .header-form {
       width: 160%; } }
   @media only screen and (max-width: 37.5em) {
     .header-form {
-      width: 45%;
-      top: 65%;
-      left: 45%; } }
+      width: 45%; } }
 
 /* -------------------------- */
 /*      - SIGN UP PAGE -
@@ -1586,7 +1583,7 @@ textarea {
       height: 70vh; } }
   @media only screen and (max-width: 37.5em) {
     .signup-left, .signup-right {
-      min-height: 60vh;
+      min-height: 80vh;
       width: 100%; } }
   @media only screen and (max-width: 20.9375em) {
     .signup-left, .signup-right {

@@ -3,14 +3,13 @@
         <div class="secondary-nav mini-second-nav">
             <nav role="navigation" class="top-menu">
                 <a href="/" class="logotype">COMIC<span>BOOK</span></a> <!-- LOGO -->
-                <form action="/shop" class="search-form mini-search-form">
-                    <input type="text" name="search" class="search-form__input" placeholder="Search Comics, Issues . .">
-                    <button type="submit" class="search-form__button"><i class="icon ion-ios-search search-form__icon"></i></button>
-                </form>
+                    <form action="/shop" class="search-form mini-search-form">
+                        <input type="text" name="search" class="search-form__input" placeholder="Search Comics, Issues . .">
+                        <button type="submit" class="search-form__button"><i class="icon ion-ios-search search-form__icon"></i></button>
+                    </form>
             </nav>
             <div class="top-nav">
                 <% if (!currentUser) { %>
-                    <a href="/user-profile" class="top-nav__link">My Profile</a>
                     <a href="/shop" class="top-nav__link">Shop</a>
                     <a href="/contact" class="top-nav__link">Contact</a> 
                     <a href="/login" class="top-nav__link top-nav__auth-li">Log In</a>

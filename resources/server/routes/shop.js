@@ -37,7 +37,7 @@ router.get('/shop', (req, res) => {
         Comicbook.find({}, (err, allComicbooks) => {
             if (!err) {
                 // Render Data
-                res.render((`${__dirname}/../../../dist/html/shop/index.ejs`), {comicbooks: allComicbooks, currentUser: userBody, noMatch: noMatch});
+                res.render((`${__dirname}/../../../dist/html/shop/index.ejs`), {comicbooks: allComicbooks, currentUser: userBody, noMatch: noMatch });
             } else {
                 throw new Error(err);
             }

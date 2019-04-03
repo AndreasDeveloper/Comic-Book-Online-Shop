@@ -26,6 +26,7 @@
     position: relative;
     justify-content: flex-end;
     width: 30%;
+    @media only screen and (max-width: $bp-small) { width: 100%; }
     // Anchor tags
     a { 
         font-weight: 400;
@@ -48,6 +49,8 @@
         width: 20%;
         // On Hover
         &:hover { background-color: $color-primary; color: $color-white; }
+        // Media queries
+        @media only screen and (max-width: $bp-small) { padding: .5rem !important; }
     }
     &__auth-lo { // Log Out
         border-left: .1rem solid $color-black;
