@@ -6,8 +6,8 @@ const path = require('path');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 // - User Profile - \\
-router.get('/user-profile', authMiddleware.isLoggedIn, (req, res) => {
-    res.render(path.resolve(`${__dirname}/../../../dist/html/user-profile/user-profile.ejs`));
+router.get('/user-profile/:username', authMiddleware.isLoggedIn, (req, res) => {
+    res.render(`${__dirname}/../../../dist/html/user-profile/user-profile.ejs`);
 });
 
 // Exporting User Profiles Router

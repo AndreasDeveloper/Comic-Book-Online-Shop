@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+    <title><%= currentUser.username %> Profile Settings - Comicbook</title>
+<link href="../../css/main.css" rel="stylesheet"></head>
+<body>
+
+    <!-- IMPLEMENTING NAVIGATION -->
+    <% include ../partials/navigation.ejs %>
+
+    <main>
+    <div class="standard-wrapper">
+        
+        <section class="user-settings">
+            <div class="settings-content">
+                <h2 class="signup-right__content__heading-1">Edit Profile</h2>
+                <form action="/user-profile/<%=user.username.toLowerCase()%>?_method=PUT" method="POST" class="signup-form" enctype="multipart/form-data">
+                    <input type="text" name="user[username]" value="<%= user.username %>" required>
+                    <input type="email" name="user[email]" value="<%= user.email %>" required>
+                    <input type="text" name="user[bioShort]" value="<%= user.bioShort %>" required>
+                    <div class="signup-form__image-upload">
+                        <input type="file" id="image" name="user[image]" accept="image/*" required disabled>
+                        <label for="image">Profile Image</label>
+                    </div>
+                    <div class="signup-form__image-upload">
+                        <input type="file" id="bkImage" name="user[bkImage]" accept="image/*" required disabled>
+                        <label for="bkImage">Background Image</label>
+                    </div>
+                    <input type="password" name="user[password]" value="<%= user.password %>" required>
+                    <button type="submit" class="btn btn-login">Save Changes</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- IMPLEMENTING FOOTER -->
+        <% include ../partials/footer.ejs %>
+    </div>
+</main>
+
+<script type="text/javascript" src="../../js/bundle.js"></script></body>
+</html>

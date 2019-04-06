@@ -40,6 +40,10 @@ module.exports = {
             filename: 'html/user-profile/user-profile.ejs',
             template: './resources/html/user-profile/user-profile.ejs'
         }),
+        new HtmlWebpackPlugin({ // USER PROFILE SETTINGS
+            filename: 'html/user-profile/settings.ejs',
+            template: './resources/html/user-profile/settings.ejs'
+        }),
         new HtmlWebpackPlugin({ // NAVIGATION PARTIAL
             filename: 'html/partials/navigation.ejs',
             template: './resources/html/partials/navigation.ejs',

@@ -27,9 +27,10 @@ const imageFilter = (req, file, cb) => {
 // All-In-One object
 const upload = multer({ storage: storage, fileFilter: imageFilter, limits: { fileSize: 1000000 } });
   
+
 // - GET - Sign Up Page | - Displays page to sign up - \\
 router.get('/signup', (req, res) => {
-    res.render(path.resolve(`${__dirname}/../../../dist/html/authentication/signup.ejs`));
+    res.render(`${__dirname}/../../../dist/html/authentication/signup.ejs`);
 });
 
 // - POST - Creates new User | - Create New User - \\
@@ -43,6 +44,7 @@ router.post('/signup', upload.fields([{name: 'image', maxCount: 1}, {name: 'bkIm
                 // User body as object
                 const userBody = {
                     username: req.body.username,
+                    usernameUrl: req.body.username,
                     email: req.body.email,
                     bioShort: req.body.bioShort,
                     image: req.body.image,
@@ -53,7 +55,7 @@ router.post('/signup', upload.fields([{name: 'image', maxCount: 1}, {name: 'bkIm
                 await User.register(new User(userBody), userBody.password, async (err, user) => {
                     try {
                         await passport.authenticate('local')(req, res, () => { // Local Authentication
-                            res.redirect('/user-profile');
+                            res.redirect(`/user-profile/${req.user.usernameUrl.toLowerCase()}`);
                         });
                     } catch(err) {
                         throw new Error(err);
@@ -68,14 +70,13 @@ router.post('/signup', upload.fields([{name: 'image', maxCount: 1}, {name: 'bkIm
 
 // - GET - Log In Page | - Displays page to log in - \\
 router.get('/login', (req, res) => {
-    res.render(path.resolve(`${__dirname}/../../../dist/html/authentication/login.ejs`));
+    res.render(`${__dirname}/../../../dist/html/authentication/login.ejs`);
 });
 
 // - POST - Log In User | - Login's user - \\
-router.post('/login', passport.authenticate('local', { 
-    successRedirect: '/user-profile', 
-    failureRedirect: '/login' }), 
+router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }),
     (req, res) => {
+        res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
 });
 
 // --- LOGOUT SETUP --- \\

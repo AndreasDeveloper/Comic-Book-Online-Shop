@@ -5,6 +5,7 @@ const mongoose = require('mongoose'),
 // -- User Schema -- \\
 const UserSchema = new mongoose.Schema({
     username: String,
+    usernameUrl: String,
     email: String,
     bioShort: String,
     image: String,

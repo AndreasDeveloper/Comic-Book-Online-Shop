@@ -8,7 +8,7 @@
         <a href="/" class="logotype">COMIC<span>BOOK</span></a> <!-- LOGO -->
         <div class="overflow-container">
             <div class="user-mini-nav"> <!-- Small user nav -->
-                    <a href="/user-profile">
+                    <a href="/user-profile/<%= currentUser.username.toLowerCase() %>">
                         <div class="user-image-wrap">
                             <div class="user-image-wrap__circle-1"></div>
                             <div class="user-image-wrap__circle-2"></div>
@@ -21,7 +21,7 @@
                 <li><a href="/" class="slide-effect">Home</a><i class="icon ion-ios-home menu-i"></i></li>
                 <li><a href="/shop" class="slide-effect">Shop</a><i class="icon ion-ios-cash menu-i"></i></li>
                 <li><a href="#" class="slide-effect">Wishlist</a><i class="icon ion-ios-heart menu-i"></i></li>
-                <li><a href="#" class="slide-effect">Settings</a><i class="icon ion-ios-settings menu-i"></i></li>
+                <li><a href="/settings/<%= currentUser.username.toLowerCase() %>" class="slide-effect">Settings</a><i class="icon ion-ios-settings menu-i"></i></li>
             </ul>
             <div class="log-out">
                 <a href="/logout" class="log-out__text"><i class="icon ion-ios-log-out"></i>Log Out</a>
@@ -126,7 +126,7 @@
             <!-- NOTIFICATIONSS | END-->
             <div class="user-nav__user">
                     <% if (currentUser) { %>
-                    <a href="/user-profile" class="user-nav__link-wrap">
+                    <a href="/user-profile/<%= currentUser.username.toLowerCase() %>" class="user-nav__link-wrap">
                         <img data-lazy="<%= currentUser.image %>" alt="User Photo" class="user-nav__user-photo">
                         <span class="user-nav__user-name"><%= currentUser.username %></span>
                     </a>
