@@ -27,6 +27,9 @@
         </div>
         <!-- SEARCH RESULTS | END -->
         <!-- SHOP | START -->
+        <% if (noMatch !== undefined) { %>
+        <h2 class="no-match"><%= noMatch %></h2>
+    <% } %>
         <section class="shop">
             <div class="shop-container">
                 <!-- ITEM 1 EJS WAY -->

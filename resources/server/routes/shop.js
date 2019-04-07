@@ -12,7 +12,7 @@ const escapeRegex = require('../../js/utilities/regex-escape');
 // GET - Shop Index Page | - Displaying shopping index page - \\
 router.get('/shop', (req, res) => {
     // Declaring variable
-    let noMatch = '';
+    let noMatch = null;
     if (req.query.search) {
         // Declaring query based/search variables
         const searchQuery = req.query.search,

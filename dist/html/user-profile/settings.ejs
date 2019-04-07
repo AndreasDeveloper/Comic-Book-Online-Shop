@@ -19,19 +19,22 @@
         <section class="user-settings">
             <div class="settings-content">
                 <h2 class="settings-content__heading">Edit Profile</h2>
-                <form action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" class="signup-form" enctype="multipart/form-data">
+                <form action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" class="edit-form" enctype="multipart/form-data">
                     <input type="text" name="userData[username]" value="<%= userData.username %>" required>
                     <input type="email" name="userData[email]" value="<%= userData.email %>" required>
                     <input type="text" name="userData[bioShort]" value="<%= userData.bioShort %>" required>
-                    <div class="signup-form__image-upload">
+                    <div class="edit-form__image-upload">
                         <input type="file" id="image" name="userData[image]" accept="image/*" required disabled>
                         <label for="image">Profile Image</label>
                     </div>
-                    <div class="signup-form__image-upload">
+                    <div class="edit-form__image-upload">
                         <input type="file" id="bkImage" name="userData[bkImage]" accept="image/*" required disabled>
                         <label for="bkImage">Background Image</label>
                     </div>
-                    <input type="password" name="userData[password]" value="<%= userData.password %>" required>
+                    <div class="edit-form__password">
+                        <input type="password" name="userData[password]" value="<%= userData.password %>" required>
+                        <i class="icon ion-ios-eye-off"></i>
+                    </div>
                     <button type="submit" class="btn btn-login">Save Changes</button>
                 </form>
             </div>

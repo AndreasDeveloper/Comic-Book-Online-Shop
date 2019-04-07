@@ -84,8 +84,8 @@
     @media only screen and (max-width: $bp-vsmall-4) { min-height: 90vh; }
 }
 
-// Log In Form
-.signup-form {
+// Sign Up Form
+.signup-form, .edit-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,4 +122,22 @@
     }
     // Submit Form Button
     button { margin-top: 2rem; }
+}
+
+// Edit Form
+.edit-form {
+    // Password Field
+    &__password {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        // Icon
+        i {
+            position: absolute;
+            left: 95%;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
 }

@@ -152,10 +152,10 @@ body {
   transition: all .1s ease-in-out; }
   @media only screen and (max-width: 37.5em) {
     .btn-login {
-      width: 40%; } }
+      width: 50%; } }
   @media only screen and (max-width: 20.9375em) {
     .btn-login {
-      width: 50%; } }
+      width: 65%; } }
   .btn-login:hover {
     background-color: #B28451; }
 
@@ -311,7 +311,7 @@ img {
 
 .standard-wrapper {
   position: absolute;
-  left: 00px;
+  left: 0px;
   width: calc(100% - 0px);
   transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
   padding: 6rem 0rem 0 0rem; }
@@ -327,6 +327,9 @@ img {
   transform: translate3d(250px, 0, 0);
   width: calc(100% - 0px);
   transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1); }
+  @media only screen and (max-width: 37.5em) {
+    .openNav .standard-wrapper {
+      transform: translate3d(238px, 0, 0); } }
 
 .menu {
   position: absolute;
@@ -1608,12 +1611,12 @@ textarea {
     .signup-left, .signup-right {
       min-height: 90vh; } }
 
-.signup-form {
+.signup-form, .edit-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%; }
-  .signup-form input {
+  .signup-form input, .edit-form input {
     background-color: #ecf0f1;
     border: .1rem solid transparent;
     font-size: 1.2rem;
@@ -1622,21 +1625,32 @@ textarea {
     outline: none;
     transition: all .2s ease-in-out;
     width: 100%; }
-    .signup-form input:focus {
+    .signup-form input:focus, .edit-form input:focus {
       border: 0.1rem solid #c69963; }
-  .signup-form__image-upload {
+  .signup-form__image-upload, .edit-form__image-upload {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%; }
-    .signup-form__image-upload input {
+    .signup-form__image-upload input, .edit-form__image-upload input {
       width: 65%; }
-    .signup-form__image-upload label {
+    .signup-form__image-upload label, .edit-form__image-upload label {
       font-size: 1.2rem;
       margin-left: 1rem;
       margin: 0 auto; }
-  .signup-form button {
+  .signup-form button, .edit-form button {
     margin-top: 2rem; }
+
+.edit-form__password {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%; }
+  .edit-form__password i {
+    position: absolute;
+    left: 95%;
+    font-size: 2rem;
+    cursor: pointer; }
 
 .user-header {
   position: relative;
@@ -1706,7 +1720,7 @@ textarea {
       margin: 5rem 20rem; } }
   @media only screen and (max-width: 37.5em) {
     .settings-content {
-      margin: 10rem 5rem; } }
+      margin: 10rem 10rem; } }
   .settings-content__heading {
     font-size: 3.6rem;
     color: #000;
