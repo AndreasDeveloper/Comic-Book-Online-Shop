@@ -15,23 +15,23 @@
 
     <main>
     <div class="standard-wrapper">
-        
+
         <section class="user-settings">
             <div class="settings-content">
-                <h2 class="signup-right__content__heading-1">Edit Profile</h2>
-                <form action="/user-profile/<%=user.username.toLowerCase()%>?_method=PUT" method="POST" class="signup-form" enctype="multipart/form-data">
-                    <input type="text" name="user[username]" value="<%= user.username %>" required>
-                    <input type="email" name="user[email]" value="<%= user.email %>" required>
-                    <input type="text" name="user[bioShort]" value="<%= user.bioShort %>" required>
+                <h2 class="settings-content__heading">Edit Profile</h2>
+                <form action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" class="signup-form" enctype="multipart/form-data">
+                    <input type="text" name="userData[username]" value="<%= userData.username %>" required>
+                    <input type="email" name="userData[email]" value="<%= userData.email %>" required>
+                    <input type="text" name="userData[bioShort]" value="<%= userData.bioShort %>" required>
                     <div class="signup-form__image-upload">
-                        <input type="file" id="image" name="user[image]" accept="image/*" required disabled>
+                        <input type="file" id="image" name="userData[image]" accept="image/*" required disabled>
                         <label for="image">Profile Image</label>
                     </div>
                     <div class="signup-form__image-upload">
-                        <input type="file" id="bkImage" name="user[bkImage]" accept="image/*" required disabled>
+                        <input type="file" id="bkImage" name="userData[bkImage]" accept="image/*" required disabled>
                         <label for="bkImage">Background Image</label>
                     </div>
-                    <input type="password" name="user[password]" value="<%= user.password %>" required>
+                    <input type="password" name="userData[password]" value="<%= userData.password %>" required>
                     <button type="submit" class="btn btn-login">Save Changes</button>
                 </form>
             </div>

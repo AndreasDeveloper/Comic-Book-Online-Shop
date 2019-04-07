@@ -66,6 +66,9 @@
     background-color: $color-primary;
     color: $color-white;
     transition: all .1s ease-in-out;
+    // ** -- MEDIA QUERIES -- ** \\
+    @media only screen and (max-width: $bp-small) { width: 40%; }
+    @media only screen and (max-width: $bp-vsmall-4) { width: 50%; }
     // On Hover
     &:hover { background-color: $color-primary-light; }
 }

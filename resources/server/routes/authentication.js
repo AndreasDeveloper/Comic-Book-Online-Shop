@@ -33,36 +33,41 @@ router.get('/signup', (req, res) => {
     res.render(`${__dirname}/../../../dist/html/authentication/signup.ejs`);
 });
 
+// - * Helper Functions For POST Req * - \\
+const cloudinaryParallelFirst = (req) => { // Cloudinary parallel image upload #1
+    return cloudinary.uploader.upload(req.files.image[0].path);
+};
+const cloudinaryParallelSecond = (req) => { // Cloudinary parallel image upload #2
+    return cloudinary.uploader.upload(req.files.bkImage[0].path);
+};
+const userRegisterFun = (req, res, userBody) => { // Passport user register function with authentication
+    return User.register(new User(userBody), userBody.password, async (err, user) => {
+        passport.authenticate('local')(req, res, () => { // Local Authentication
+            res.redirect(`/user-profile/${req.user.usernameUrl.toLowerCase()}`);
+        });
+    });
+};
+
 // - POST - Creates new User | - Create New User - \\
 router.post('/signup', upload.fields([{name: 'image', maxCount: 1}, {name: 'bkImage', maxCount: 1}]), async (req, res) => {
     try {
-        await cloudinary.uploader.upload(req.files.image[0].path, async (result) => {
-            await cloudinary.uploader.upload(req.files.bkImage[0].path, async (result2) => { // Parallel cloudinary image upload
-                // Adding cloudinary url for the images to the user object under image & bkImage property
-                req.body.image = result.secure_url;
-                req.body.bkImage = result2.secure_url;
-                // User body as object
-                const userBody = {
-                    username: req.body.username,
-                    usernameUrl: req.body.username,
-                    email: req.body.email,
-                    bioShort: req.body.bioShort,
-                    image: req.body.image,
-                    bkImage: req.body.bkImage,
-                    password: req.body.password
-                };
-                // Register new user with provided elements
-                await User.register(new User(userBody), userBody.password, async (err, user) => {
-                    try {
-                        await passport.authenticate('local')(req, res, () => { // Local Authentication
-                            res.redirect(`/user-profile/${req.user.usernameUrl.toLowerCase()}`);
-                        });
-                    } catch(err) {
-                        throw new Error(err);
-                    }
-                });
-            });
-        });
+        const cloudinaryRes1 = await cloudinaryParallelFirst(req);
+        const cloudinaryRes2 = await cloudinaryParallelSecond(req);
+        // Adding cloudinary url for the images to the user object under image & bkImage property
+        req.body.image = cloudinaryRes1.secure_url;
+        req.body.bkImage = cloudinaryRes2.secure_url;
+        // User body as object
+        const userBody = {
+              username: req.body.username,
+              usernameUrl: req.body.username,
+              email: req.body.email,
+              bioShort: req.body.bioShort,
+              image: req.body.image,
+              bkImage: req.body.bkImage,
+              password: req.body.password
+            };
+        // Registering user
+        const registeredUser = await userRegisterFun(req, res, userBody);
     } catch (error) {
         console.error(error);
     }

@@ -150,6 +150,12 @@ body {
   background-color: #c69963;
   color: #fff;
   transition: all .1s ease-in-out; }
+  @media only screen and (max-width: 37.5em) {
+    .btn-login {
+      width: 40%; } }
+  @media only screen and (max-width: 20.9375em) {
+    .btn-login {
+      width: 50%; } }
   .btn-login:hover {
     background-color: #B28451; }
 
@@ -1671,4 +1677,30 @@ textarea {
     font-size: 5rem;
     font-weight: 500;
     margin-top: 3rem; }
+
+/* -------------------------- */
+/*    - USER SETTINGS PAGE -
+/* -------------------------- */
+.user-settings {
+  position: relative;
+  min-height: 70vh; }
+  @media only screen and (max-width: 65.625em) {
+    .user-settings {
+      min-height: 40vh; } }
+
+.settings-content {
+  margin: 3rem 50rem; }
+  @media only screen and (max-width: 86.875em) {
+    .settings-content {
+      margin: 3rem 40rem; } }
+  @media only screen and (max-width: 65.625em) {
+    .settings-content {
+      margin: 5rem 20rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .settings-content {
+      margin: 10rem 5rem; } }
+  .settings-content__heading {
+    font-size: 3.6rem;
+    color: #000;
+    text-align: center; }
 
