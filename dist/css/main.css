@@ -309,10 +309,23 @@ img {
     .new-wrapper {
       padding: 15rem 0 0 3rem; } }
 
+.standard-wrapper {
+  position: absolute;
+  left: 00px;
+  width: calc(100% - 0px);
+  transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+  padding: 6rem 0rem 0 0rem; }
+
 .openNav .new-wrapper {
   position: absolute;
   transform: translate3d(200px, 0, 0);
   width: calc(100% - 250px);
+  transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1); }
+
+.openNav .standard-wrapper {
+  position: absolute;
+  transform: translate3d(250px, 0, 0);
+  width: calc(100% - 0px);
   transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1); }
 
 .menu {
@@ -1624,11 +1637,6 @@ textarea {
       margin: 0 auto; }
   .signup-form button {
     margin-top: 2rem; }
-
-.standard-wrapper {
-  position: relative;
-  padding-top: 6rem;
-  padding-left: 4.1rem; }
 
 .user-header {
   position: relative;
