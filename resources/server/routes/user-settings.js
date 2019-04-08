@@ -1,30 +1,14 @@
 // - Setting Up Dependencies - \\
 const express = require('express'),
       router = express.Router(),
-      multer = require('multer');
+      multer = require('multer'),
+      cloudinary = require('cloudinary');
 // - Importing Models - \\
 const User = require('../models/User');
 // - Importing Middlewares - \\
 const authMiddleware = require('../middlewares/authMiddleware');
-
-// ==================== \\
-//  - MULTER SETUP - 
-// ==================== \\
-const storage = multer.diskStorage({
-    filename: (req, file, callback) => {
-        callback(null, Date.now() + file.originalname);
-    }
-});
-// Allows image only base file upload
-const imageFilter = (req, file, cb) => {
-    // Accept image files only
-    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
-        return cb(new Error('Only image files are allowed'), false);
-    }
-    cb(null, true);
-};
-// All-In-One object
-const upload = multer({ storage: storage, fileFilter: imageFilter, limits: { fileSize: 1000000 } });
+// - Importing Routes - \\
+const authentication = require('../routes/authentication');
 
 
 // GET - Settings Index Page | - Displaying index page for user profile settings - \\
@@ -40,7 +24,7 @@ router.get('/settings/:username', authMiddleware.isLoggedIn, async (req, res) =>
 });
 
 // PUT - Updating User Data | - Updates user data - \\
-router.put('/user-profile/:username', authMiddleware.isLoggedIn, upload.fields([{name: 'image', maxCount: 1}, {name: 'bkImage', maxCount: 1}]), async (req, res) => {
+router.put('/user-profile/:username', authMiddleware.isLoggedIn, async (req, res) => {
     // Declaring variables
     const userID = req.user._id,
           userBody = req.body.userData;

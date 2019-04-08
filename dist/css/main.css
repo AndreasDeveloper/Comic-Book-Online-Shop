@@ -1482,6 +1482,12 @@ textarea {
     font-weight: 400;
     align-self: center; }
 
+.no-match {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6rem; }
+
 .shop-index-header {
   position: relative;
   min-height: 70vh;
@@ -1661,6 +1667,7 @@ textarea {
     align-items: center; }
 
 .user-background-img {
+  position: relative;
   width: 100%;
   height: 100%; }
   .user-background-img__image {
@@ -1674,6 +1681,18 @@ textarea {
       .user-background-img__image {
         width: 400px;
         height: 250px; } }
+  .user-background-img__cam-icon {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    font-size: 3.5rem;
+    color: #fff;
+    cursor: pointer; }
+    .user-background-img__cam-icon:hover {
+      color: #000;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: .5rem 5rem;
+      left: 90%; }
 
 .user-image {
   position: relative;
@@ -1684,11 +1703,17 @@ textarea {
   .user-image__image {
     height: 25rem;
     width: 25rem;
-    border-radius: 50%; }
+    border-radius: 50%;
+    cursor: pointer; }
     @media only screen and (max-width: 37.5em) {
       .user-image__image {
         height: 18rem;
         width: 18rem; } }
+  .user-image__hidden-form-1 {
+    padding: 12rem 3rem;
+    position: absolute;
+    z-index: 100;
+    visibility: hidden; }
 
 .user-content {
   display: flex;
@@ -1699,6 +1724,25 @@ textarea {
     font-size: 5rem;
     font-weight: 500;
     margin-top: 3rem; }
+  .user-content__bio-short {
+    font-size: 1.5rem; }
+
+.edit-user-image {
+  opacity: .7; }
+
+.iconUnvisible, .iconVisible {
+  position: absolute;
+  top: 30%;
+  left: 39%; }
+
+.iconUnvisible {
+  display: none; }
+
+.iconVisible {
+  display: flex;
+  font-size: 7rem;
+  color: #fff;
+  cursor: pointer; }
 
 /* -------------------------- */
 /*    - USER SETTINGS PAGE -

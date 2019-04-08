@@ -2,7 +2,7 @@
 import '../sass/main.scss';
 // * --- Importing JS Files --- * \\
 import { elements } from './views/base-views';
-import { sideNavigation, lazyImageLoad } from './models/base-models';
+import * as baseModels from './models/base-models';
 import Cart from './models/Cart';
 import Comicbooks from './models/Comicbooks';
 import * as comicbooksView from './views/comicbooksView'; 

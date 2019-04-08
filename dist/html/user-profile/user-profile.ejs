@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
-    <title><%= user.username %> Profile - Comicbook</title>
+    <title><%= userData.username %> Profile - Comicbook</title>
 <link href="../../css/main.css" rel="stylesheet"></head>
 <body>
 
@@ -18,17 +18,23 @@
             <header class="user-header">
                 <div class="user-header__images">
                     <div class="user-background-img">
-                        <img data-lazy="<%= user.bkImage %>" class="user-background-img__image">
+                        <img data-lazy="<%= userData.bkImage %>" class="user-background-img__image">
+                        <i class="icon ion-ios-camera user-background-img__cam-icon"></i>
                     </div>
                     <div class="user-image">
                         <div class="user-image-wrap__circle-1-b"></div>
                         <div class="user-image-wrap__circle-2-b"></div>
-                        <img data-lazy="<%= user.image %>" class="user-image__image">
+                        <!-- HIDDEN FORM -->
+                        <form id="profileForm" action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" enctype="multipart/form-data" onchange="profileForm.submit()">
+                            <input type="file" id="profileImg" name="userImage" accept="image/*" class="user-image__hidden-form-1" required>
+                        </form>
+                        <img data-lazy="<%= userData.image %>" class="user-image__image">
+                        <i class="icon ion-ios-camera iconUnvisible user-image-icon"></i>
                     </div>
                 </div>
                 <div class="user-content">
-                    <h2 class="user-content__username"><%= user.username %></h2>
-                    <p class="user-content__bio-short"><%= user.bioShort %></p>
+                    <h2 class="user-content__username"><%= userData.username %></h2>
+                    <p class="user-content__bio-short"><%= userData.bioShort %></p>
                 </div>
             </header>
 

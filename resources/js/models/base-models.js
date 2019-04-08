@@ -42,3 +42,41 @@ export const lazyImageLoad = (() => {
     };
     DOMElements.images.forEach(lazyLoad); // Lazy load every single img in HTML
 })();
+
+// ** --- HIDE/REVEAL PASSWORD | - Logic --- ** \\
+export const hideRevealPassword = (() => {
+    if (DOMElements.iconEye) { // If icon eye is present, run the listener
+        DOMElements.iconEye.addEventListener('click', () => {
+            if (DOMElements.iconEye.className === 'icon ion-ios-eye-off') {
+                DOMElements.iconEye.classList.remove('icon', 'ion-ios-eye-off'); // Changing icons
+                DOMElements.iconEye.classList.add('icon', 'ion-ios-eye');
+                DOMElements.passwordInputSett.setAttribute('type', 'text'); // Changing attribute to text
+            } else if (DOMElements.iconEye.className === 'icon ion-ios-eye') {
+                DOMElements.iconEye.classList.remove('icon', 'ion-ios-eye'); // Changing icons
+                DOMElements.iconEye.classList.add('icon', 'ion-ios-eye-off');
+                DOMElements.passwordInputSett.setAttribute('type', 'password'); // Changing attribute back to password
+            }
+        });
+    }
+})();
+
+// ** --- REVEAL IMAGE EDIT OPTIONS | - Logic --- ** \\
+export const revealImgEdit = (() => {
+    [DOMElements.userImage, DOMElements.userImageIcon].forEach(event => { // Mouse enter event listeners for both user image and camera icon
+        event.addEventListener('mouseenter', () => {
+            DOMElements.userImage.classList.add('edit-user-image');
+            DOMElements.userImageIcon.classList.add('iconVisible');
+        });
+    });
+    DOMElements.userImage.addEventListener('mouseleave', () => { // Mouse leave event listener for user image
+        DOMElements.userImage.classList.remove('edit-user-image');
+        DOMElements.userImageIcon.classList.remove('iconVisible');
+    });
+})();
+
+// ** --- AUTO SUBMIT THE FORM WHEN CHANGING PROFILE IMAGE | - Logic --- ** \\
+export const autoSubmitImage = (() => {
+    DOMElements.inputImage.onchange = () => {
+        DOMElements.profileForm.submit();
+    };
+})();
