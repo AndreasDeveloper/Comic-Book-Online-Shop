@@ -18,6 +18,7 @@
     position: relative;
     width: 100%;
     height: 100%;
+    z-index: 150;
     // Background Image
     &__image {
         width: 1920px;
@@ -26,27 +27,44 @@
         @media only screen and (max-width: $bp-desktop) { width: 1500px;  height: 490px; }
         @media only screen and (max-width: $bp-small) { width: 400px; height: 250px; }
     }
+    // Camera Icon Wrapper
+    &__bkImage-icon-wrap { 
+        background-color: rgba(255, 255, 255, 0.8); 
+        padding-left: 1rem;
+        padding-right: 1rem;
+        cursor: pointer;
+        position: absolute;
+        top: 7%;
+        left: 90%;
+        // h3 with icon
+        h3 { 
+            display: flex;
+            align-items: center; 
+        }
+        // --- MEDIA QUERIES --- \\
+        @media only screen and (max-width: $bp-desktop) { left: 89%; }
+    }
     // Camera Icon | For changing background image
     &__cam-icon {
-        position: absolute;
-        top: 5%;
-        left: 95%;
+        color: #000;
         font-size: 3.5rem;
-        color: $color-white;
+        padding-left: 1rem;
+    }
+    // Hidden Form and Input
+    &__hidden-form, &__hidden-input {
+        position: absolute;
+        top: -40%;
+        left: -1%;
+        padding-bottom: 10rem;
         cursor: pointer;
-        // On hover
-        &:hover {
-            color: $color-black;
-            background-color: rgba($color-white, .50);
-            padding: .5rem 5rem;
-            left: 90%;
-        }
+        z-index: 50;
     }
 }
 // User Profile Image
 .user-image {
     position: relative;
     margin-top: -25vh;
+    z-index: 200;
     // * -- MEDIA QUERIES -- * \\
     @media only screen and (max-width: $bp-small) { margin-top: -15vh; }
     // Profile Image
@@ -59,20 +77,32 @@
         @media only screen and (max-width: $bp-small) { height: 18rem; width: 18rem; }
     }
     // Hidden Form
-    &__hidden-form-1 {
-        padding: 12rem 3rem;
+    &__hidden-form, &__hidden-input {
+        padding-top: 28rem;
+        margin-left: 3rem;
         position: absolute;
-        z-index: 100;
-        visibility: hidden;
+        top: 27%;
+        left: 40%;
+        z-index: 201;
+        visibility: hidden; // Will deactivate as soon as users hovers the user image
+        cursor: pointer;
+        outline: none;
+        // --- MEDIA QUERIES --- \\
+        @media only screen and (max-width: $bp-desktop) { top: 30%; }
+        @media only screen and (max-width: $bp-small) { top: 15%; left: 20%; padding-top: 22rem; }
     }
 }
 
 // User Content
 .user-content {
+    background-color: $color-gray-1;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 1.5rem;
+    z-index: 250;
     // Username
     &__username {
         font-size: 5rem;
@@ -91,7 +121,7 @@
 }
 .iconUnvisible, .iconVisible {
     position: absolute;
-    top: 30%;
+    top: 33%;
     left: 39%;
 }
 .iconUnvisible {

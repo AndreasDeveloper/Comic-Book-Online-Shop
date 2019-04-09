@@ -19,15 +19,21 @@
                 <div class="user-header__images">
                     <div class="user-background-img">
                         <img data-lazy="<%= userData.bkImage %>" class="user-background-img__image">
-                        <i class="icon ion-ios-camera user-background-img__cam-icon"></i>
+                        <div class="user-background-img__bkImage-icon-wrap">
+                            <h3>Change Image<i class="icon ion-ios-camera user-background-img__cam-icon"></i></h3>
+                            <!-- HIDDEN FORM -->
+                            <form class="user-background-img__hidden-form" id="profileFormBkImage" action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" enctype="multipart/form-data" onchange="autoSubmitBkImage()">
+                                <input type="file" id="profileBkImage" name="profileBkImage" accept="image/*" class="user-background-img__hidden-input">
+                            </form>
+                        </div>
                     </div>
+                    <!-- HIDDEN FORM -->
+                    <form class="user-image__hidden-form" id="profileFormImg" action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" enctype="multipart/form-data" onchange="autoSubmitImage()">
+                        <input type="file" id="profileImg" name="userImage" accept="image/*" class="user-image__hidden-input">
+                    </form>
                     <div class="user-image">
                         <div class="user-image-wrap__circle-1-b"></div>
                         <div class="user-image-wrap__circle-2-b"></div>
-                        <!-- HIDDEN FORM -->
-                        <form id="profileForm" action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" enctype="multipart/form-data" onchange="profileForm.submit()">
-                            <input type="file" id="profileImg" name="userImage" accept="image/*" class="user-image__hidden-form-1" required>
-                        </form>
                         <img data-lazy="<%= userData.image %>" class="user-image__image">
                         <i class="icon ion-ios-camera iconUnvisible user-image-icon"></i>
                     </div>
