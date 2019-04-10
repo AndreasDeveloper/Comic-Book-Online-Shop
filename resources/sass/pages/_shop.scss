@@ -7,6 +7,7 @@
     position: relative;
     min-height: 50vh;
     margin-bottom: 5vh;
+    @media only screen and (max-width: $bp-vsmall-4) { margin-left: -3rem; }
 }
 
 // Shop items container
@@ -15,9 +16,7 @@
     grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
     grid-row-gap: 5rem;
     // * --- MEDIA QUERIES --- * \\
-    @media only screen and (max-width: $bp-vsmall-3) {
-        margin: 0;
-    }
+    @media only screen and (max-width: $bp-vsmall-3) { margin: 0; }
 }
 
 // * --------------------- * \\
@@ -189,7 +188,6 @@
         position: absolute;
         top: 0;
         left: 0;
-        //background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
         opacity: .4;
     }
     &__fig > img {

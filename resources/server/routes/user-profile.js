@@ -42,7 +42,8 @@ router.get('/user-profile/:username', authMiddleware.isLoggedIn, async (req, res
 // - PUT - Update Images | - Updates profile and background image - \\
 router.put('/user-profile/:username', authMiddleware.isLoggedIn, upload.fields([{name: 'userImage', maxCount: 1}, {name: 'userBkImage', maxCount: 1}]), async (req, res) => {
     // Declaring variables
-    const userID = req.user._id;
+    const userID = req.user._id,
+          userBody = req.body.userData;
     try {
         if (req.files.userImage !== undefined) {
             const cloudinaryRes1 = await cloudinary.uploader.upload(req.files.userImage[0].path);
@@ -58,6 +59,9 @@ router.put('/user-profile/:username', authMiddleware.isLoggedIn, upload.fields([
             const userBody = { bkImage: req.body.bkImage };
             const updatedData = await User.findByIdAndUpdate(userID, userBody); // Updated images
             res.redirect(`/user-profile/${req.user.usernameUrl.toLowerCase()}`);
+        } else if (req.body.userData) {
+            const updatedUser = await User.findByIdAndUpdate(userID, userBody);
+            res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
         }
     } catch (err) {
         throw new Error(err);

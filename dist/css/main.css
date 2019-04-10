@@ -307,7 +307,11 @@ img {
   padding: 15rem 4rem 0 5rem; }
   @media only screen and (max-width: 37.5em) {
     .new-wrapper {
-      padding: 15rem 0 0 3rem; } }
+      padding: 15rem 0 0 0;
+      margin-left: -2rem; } }
+  @media only screen and (max-width: 20.9375em) {
+    .new-wrapper {
+      margin-left: 5rem; } }
 
 .standard-wrapper {
   position: absolute;
@@ -1257,6 +1261,9 @@ textarea {
   position: relative;
   min-height: 50vh;
   margin-bottom: 5vh; }
+  @media only screen and (max-width: 20.9375em) {
+    .shop {
+      margin-left: -3rem; } }
 
 .shop-container {
   display: grid;
@@ -1696,10 +1703,19 @@ textarea {
     @media only screen and (max-width: 86.875em) {
       .user-background-img__bkImage-icon-wrap {
         left: 89%; } }
+    @media only screen and (max-width: 37.5em) {
+      .user-background-img__bkImage-icon-wrap {
+        background-color: transparent;
+        padding: 0;
+        top: 10%;
+        left: -5%; } }
   .user-background-img__cam-icon {
     color: #000;
     font-size: 3.5rem;
     padding-left: 1rem; }
+    @media only screen and (max-width: 37.5em) {
+      .user-background-img__cam-icon {
+        color: #fff; } }
   .user-background-img__hidden-form, .user-background-img__hidden-input {
     position: absolute;
     top: -40%;
@@ -1714,7 +1730,13 @@ textarea {
   z-index: 200; }
   @media only screen and (max-width: 37.5em) {
     .user-image {
-      margin-top: -15vh; } }
+      margin-top: -10vh; } }
+  @media only screen and (max-width: 23.75em) {
+    .user-image {
+      margin-left: 5rem; } }
+  @media only screen and (max-width: 20.9375em) {
+    .user-image {
+      margin-left: 12rem; } }
   .user-image__image {
     height: 25rem;
     width: 25rem;
@@ -1739,9 +1761,9 @@ textarea {
         top: 30%; } }
     @media only screen and (max-width: 37.5em) {
       .user-image__hidden-form, .user-image__hidden-input {
-        top: 15%;
+        top: 10%;
         left: 20%;
-        padding-top: 22rem; } }
+        padding-top: 30rem; } }
 
 .user-content {
   background-color: #faf8f8;
@@ -1752,6 +1774,16 @@ textarea {
   align-items: center;
   margin-top: 1.5rem;
   z-index: 250; }
+  @media only screen and (max-width: 37.5em) {
+    .user-content {
+      margin-left: 2rem; } }
+  @media only screen and (max-width: 23.75em) {
+    .user-content {
+      margin-left: 5rem; } }
+  @media only screen and (max-width: 20.9375em) {
+    .user-content {
+      margin-left: 6rem;
+      width: 100%; } }
   .user-content__username {
     font-size: 5rem;
     font-weight: 500;
@@ -1766,6 +1798,10 @@ textarea {
   position: absolute;
   top: 33%;
   left: 39%; }
+  @media only screen and (max-width: 37.5em) {
+    .iconUnvisible, .iconVisible {
+      top: 29%;
+      left: 35%; } }
 
 .iconUnvisible {
   display: none; }

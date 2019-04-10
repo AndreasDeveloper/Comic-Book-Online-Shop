@@ -43,12 +43,19 @@
         }
         // --- MEDIA QUERIES --- \\
         @media only screen and (max-width: $bp-desktop) { left: 89%; }
+        @media only screen and (max-width: $bp-small) {
+            background-color: transparent;
+            padding: 0;
+            top: 10%;
+            left: -5%;
+        }
     }
     // Camera Icon | For changing background image
     &__cam-icon {
-        color: #000;
+        color: $color-black;
         font-size: 3.5rem;
         padding-left: 1rem;
+        @media only screen and (max-width: $bp-small) { color: $color-white; }
     }
     // Hidden Form and Input
     &__hidden-form, &__hidden-input {
@@ -66,7 +73,9 @@
     margin-top: -25vh;
     z-index: 200;
     // * -- MEDIA QUERIES -- * \\
-    @media only screen and (max-width: $bp-small) { margin-top: -15vh; }
+    @media only screen and (max-width: $bp-small) { margin-top: -10vh; }
+    @media only screen and (max-width: $bp-vsmall-3) { margin-left: 5rem; }
+    @media only screen and (max-width: $bp-vsmall-4) { margin-left: 12rem; }
     // Profile Image
     &__image {
         height: 25rem;
@@ -89,7 +98,7 @@
         outline: none;
         // --- MEDIA QUERIES --- \\
         @media only screen and (max-width: $bp-desktop) { top: 30%; }
-        @media only screen and (max-width: $bp-small) { top: 15%; left: 20%; padding-top: 22rem; }
+        @media only screen and (max-width: $bp-small) { top: 10%; left: 20%; padding-top: 30rem; }
     }
 }
 
@@ -103,6 +112,9 @@
     align-items: center;
     margin-top: 1.5rem;
     z-index: 250;
+    @media only screen and (max-width: $bp-small) { margin-left: 2rem; }
+    @media only screen and (max-width: $bp-vsmall-3) { margin-left: 5rem; }
+    @media only screen and (max-width: $bp-vsmall-4) { margin-left: 6rem; width: 100%; }
     // Username
     &__username {
         font-size: 5rem;
@@ -123,6 +135,7 @@
     position: absolute;
     top: 33%;
     left: 39%;
+    @media only screen and (max-width: $bp-small) { top: 29%; left: 35%; }
 }
 .iconUnvisible {
     display: none;
