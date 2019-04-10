@@ -1669,7 +1669,8 @@ textarea {
 .user-background-img {
   position: relative;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  z-index: 150; }
   .user-background-img__image {
     width: 1920px;
     height: 650px; }
@@ -1681,22 +1682,36 @@ textarea {
       .user-background-img__image {
         width: 400px;
         height: 250px; } }
-  .user-background-img__cam-icon {
+  .user-background-img__bkImage-icon-wrap {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
     position: absolute;
-    top: 5%;
-    left: 95%;
+    top: 7%;
+    left: 90%; }
+    .user-background-img__bkImage-icon-wrap h3 {
+      display: flex;
+      align-items: center; }
+    @media only screen and (max-width: 86.875em) {
+      .user-background-img__bkImage-icon-wrap {
+        left: 89%; } }
+  .user-background-img__cam-icon {
+    color: #000;
     font-size: 3.5rem;
-    color: #fff;
-    cursor: pointer; }
-    .user-background-img__cam-icon:hover {
-      color: #000;
-      background-color: rgba(255, 255, 255, 0.5);
-      padding: .5rem 5rem;
-      left: 90%; }
+    padding-left: 1rem; }
+  .user-background-img__hidden-form, .user-background-img__hidden-input {
+    position: absolute;
+    top: -40%;
+    left: -1%;
+    padding-bottom: 10rem;
+    cursor: pointer;
+    z-index: 50; }
 
 .user-image {
   position: relative;
-  margin-top: -25vh; }
+  margin-top: -25vh;
+  z-index: 200; }
   @media only screen and (max-width: 37.5em) {
     .user-image {
       margin-top: -15vh; } }
@@ -1709,17 +1724,34 @@ textarea {
       .user-image__image {
         height: 18rem;
         width: 18rem; } }
-  .user-image__hidden-form-1 {
-    padding: 12rem 3rem;
+  .user-image__hidden-form, .user-image__hidden-input {
+    padding-top: 28rem;
+    margin-left: 3rem;
     position: absolute;
-    z-index: 100;
-    visibility: hidden; }
+    top: 27%;
+    left: 40%;
+    z-index: 201;
+    visibility: hidden;
+    cursor: pointer;
+    outline: none; }
+    @media only screen and (max-width: 86.875em) {
+      .user-image__hidden-form, .user-image__hidden-input {
+        top: 30%; } }
+    @media only screen and (max-width: 37.5em) {
+      .user-image__hidden-form, .user-image__hidden-input {
+        top: 15%;
+        left: 20%;
+        padding-top: 22rem; } }
 
 .user-content {
+  background-color: #faf8f8;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin-top: 1.5rem;
+  z-index: 250; }
   .user-content__username {
     font-size: 5rem;
     font-weight: 500;
@@ -1732,7 +1764,7 @@ textarea {
 
 .iconUnvisible, .iconVisible {
   position: absolute;
-  top: 30%;
+  top: 33%;
   left: 39%; }
 
 .iconUnvisible {

@@ -21,6 +21,8 @@ export const DOMElements = {
     // User Profile DOM Elements
     userImage: document.querySelector('.user-image__image'),
     userImageIcon: document.querySelector('.user-image-icon'),
-    profileForm: document.querySelector('.profileForm'),
-    inputImage: document.querySelector('#profileImg')
+    profileFormImg: document.querySelector('#profileFormImg'),
+    profileFormBkImage: document.querySelector('#profileFormBkImage'),
+    inputImage: document.querySelector('#profileImg'),
+    inputBkImage: document.querySelector('#profileBkImage')
 };

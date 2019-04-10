@@ -1,7 +1,7 @@
 // * --- WEBPACK IMPORT FILES --- * \\
 import '../sass/main.scss';
 // * --- Importing JS Files --- * \\
-import { elements } from './views/base-views';
+import { DOMElements } from './views/base-views';
 import * as baseModels from './models/base-models';
 import Cart from './models/Cart';
 import Comicbooks from './models/Comicbooks';

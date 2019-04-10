@@ -23,7 +23,7 @@
                             <h3>Change Image<i class="icon ion-ios-camera user-background-img__cam-icon"></i></h3>
                             <!-- HIDDEN FORM -->
                             <form class="user-background-img__hidden-form" id="profileFormBkImage" action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" enctype="multipart/form-data" onchange="autoSubmitBkImage()">
-                                <input type="file" id="profileBkImage" name="profileBkImage" accept="image/*" class="user-background-img__hidden-input">
+                                <input type="file" id="profileBkImage" name="userBkImage" accept="image/*" class="user-background-img__hidden-input">
                             </form>
                         </div>
                     </div>

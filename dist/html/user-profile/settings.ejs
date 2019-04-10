@@ -19,7 +19,7 @@
         <section class="user-settings">
             <div class="settings-content">
                 <h2 class="settings-content__heading">Edit Profile</h2>
-                <form action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" class="edit-form">
+                <form action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" class="edit-form"> 
                     <input type="text" name="userData[username]" value="<%= userData.username %>" required>
                     <input type="email" name="userData[email]" value="<%= userData.email %>" required>
                     <input type="text" name="userData[bioShort]" value="<%= userData.bioShort %>" required>

@@ -7,8 +7,6 @@ const express = require('express'),
 const User = require('../models/User');
 // - Importing Middlewares - \\
 const authMiddleware = require('../middlewares/authMiddleware');
-// - Importing Routes - \\
-const authentication = require('../routes/authentication');
 
 
 // GET - Settings Index Page | - Displaying index page for user profile settings - \\
