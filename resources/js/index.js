@@ -7,7 +7,7 @@ import Cart from './models/Cart';
 import Comicbooks from './models/Comicbooks';
 import * as comicbooksView from './views/comicbooksView'; 
 import * as cartView from './views/cartView';
-import * as idleTimeKick from './utilities/idleTimeKick';
+import * as idleTimeKick from './utilities/idle-time-kick';
 
 // Global State Object
 const state = {};
