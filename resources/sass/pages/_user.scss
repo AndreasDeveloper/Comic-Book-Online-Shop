@@ -135,14 +135,18 @@
     position: absolute;
     top: 33%;
     left: 39%;
+    font-size: 7rem;
+    color: $color-white;
+    display: flex;
+    cursor: pointer;
     @media only screen and (max-width: $bp-small) { top: 29%; left: 35%; }
 }
 .iconUnvisible {
-    display: none;
+    opacity: 0;
 }
 .iconVisible {
-    display: flex;
-    font-size: 7rem;
-    color: $color-white;
-    cursor: pointer;
+    opacity: 1;
+}
+.user-image-icon {
+    transition: all .2s ease-in-out;
 }
