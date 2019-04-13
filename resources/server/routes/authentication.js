@@ -46,7 +46,7 @@ const userRegisterFun = (req, res, userBody) => { // Passport user register func
 router.post('/signup', async (req, res) => {
     upload(req, res, async (err) => {
         try {
-            if (err === 'LIMIT_FILE_SIZE' || err) {
+            if (err === 'LIMIT_FILE_SIZE' || err) { // if limit file size error occurs
                 req.flash('error', 'Files cannot be larger than 1MB!');
                 res.redirect('/signup');
             } else {

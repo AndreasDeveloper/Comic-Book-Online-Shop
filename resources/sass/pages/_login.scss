@@ -129,3 +129,8 @@
     // Submit Form Button
     button { margin-top: 2rem; }
 }
+
+// Neutral Password Field | Displays icon for changing input type (password-text)
+.neutral__password-field {
+    i { left: 90% !important; }
+}

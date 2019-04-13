@@ -1280,6 +1280,9 @@ textarea {
   .login-form button {
     margin-top: 2rem; }
 
+.neutral__password-field i {
+  left: 90% !important; }
+
 .shop {
   position: relative;
   min-height: 50vh;
@@ -1547,7 +1550,7 @@ textarea {
         font-size: 6rem; } }
     @media only screen and (max-width: 37.5em) {
       .header-content__heading-1 {
-        font-size: 3.5rem; } }
+        font-size: 2.5rem; } }
   .header-content__heading-2 {
     font-size: 1.6rem;
     font-weight: 300;
@@ -1557,7 +1560,7 @@ textarea {
         font-size: 2.6rem; } }
     @media only screen and (max-width: 50em) {
       .header-content__heading-2 {
-        font-size: 2.2rem; } }
+        font-size: 1.2rem; } }
   .header-content__heading-1, .header-content__heading-2 {
     color: #fff; }
     @media only screen and (max-width: 65.625em) {
@@ -1572,7 +1575,11 @@ textarea {
       width: 160%; } }
   @media only screen and (max-width: 37.5em) {
     .header-form {
-      width: 45%; } }
+      width: 45%;
+      margin-top: -25vh; } }
+  @media only screen and (max-width: 20.9375em) {
+    .header-form {
+      margin-top: -20vh; } }
 
 /* -------------------------- */
 /*      - SIGN UP PAGE -
@@ -1706,7 +1713,7 @@ textarea {
     height: 650px; }
     @media only screen and (max-width: 86.875em) {
       .user-background-img__image {
-        width: 1500px;
+        width: 1400px;
         height: 490px; } }
     @media only screen and (max-width: 37.5em) {
       .user-background-img__image {

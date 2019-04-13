@@ -34,7 +34,10 @@
                     <h4 class="login-right__content__heading-2">Or use your email and password</h4>
                     <form action="/login" method="POST" class="login-form">
                         <input type="text" name="username" placeholder="Username or Email" required>
-                        <input type="password" name="password" placeholder="Password" required>
+                        <div class="edit-form__password neutral__password-field">
+                            <input type="password" name="password" placeholder="Password" id="settings-pw" required>
+                            <i class="icon ion-ios-eye-off" id="icon-eye-on"></i>
+                        </div>
                         <button type="submit" class="btn btn-login">Log In</button>
                     </form>
                     <a href="#"><h4 class="login-right__content__forgot-pw">Forgot Your Password?</h4></a>
