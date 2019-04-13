@@ -66,6 +66,14 @@
         cursor: pointer;
         z-index: 50;
     }
+    // Flash Message Container
+    &__fm {
+        position: absolute;
+        top: 5%;
+        left: 40%;
+        // -- MEDIA QUERIES -- \\
+        @media only screen and (max-width: $bp-small) { top: 26%; left: 34%; }
+    }
 }
 // User Profile Image
 .user-image {

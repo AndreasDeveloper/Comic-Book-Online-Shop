@@ -194,6 +194,9 @@ body {
   text-align: center;
   padding: .6rem;
   width: 100%; }
+  @media only screen and (max-width: 37.5em) {
+    .error-flash-message, .success-flash-message {
+      font-size: 1rem; } }
 
 /* -------------------------- */
 /*   - LAZY-LOAD TRANSITION -
@@ -1743,6 +1746,14 @@ textarea {
     padding-bottom: 10rem;
     cursor: pointer;
     z-index: 50; }
+  .user-background-img__fm {
+    position: absolute;
+    top: 5%;
+    left: 40%; }
+    @media only screen and (max-width: 37.5em) {
+      .user-background-img__fm {
+        top: 26%;
+        left: 34%; } }
 
 .user-image {
   position: relative;

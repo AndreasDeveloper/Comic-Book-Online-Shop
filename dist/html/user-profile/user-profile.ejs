@@ -19,6 +19,9 @@
                 <div class="user-header__images">
                     <div class="user-background-img">
                         <img data-lazy="<%= userData.bkImage %>" class="user-background-img__image">
+                        <div class="user-background-img__fm">
+                            <% include ../partials/flash-messages.ejs %>
+                        </div>
                         <div class="user-background-img__bkImage-icon-wrap">
                             <h3>Change Image<i class="icon ion-ios-camera user-background-img__cam-icon"></i></h3>
                             <!-- HIDDEN FORM -->
@@ -32,7 +35,6 @@
                         <input type="file" id="profileImg" name="userImage" accept="image/*" class="user-image__hidden-input">
                     </form>
                     <div class="user-image">
-                        <% include ../partials/flash-messages.ejs %>
                         <div class="user-image-wrap__circle-1-b"></div>
                         <div class="user-image-wrap__circle-2-b"></div>
                         <img data-lazy="<%= userData.image %>" class="user-image__image">
