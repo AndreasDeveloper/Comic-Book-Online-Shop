@@ -54,6 +54,11 @@ module.exports = {
             template: './resources/html/partials/miniNavigation.ejs',
             excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
         }),
+        new HtmlWebpackPlugin({ // FLASH MESSAGES PARTIALS
+            filename: 'html/partials/flash-messages.ejs',
+            template: './resources/html/partials/flash-messages.ejs',
+            excludeAssets: [/main.css/, /bundle.js/]
+        }),
         new HtmlWebpackPlugin({ // FOOTER PARTIAL
             filename: 'html/partials/footer.ejs',
             template: './resources/html/partials/footer.ejs',

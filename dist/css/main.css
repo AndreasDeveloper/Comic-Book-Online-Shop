@@ -175,6 +175,26 @@ body {
     background-color: #c69963;
     color: #fff; }
 
+.fm-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+
+.error-flash-message {
+  background-color: #e74c3c; }
+
+.success-flash-message {
+  background-color: #2ecc71; }
+
+.error-flash-message, .success-flash-message {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-align: center;
+  padding: .6rem;
+  width: 100%; }
+
 /* -------------------------- */
 /*   - LAZY-LOAD TRANSITION -
 /* -------------------------- */

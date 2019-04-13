@@ -1,0 +1,13 @@
+<!-- FLASH MESSAGES -->
+<div class="fm-container">
+    <% if (error && error.length > 0) { %>
+        <div class="error-flash-message">
+            <%= error %>
+        </div>
+    <% }  %>
+    <% if (success && success.length > 0) { %>
+        <div class="success-flash-message">
+            <%= success %>
+        </div>
+    <% } %>
+</div>

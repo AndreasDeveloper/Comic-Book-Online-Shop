@@ -25,6 +25,8 @@
             </div>
             <div class="signup-right">
                 <div class="signup-right__content">
+                    <!-- Flash Message | Implementation -->
+                    <% include ../partials/flash-messages.ejs %>
                     <h2 class="signup-right__content__heading-1">Sign Up to Comicbook</h2>
                     <form action="/signup" method="POST" class="signup-form" enctype="multipart/form-data">
                         <input type="text" name="username" placeholder="Username" required>

@@ -12,7 +12,8 @@ const path = require('path'),
       passport = require('passport'),
       LocalStrategy = require('passport-local'),
       multer = require('multer'),
-      cloudinary = require('cloudinary');
+      cloudinary = require('cloudinary'),
+      flash = require('connect-flash');
 // - Importing Models | MVC - \\
 const Comicbook = require('./models/Comicbooks'),
       User = require('./models/User');
@@ -40,6 +41,8 @@ mongoose.set('useNewUrlParser', true);
 app.set('view engine', 'ejs');
 // - Method Override - \\
 app.use(methodOverride('_method'));
+// - Connect Flash - \\
+app.use(flash());
 
 /*
 Comicbook.create({
@@ -85,6 +88,9 @@ passport.deserializeUser(User.deserializeUser());
 // Displays user on every single page (if logged in)
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
+    // Flash Messages Setup | Error & Success Global
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
     next();
 });
 // ============== \\

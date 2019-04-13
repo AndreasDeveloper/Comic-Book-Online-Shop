@@ -32,6 +32,7 @@
                         <input type="file" id="profileImg" name="userImage" accept="image/*" class="user-image__hidden-input">
                     </form>
                     <div class="user-image">
+                        <% include ../partials/flash-messages.ejs %>
                         <div class="user-image-wrap__circle-1-b"></div>
                         <div class="user-image-wrap__circle-2-b"></div>
                         <img data-lazy="<%= userData.image %>" class="user-image__image">

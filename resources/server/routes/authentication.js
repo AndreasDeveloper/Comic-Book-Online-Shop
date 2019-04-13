@@ -24,8 +24,8 @@ const imageFilter = (req, file, cb) => {
     }
     cb(null, true);
 };
-// All-In-One object
-const upload = multer({ storage: storage, fileFilter: imageFilter, limits: { fileSize: 1000000 } });
+// All-In-One object | Multer Upload
+const upload = multer({ storage: storage, fileFilter: imageFilter, limits: { fileSize: 1000000 }}).fields([{name: 'image', maxCount: 1}, {name: 'bkImage', maxCount: 1}]);
   
 
 // - GET - Sign Up Page | - Displays page to sign up - \\
@@ -33,13 +33,7 @@ router.get('/signup', (req, res) => {
     res.render(`${__dirname}/../../../dist/html/authentication/signup.ejs`);
 });
 
-// - * Helper Functions For POST Req * - \\
-const cloudinaryParallelFirst = (req) => { // Cloudinary parallel image upload #1
-    return cloudinary.uploader.upload(req.files.image[0].path);
-};
-const cloudinaryParallelSecond = (req) => { // Cloudinary parallel image upload #2
-    return cloudinary.uploader.upload(req.files.bkImage[0].path);
-};
+// - * Helper Function For POST Req * - \\
 const userRegisterFun = (req, res, userBody) => { // Passport user register function with authentication
     return User.register(new User(userBody), userBody.password, async (err, user) => {
         passport.authenticate('local')(req, res, () => { // Local Authentication
@@ -49,28 +43,36 @@ const userRegisterFun = (req, res, userBody) => { // Passport user register func
 };
 
 // - POST - Creates new User | - Create New User - \\
-router.post('/signup', upload.fields([{name: 'image', maxCount: 1}, {name: 'bkImage', maxCount: 1}]), async (req, res) => {
-    try {
-        const cloudinaryRes1 = await cloudinaryParallelFirst(req);
-        const cloudinaryRes2 = await cloudinaryParallelSecond(req);
-        // Adding cloudinary url for the images to the user object under image & bkImage property
-        req.body.image = cloudinaryRes1.secure_url;
-        req.body.bkImage = cloudinaryRes2.secure_url;
-        // User body as object
-        const userBody = {
-              username: req.body.username,
-              usernameUrl: req.body.username,
-              email: req.body.email,
-              bioShort: req.body.bioShort,
-              image: req.body.image,
-              bkImage: req.body.bkImage,
-              password: req.body.password
-            };
-        // Registering user
-        const registeredUser = await userRegisterFun(req, res, userBody);
-    } catch (error) {
-        console.error(error);
-    }
+router.post('/signup', async (req, res) => {
+    upload(req, res, async (err) => {
+        try {
+            if (err === 'LIMIT_FILE_SIZE' || err) {
+                req.flash('error', 'Files cannot be larger than 1MB!');
+                res.redirect('/signup');
+            } else {
+                const cloudinaryRes1 = await cloudinary.uploader.upload(req.files.image[0].path);
+                const cloudinaryRes2 = await cloudinary.uploader.upload(req.files.bkImage[0].path);
+                // Adding cloudinary url for the images to the user object under image & bkImage property
+                req.body.image = cloudinaryRes1.secure_url;
+                req.body.bkImage = cloudinaryRes2.secure_url;
+                // User body as object
+                const userBody = {
+                    username: req.body.username,
+                    usernameUrl: req.body.username,
+                    email: req.body.email,
+                    bioShort: req.body.bioShort,
+                    image: req.body.image,
+                    bkImage: req.body.bkImage,
+                    password: req.body.password
+                };
+                // Registering user
+                const registeredUser = await userRegisterFun(req, res, userBody);
+                req.flash('success', `Successfully Signed In, Welcome ${userBody.username}!`);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    });
 });
 
 // - GET - Log In Page | - Displays page to log in - \\

@@ -1,0 +1,31 @@
+// * --------------------- * \\
+//     - FLASH MESSAGES -
+// * --------------------- * \\
+
+// Flash Message Container
+.fm-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+// Error Flash Message Block
+.error-flash-message {
+    background-color: $color-error;
+}
+
+// Success Flash Message Block
+.success-flash-message {
+    background-color: $color-success;
+}
+
+// Both Error and Success Flash Message
+.error-flash-message, .success-flash-message {
+    color: $color-white;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: center;
+    padding: .6rem;
+    width: 100%;
+}
