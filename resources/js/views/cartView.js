@@ -2,7 +2,7 @@
 //        - CART VIEW - 
 // * ------------------------- * \\
 
-// Importing items
+// Importing JS Files
 import { DOMElements } from './base-views';
 
 // Export Function | Rendering Cart List

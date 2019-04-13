@@ -62,30 +62,37 @@ export const hideRevealPassword = (() => {
 
 // ** --- REVEAL IMAGE EDIT OPTIONS | - Logic --- ** \\
 export const revealImgEdit = (() => {
-    [DOMElements.userImage, DOMElements.inputImage, DOMElements.userImageIcon].forEach(event => { // Mouse enter event listeners for both user image and camera icon
-        event.addEventListener('mouseenter', () => {
-            DOMElements.userImage.classList.add('edit-user-image');
-            DOMElements.userImageIcon.classList.add('iconVisible');
-            DOMElements.inputImage.style.visibility = 'visible';
+    const DOMEls = [DOMElements.userImage, DOMElements.inputImage, DOMElements.userImageIcon]
+    if (DOMEls[0]) {
+        DOMEls.forEach(event => { // Mouse enter event listeners for both user image and camera icon
+            event.addEventListener('mouseenter', () => {
+                DOMElements.userImage.classList.add('edit-user-image');
+                DOMElements.userImageIcon.classList.add('iconVisible');
+                DOMElements.inputImage.style.visibility = 'visible';
+            });
         });
-    });
-    [DOMElements.userImage, DOMElements.inputImage, DOMElements.userImageIcon].forEach(event => {
-        event.addEventListener('mouseleave', () => { // Mouse leave event listener for user image
-            DOMElements.userImage.classList.remove('edit-user-image');
-            DOMElements.userImageIcon.classList.remove('iconVisible');
-            DOMElements.inputImage.style.visibility = 'hidden';
+        DOMEls.forEach(event => {
+            event.addEventListener('mouseleave', () => { // Mouse leave event listener for user image
+                DOMElements.userImage.classList.remove('edit-user-image');
+                DOMElements.userImageIcon.classList.remove('iconVisible');
+                DOMElements.inputImage.style.visibility = 'hidden';
+            });
         });
-    });
+    }
 })();
 
 // ** --- AUTO SUBMIT THE FORM WHEN CHANGING PROFILE IMAGE | - Logic --- ** \\
 export const autoSubmitImage = (() => {
-    DOMElements.inputImage.onchange = () => {
-         DOMElements.profileFormImg.submit();
-    };
+    if (DOMElements.inputImage) {
+        DOMElements.inputImage.onchange = () => {
+            DOMElements.profileFormImg.submit();
+       };
+    }
 })();
 export const autoSubmitBkImage = (() => {
-    DOMElements.inputBkImage.onchange = () => {
-        DOMElements.profileFormBkImage.submit();
-    };
+    if (DOMElements.inputBkImage) {
+        DOMElements.inputBkImage.onchange = () => {
+            DOMElements.profileFormBkImage.submit();
+        };
+    }
 })();

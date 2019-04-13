@@ -8,6 +8,7 @@ import Comicbooks from './models/Comicbooks';
 import * as comicbooksView from './views/comicbooksView'; 
 import * as cartView from './views/cartView';
 import * as idleTimeKick from './utilities/idle-time-kick';
+import * as paginationFunc from './views/pagination';
 
 // Global State Object
 const state = {};
@@ -15,22 +16,22 @@ const state = {};
 // --------------------------------------------
 //  COMICBOOKS FUNCTION | CONTROLLER
 // --------------------------------------------
-// ASYNC FUNCTION | - Consuming and manipulating comicbook data
-const controlComicbooks = async () => {
-    state.comicbooks = new Comicbooks();
-    console.log(state.comicbooks);
-    try {
-        await state.comicbooks.getComicbooks();
-        // Renders comicbooks
-        state.comicbooks.data.forEach((el, i) => {
-            comicbooksView.renderComics(state.comicbooks.data[i]);
-        });
-    } catch (err) {
-        throw new Error(err);
-    }
-};
-// EVENT LISTENER | - Consumes comicbook data from async function on load
-window.addEventListener('load', () => controlComicbooks());
+// // ASYNC FUNCTION | - Consuming and manipulating comicbook data
+// const controlComicbooks = async () => {
+//     state.comicbooks = new Comicbooks();
+//     console.log(state.comicbooks);
+//     try {
+//         await state.comicbooks.getComicbooks();
+//         // Renders comicbooks
+//         state.comicbooks.data.forEach((el, i) => {
+//             comicbooksView.renderComics(state.comicbooks.data[i]);
+//         });
+//     } catch (err) {
+//         throw new Error(err);
+//     }
+// };
+// // EVENT LISTENER | - Consumes comicbook data from async function on load
+// window.addEventListener('load', () => controlComicbooks());
 
 // --------------------------------------------
 //  CART FUNCTION | CONTROLLER

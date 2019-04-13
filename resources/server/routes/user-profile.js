@@ -45,7 +45,6 @@ router.put('/user-profile/:username', authMiddleware.isLoggedIn, async (req, res
         // Declaring variables
         const userID = req.user._id,
             userBody = req.body.userData;
-        const newPassword = userBody.password;
         try {
             if (err === 'LIMIT_FILE_SIZE' || err) { // if limit file size error occurs
                 req.flash('error', 'Files cannot be larger than 1MB!');

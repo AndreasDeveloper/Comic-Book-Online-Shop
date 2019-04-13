@@ -81,7 +81,7 @@ router.get('/login', (req, res) => {
 });
 
 // - POST - Log In User | - Login's user - \\
-router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }),
+router.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
     (req, res) => {
         res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
 });
