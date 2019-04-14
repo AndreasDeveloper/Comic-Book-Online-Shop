@@ -55,6 +55,33 @@
                     </div>
                 </div> -->
             </div>
+            <% if (noMatch) { %>
+            <div class="shop-pagination">
+                <div class="pagination">
+            </div>
+            </div>
+            <% } else { %>
+            <div class="shop-pagination">
+                <div class="pagination">
+                    <% if (currentPage == 1 && pages > 1) { %>
+                        <a href="/shop/<%= parseInt(currentPage) + 1 %>/?search=<%=searchVal%>" class="btn-inline pagination__btn--next">
+                            <span>Page <%=  parseInt(currentPage) + 1 %><i class="icon ion-ios-arrow-forward"></i></span>
+                        </a>
+                    <% } else if (currentPage < pages) { %>
+                        <a href="/shop/<%= parseInt(currentPage) - 1 %>/?search=<%=searchVal%>" class="btn-inline pagination__btn--prev">
+                            <span><i class="icon ion-ios-arrow-back"></i>Page <%= parseInt(currentPage) - 1 %></span>
+                        </a>
+                        <a href="/shop/<%= parseInt(currentPage) + 1 %>/?search=<%=searchVal%>" class="btn-inline pagination__btn--next">
+                            <span>Page <%= parseInt(currentPage) + 1 %><i class="icon ion-ios-arrow-forward"></i></span>
+                        </a>
+                    <% } else if (currentPage == pages && pages > 1) { %>
+                        <a href="/shop/<%= parseInt(currentPage) - 1 %>/?search=<%=searchVal%>" class="btn-inline pagination__btn--prev">
+                            <span><i class="icon ion-ios-arrow-back"></i>Page <%= parseInt(currentPage) - 1 %></span>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
         </section>
         <!-- SHOP | END -->
         <% include ../partials/footer.ejs %>

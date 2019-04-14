@@ -8,7 +8,6 @@ import Comicbooks from './models/Comicbooks';
 import * as comicbooksView from './views/comicbooksView'; 
 import * as cartView from './views/cartView';
 import * as idleTimeKick from './utilities/idle-time-kick';
-import * as paginationFunc from './views/pagination';
 
 // Global State Object
 const state = {};

@@ -1,0 +1,19 @@
+// * --------------------- * \\
+//       - PAGINATION -
+// * --------------------- * \\
+
+// Pagination Wrapper
+.shop-pagination {
+    display: flex;
+    margin-top: 10rem;
+}
+
+// Pagination Button Container
+.pagination {
+    height: 5rem;
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: 1; 
+    display: flex;
+    align-items: center;
+}
