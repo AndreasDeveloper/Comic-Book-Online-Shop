@@ -96,3 +96,20 @@ export const autoSubmitBkImage = (() => {
         };
     }
 })();
+
+// ** --- DISABLE / ENABLE INPUT ON CLICK | - Logic --- ** \\
+export const disableEnableInput = (() => {
+    if (DOMElements.settingsForm) { // If settings form exists
+        DOMElements.settingsForm.addEventListener('click', (event) => {
+            if (event.target.closest('.edit-form__username')) {
+                DOMElements.usernameInput.removeAttribute('disabled');
+            } else if (event.target.closest('.edit-form__email')) {
+                DOMElements.emailInput.removeAttribute('disabled');
+            } else if (event.target.closest('.edit-form__bioShort')) {
+                DOMElements.bioShortInput.removeAttribute('disabled');
+            } else if (event.target.closest('.edit-form__password')) {
+                DOMElements.passwordInputSett.removeAttribute('disabled');
+            }
+        });
+    };
+})();   

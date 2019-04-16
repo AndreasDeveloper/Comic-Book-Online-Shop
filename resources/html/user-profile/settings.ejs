@@ -20,11 +20,11 @@
             <div class="settings-content">
                 <h2 class="settings-content__heading">Edit Profile</h2>
                 <form action="/user-profile/<%=userData.username.toLowerCase()%>?_method=PUT" method="POST" class="edit-form" enctype="multipart/form-data">  
-                    <input type="text" name="userData[username]" value="<%= userData.username %>" required>
-                    <input type="email" name="userData[email]" value="<%= userData.email %>" required>
-                    <input type="text" name="userData[bioShort]" value="<%= userData.bioShort %>" required>
+                    <div class="edit-form__username"><input type="text" name="userData[username]" value="<%= userData.username %>" class="edit-form__usernameInp" required disabled></div>
+                    <div class="edit-form__email"><input type="email" name="userData[email]" value="<%= userData.email %>" class="edit-form__emailInp" required disabled></div>
+                    <div class="edit-form__bioShort"><input type="text" name="userData[bioShort]" value="<%= userData.bioShort %>" class="edit-form__bioShortInp" required disabled></div>
                     <div class="edit-form__password">
-                        <input type="password" name="userData[password]" value="<%= userData.password %>" id="settings-pw" required>
+                        <input type="password" name="userData[password]" value="<%= userData.password %>" id="settings-pw" required disabled>
                         <i class="icon ion-ios-eye-off" id="icon-eye-on"></i>
                     </div>
                     <input type="file" id="profileBkImage" name="userBkImage" accept="image/*" class="user-background-img__hidden-input" style="visibility: hidden;" disabled>

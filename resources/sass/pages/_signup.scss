@@ -140,4 +140,12 @@
             cursor: pointer;
         }
     }
+    &__username,
+    &__email,
+    &__bioShort {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
 }

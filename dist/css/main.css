@@ -1429,6 +1429,12 @@ textarea {
     font-weight: 300; }
     .results__num span {
       font-weight: 500; }
+  .results__pages {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: .5rem; }
+    .results__pages span {
+      font-weight: 500; }
 
 .user-nav__icon-box:focus {
   position: relative;
@@ -1728,6 +1734,12 @@ textarea {
     left: 95%;
     font-size: 2rem;
     cursor: pointer; }
+
+.edit-form__username, .edit-form__email, .edit-form__bioShort {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%; }
 
 .user-header {
   position: relative;

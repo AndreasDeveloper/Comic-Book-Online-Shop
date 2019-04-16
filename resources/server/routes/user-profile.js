@@ -44,7 +44,8 @@ router.put('/user-profile/:username', authMiddleware.isLoggedIn, async (req, res
     upload(req, res, async (err) => {
         // Declaring variables
         const userID = req.user._id,
-            userBody = req.body.userData;
+            userBody = req.body.userData,
+            userPw = req.body.userData.password;
         try {
             if (err === 'LIMIT_FILE_SIZE' || err) { // if limit file size error occurs
                 req.flash('error', 'Files cannot be larger than 1MB!');
@@ -65,6 +66,13 @@ router.put('/user-profile/:username', authMiddleware.isLoggedIn, async (req, res
                     const updatedData = await User.findByIdAndUpdate(userID, userBody); // Updated images
                     res.redirect(`/user-profile/${req.user.usernameUrl.toLowerCase()}`);
                 } else if (req.body.userData) {
+                    if (userPw !== userPw) {
+                        const foundUser = await User.findById(userID);
+                        const updatedPassword = await foundUser.setPassword(userPw);
+                        console.log(updatedPassword);
+                        const updateUser = await User.findByIdAndUpdate(userID, updatedPassword);
+                        res.redirect('/logout');
+                    } 
                     const updatedUser = await User.findByIdAndUpdate(userID, userBody);
                     res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
                 }
