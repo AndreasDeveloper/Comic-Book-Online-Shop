@@ -116,6 +116,21 @@ body {
     background-color: #B28451;
     border: 0.2rem solid #B28451; }
 
+.btn-2-i {
+  display: inline;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: #c69963;
+  padding: .7rem;
+  margin-bottom: 1rem;
+  border: 0.1rem solid #c69963;
+  transition: all .2s ease-in-out;
+  outline: none;
+  cursor: pointer; }
+  .btn-2-i:hover {
+    border: 0.1rem solid #B28451; }
+
 .btn-main {
   display: inline;
   color: #fff;
@@ -865,6 +880,54 @@ textarea {
   display: flex;
   align-items: center; }
 
+/* spinner style */
+.spinner {
+  position: relative;
+  width: 125px;
+  height: 125px; }
+  .spinner:before, .spinner:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 50%; }
+
+/* spinner-1 styles */
+@keyframes rotate-animation {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes anti-rotate-animation {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(-360deg); } }
+
+.spinner.spinner-1:before {
+  width: 117px;
+  height: 117px;
+  border-bottom-color: #242424;
+  border-right-color: #242424;
+  border-top-color: rgba(36, 36, 36, 0);
+  border-left-color: rgba(36, 36, 36, 0);
+  top: 0px;
+  left: 0px;
+  animation: rotate-animation 1s linear 0s infinite; }
+
+.spinner.spinner-1:after {
+  width: 81.9px;
+  height: 81.9px;
+  border-bottom-color: #242424;
+  border-right-color: #242424;
+  border-top-color: rgba(36, 36, 36, 0);
+  border-left-color: rgba(36, 36, 36, 0);
+  top: 17.55px;
+  left: 17.55px;
+  animation: anti-rotate-animation 0.85s linear 0s infinite; }
+
 /* -------------------------- */
 /*      - SERVICE BOX -
 /* -------------------------- */
@@ -1403,11 +1466,19 @@ textarea {
     .item-desc__rating > i {
       color: #c69963;
       font-size: 1.6rem; }
+  .item-desc__bottom-wrap {
+    display: flex;
+    align-items: center; }
+    @media only screen and (max-width: 37.5em) {
+      .item-desc__bottom-wrap {
+        justify-content: center; } }
+    .item-desc__bottom-wrap__button-wrap {
+      margin-left: 1.6rem; }
   .item-desc__price {
-    font-size: 1.6rem;
+    border-right: 0.1rem solid #c69963;
+    padding-right: 1rem;
+    font-size: 1.7rem;
     font-weight: 500; }
-  .item-desc__button {
-    margin-left: 3rem; }
 
 .results {
   display: flex;

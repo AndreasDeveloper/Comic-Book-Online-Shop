@@ -2,7 +2,7 @@
 //        - BUTTONS -
 // * --------------------- * \\
 
-// * ---- SHOP BUTTON ---- * \\
+// * ---- SHOP BUTTON 1 ---- * \\
 .btn-1 {
     display: inline;
     font-size: 1.2rem;
@@ -24,6 +24,30 @@
         background-color: $color-primary-light;
         border: .2rem solid $color-primary-light;
     }
+}
+
+// * ---- SHOP BUTTON 2 ---- * \\
+.btn-2-i {
+    display: inline;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: $color-primary;
+    padding: .7rem;
+    margin-bottom: 1rem;
+    border: .1rem solid $color-primary;
+    transition: all .2s ease-in-out;
+    outline: none;
+    cursor: pointer;
+    // On Hover
+    &:hover {
+        border: .1rem solid $color-primary-light;
+    }
+}
+
+// * ---- WISHLIST BUTTON ---- * \\
+.wishlistBtn {
+
 }
 
 // * ---- HEADER BUTTON ---- * \\

@@ -113,3 +113,24 @@ export const disableEnableInput = (() => {
         });
     };
 })();   
+
+// ** --- WISHLIST BUTTON | - Logic --- ** \\
+export const wishlistButton = (() => {
+    if (DOMElements.wishlistItemBtnWrap) {
+        const wishBtnArrWrap = [...DOMElements.wishlistItemBtnWrap];
+        for (let i = 0; i < wishBtnArrWrap.length; i++) {
+            wishBtnArrWrap[i].addEventListener('click', e => {
+                const heartIconEl = e.target.closest('i');
+                if (heartIconEl) {
+                    if (heartIconEl.className === 'icon ion-ios-heart-empty heartIcon' || heartIconEl.className === 'heartIcon icon ion-ios-heart-empty') {
+                        heartIconEl.classList.remove('icon', 'ion-ios-heart-empty');
+                        heartIconEl.classList.add('icon', 'ion-ios-heart');
+                    } else if (heartIconEl.className === 'heartIcon icon ion-ios-heart') {
+                        heartIconEl.classList.remove('icon', 'ion-ios-heart');
+                        heartIconEl.classList.add('icon', 'ion-ios-heart-empty');
+                    }
+                }
+            });
+        }
+    }
+})();

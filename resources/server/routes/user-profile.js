@@ -51,25 +51,24 @@ router.put('/user-profile/:username', authMiddleware.isLoggedIn, async (req, res
                 req.flash('error', 'Files cannot be larger than 1MB!');
                 res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
             } else {
-                if (req.files.userImage !== undefined) {
+                if (req.files.userImage !== undefined) { // If there is a profile image being uploaded
                     const cloudinaryRes1 = await cloudinary.uploader.upload(req.files.userImage[0].path);
                     // Adding cloudinary url for the images to the user object under image & bkImage property
                     req.body.image = cloudinaryRes1.secure_url;
                     const userBody = { image: req.body.image };
                     const updatedData = await User.findByIdAndUpdate(userID, userBody); // Updated images
                     res.redirect(`/user-profile/${req.user.usernameUrl.toLowerCase()}`);
-                } else if (req.files.userBkImage !== undefined) {
+                } else if (req.files.userBkImage !== undefined) { // If there is a profile background image being uploaded
                     const cloudinaryRes2 = await cloudinary.uploader.upload(req.files.userBkImage[0].path);
                     // Adding cloudinary url for the images to the user object under image & bkImage property
                     req.body.bkImage = cloudinaryRes2.secure_url;
                     const userBody = { bkImage: req.body.bkImage };
                     const updatedData = await User.findByIdAndUpdate(userID, userBody); // Updated images
                     res.redirect(`/user-profile/${req.user.usernameUrl.toLowerCase()}`);
-                } else if (req.body.userData) {
-                    if (userPw !== userPw) {
+                } else if (req.body.userData) { // If there is user data being updated
+                    if (userPw !== userPw) { // If password is being changed
                         const foundUser = await User.findById(userID);
                         const updatedPassword = await foundUser.setPassword(userPw);
-                        console.log(updatedPassword);
                         const updateUser = await User.findByIdAndUpdate(userID, updatedPassword);
                         res.redirect('/logout');
                     } 

@@ -8,6 +8,7 @@ const express = require('express'),
 // - Importing Models - \\
 const User = require('../models/User');
 
+
 // ==================== \\
 //  - MULTER SETUP - 
 // ==================== \\
@@ -29,8 +30,12 @@ const upload = multer({ storage: storage, fileFilter: imageFilter, limits: { fil
   
 
 // - GET - Sign Up Page | - Displays page to sign up - \\
-router.get('/signup', (req, res) => {
-    res.render(`${__dirname}/../../../dist/html/authentication/signup.ejs`);
+router.get('/signup', async (req, res) => {
+    try {
+        res.render(`${__dirname}/../../../dist/html/authentication/signup.ejs`);
+    } catch (err) {
+        throw new Error(err);
+    }
 });
 
 // - * Helper Function For POST Req * - \\
@@ -76,21 +81,33 @@ router.post('/signup', async (req, res) => {
 });
 
 // - GET - Log In Page | - Displays page to log in - \\
-router.get('/login', (req, res) => {
-    res.render(`${__dirname}/../../../dist/html/authentication/login.ejs`);
+router.get('/login', async (req, res) => {
+    try {
+        res.render(`${__dirname}/../../../dist/html/authentication/login.ejs`);
+    } catch (err) {
+        throw new Error(err);
+    }
 });
 
 // - POST - Log In User | - Login's user - \\
 router.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
-    (req, res) => {
-        res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
+    async (req, res) => {
+        try {
+            await res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
+        } catch (err) {
+            throw new Error(err);
+        }
 });
 
 // --- LOGOUT SETUP --- \\
 // GET - LOGOUT | - Logout Get Request
-router.get('/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
+router.get('/logout', async (req, res) => {
+    try {
+        req.logout();
+        res.redirect('/');
+    } catch (err) {
+        throw new Error(err);
+    }
 });
 
 // Exporting Authentication Router

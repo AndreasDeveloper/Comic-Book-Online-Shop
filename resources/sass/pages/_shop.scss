@@ -72,14 +72,21 @@
         > span { font-size: 1.1rem;  font-weight: 400; }
         > i { color: $color-primary; font-size: 1.6rem; }
     }
+    // Bottom Content of item (Price, Wishlist button, Buy button)
+    &__bottom-wrap {
+        display: flex;
+        align-items: center;
+        // --- MEDIA QUERIE --- \\
+        @media only screen and (max-width: $bp-small) { justify-content: center; }
+        // Button Wrapper
+        &__button-wrap { margin-left: 1.6rem; }
+    }
     // Price
     &__price {
-        font-size: 1.6rem;
+        border-right: .1rem solid $color-primary;
+        padding-right: 1rem;
+        font-size: 1.7rem;
         font-weight: 500;
-    }
-    // Buy button
-    &__button {
-        margin-left: 3rem;
     }
 }
 

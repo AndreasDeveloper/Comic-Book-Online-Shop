@@ -24,7 +24,9 @@
         <div class="results">
             <h3 class="results__text">Search results: <span><%= searchVal %></span></h3>
             <h4 class="results__num">Displaying Total <span><%= numOfResults %></span> Results</h4>
-            <h4 class="results__pages">Page <span><%= currentPage %></span> of <span><%= pages %></span></h4>
+            <% if (pages > 1) { %>
+                <h4 class="results__pages">Page <span><%= currentPage %></span> of <span><%= pages %></span></h4>
+            <% } %>
         </div>
         <!-- SEARCH RESULTS | END -->
         <!-- SHOP | START -->
@@ -41,10 +43,20 @@
                         <h2 class="item-desc__name"><%= comicbook.name %></h2>
                         <p class="item-desc__text"><%= comicbook.descriptionShort %></p>
                         <h3 class="item-desc__rating"><i class="icon ion-ios-star"></i> <%= comicbook.rating %> &dash; <span>Based on <%= comicbook.ratings %> ratings</span></h3>
-                        <h3 class="item-desc__price">&dollar; <%= comicbook.price %><a class="item-desc__button btn-1 buyBtn" data-itemid='<%= comicbook._id %>'>buy</a></h3>
+                        <div class="item-desc__bottom-wrap">
+                            <h3 class="item-desc__price">&dollar; <%= comicbook.price %></h3>
+                            <div class="item-desc__bottom-wrap__button-wrap">
+                                <% if (currentUser) { %>
+                                    <a class="btn-2-i wishlistBtn"><i class="icon ion-ios-heart-empty heartIcon"></i></a>
+                                <% } %>
+                                <a class="btn-1 buyBtn" data-itemid='<%= comicbook._id %>'>buy</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <% }); %> 
+
+
                 <!-- ITEM 2  TEMPLATE FOR ITEM
                 <div class="item">
                     <div class="shop-row shop-row--2"><img data-lazy="https://drive.google.com/uc?export=view&id=1lhvRGGkJ37oCIrJu8tnov2DFDpX7RWfr" class="sp-cover-img"></div>
@@ -55,6 +67,8 @@
                         <h3 class="item-desc__price">&dollar; 55 <button class="item-desc__button btn-1">buy</button></h3>
                     </div>
                 </div> -->
+
+
             </div>
             <% if (noMatch) { %>
             <div class="shop-pagination">

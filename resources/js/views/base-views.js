@@ -15,6 +15,8 @@ export const DOMElements = {
     shopContainer: document.querySelector('.shop-container'), // Shop Main Container
     shoppingCartUl: document.querySelector('.user-list-cart'),
     buyItemBtn: document.querySelector('.buyBtn'),
+    wishlistItemBtnWrap: document.querySelectorAll('.wishlistBtn'),
+    heartIcon: document.querySelectorAll('.heartIcon'),
     // User Settings DOM Elements
     settingsForm: document.querySelector('.edit-form'),
     usernameInputSett: document.querySelector('.edit-form__username'),
@@ -33,4 +35,27 @@ export const DOMElements = {
     profileFormBkImage: document.querySelector('#profileFormBkImage'),
     inputImage: document.querySelector('#profileImg'),
     inputBkImage: document.querySelector('#profileBkImage')
+};
+
+// --- Private Classes --- \\
+export const elementStrings = {
+    loader: 'loader'
+};
+
+// --- Render Pre-Loader - Function --- \\
+export const renderLoader = parentEl => {
+    const loader = `
+    <div class="spinner-block">
+        <div class="spinner spinner-1"></div>
+    </div>
+    `;
+    parentEl.insertAdjacentHTML('afterbegin', loader);
+};
+
+// --- Clear Pre-Loader - Function --- \\
+export const clearLoader = () => {
+    const loader = document.querySelector(`.${elementStrings.loader}`);
+    if (loader) { // If loader exists
+        loader.parentElement.removeChild(loader); // Remove it
+    }
 };

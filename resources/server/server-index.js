@@ -108,8 +108,12 @@ app.use(comicbooksShopData);
 // * ------------- * \\
 
 // - Landing Page - \\
-app.get('/', (req, res) => {
-    res.render(path.resolve(`${__dirname}/../../dist/html/landing/landing.ejs`));
+app.get('/', async (req, res) => {
+    try {
+        res.render(`${__dirname}/../../dist/html/landing/landing.ejs`);
+    } catch (err) {
+        throw new Error(err);
+    }
 });
 
 // - 404 - Page not Found Page - \\
