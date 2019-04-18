@@ -54,7 +54,6 @@ let noMatch = null;
 router.get('/shop/add-to-cart/:id', async (req, res) => {
     const productID = req.params.id;
     const backUrl = req.header('Referer') || '/'; // Remembers the last url user was on
-    console.log(req.query);
     try {
         const cart = new Cart(req.session.cart ? req.session.cart : {}); // If cart exists, pass the old cart (obj with data), otherwise pass the empty cart (object)
         const foundProduct = await Comicbook.findById(productID);

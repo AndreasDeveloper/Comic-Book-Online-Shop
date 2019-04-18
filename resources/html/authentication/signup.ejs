@@ -28,6 +28,12 @@
                     <!-- Flash Message | Implementation -->
                     <% include ../partials/flash-messages.ejs %>
                     <h2 class="signup-right__content__heading-1">Sign Up to Comicbook</h2>
+                    <div class="login-right__content__icons">
+                        <i class="icon ion-logo-facebook"></i>
+                        <i class="icon ion-logo-google"></i>
+                        <i class="icon ion-logo-instagram"></i>
+                    </div>
+                    <h4 class="login-right__content__heading-2">&mdash; Or sign up here &mdash;</h4>
                     <form action="/signup" method="POST" class="signup-form" enctype="multipart/form-data">
                         <input type="text" name="username" placeholder="Username" required>
                         <input type="email" name="email" placeholder="Your Email" required>
