@@ -804,6 +804,9 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center; }
+    @media only screen and (max-width: 86.875em) {
+      .user-nav__notification {
+        top: 2rem; } }
   .user-nav__user-photo {
     height: 3.9rem;
     border-radius: 50%;
@@ -1590,10 +1593,19 @@ textarea {
     text-transform: uppercase;
     font-weight: 500;
     margin-bottom: .3rem; }
+  .user-list__price-wrap {
+    display: flex;
+    align-items: center; }
   .user-list__price {
     font-size: 1.2rem;
     font-weight: 400;
     color: #c69963; }
+  .user-list__quantity {
+    border-left: 0.1rem solid #c69963;
+    color: #9b6f39;
+    font-weight: 500;
+    padding-left: .5rem;
+    margin-left: .5rem; }
   .user-list__checkout-button {
     display: flex;
     flex-direction: row;

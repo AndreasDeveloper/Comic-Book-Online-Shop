@@ -590,6 +590,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      // --- MEDIA QUERIE --- \\
+      @media only screen and (max-width: $bp-desktop) { top: 2rem; }
   }
   // User picture and name
   &__user-photo {

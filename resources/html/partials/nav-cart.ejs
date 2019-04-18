@@ -1,0 +1,48 @@
+<% if (session.cart) { %>
+    <!-- SHOPPING CART | START -->
+    <div class="user-nav__icon-box">
+        <i class="icon ion-ios-cart user-nav__icon"></i>
+        <span class="user-nav__notification"><%= session.cart.totalQnty %></span>
+        <div class="user-list">
+            <ul class="user-list__list user-list-cart">
+                <% for (const product in session.cart.items) { %>
+                    <li>
+                        <a href="#" class="user-list__link">
+                            <figure class="user-list__fig">
+                                <img data-lazy="<%= session.cart.items[product].item.image %>" alt="Item 1">
+                            </figure>
+                            <div class="user-list__data">
+                                <h3 class="user-list__name"><%= session.cart.items[product].item.name %></h3>
+                                <div class="user-list__price-wrap">
+                                    <h4 class="user-list__price">&dollar; <%= session.cart.items[product].price %></h4>
+                                    <h4 class="user-list__quantity"><%= session.cart.items[product].qnty %></h4>
+                                </div>
+                            </div>
+                            <div class="user-list__remove"><i class="icon ion-ios-close"></i></div>
+                        </a>
+                    </li>
+            <% }; %>
+            </ul>
+            <div class="user-list__checkout-button">
+                <h3 class="user-list__total">Total: &dollar; <%= session.cart.totalPrice %></h3>
+                <a href="/shopping-cart" class="user-list__checkout">Checkout &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <!-- SHOPPING CART | END -->
+<% } else { %>
+        <!-- SHOPPING CART | START -->
+    <div class="user-nav__icon-box">
+        <i class="icon ion-ios-cart user-nav__icon"></i>
+        <span class="user-nav__notification">0</span>
+        <div class="user-list">
+            <ul class="user-list__list user-list-cart">
+            </ul>
+            <div class="user-list__checkout-button">
+                <h3 class="user-list__total">Total: &dollar; 0</h3>
+                <a href="/shopping-cart" class="user-list__checkout">Checkout &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <!-- SHOPPING CART | END -->
+<% } %>

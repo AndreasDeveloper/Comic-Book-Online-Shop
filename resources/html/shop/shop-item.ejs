@@ -49,7 +49,7 @@
                                 <% if (currentUser) { %>
                                     <a class="btn-2-i wishlistBtn"><i class="icon ion-ios-heart-empty heartIcon"></i></a>
                                 <% } %>
-                                <a class="btn-1 buyBtn" data-itemid='<%= comicbook._id %>'>buy</a>
+                                <a href="/shop/add-to-cart/<%=comicbook._id%>" class="btn-1 buyBtn" data-itemid='<%= comicbook._id %>'>buy</a>
                             </div>
                         </div>
                     </div>

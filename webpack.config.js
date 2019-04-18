@@ -28,6 +28,10 @@ module.exports = {
             filename: 'html/shop/shop-item.ejs',
             template: './resources/html/shop/shop-item.ejs'
         }),
+        new HtmlWebpackPlugin({ // SHOP CART PAGE
+            filename: 'html/shop/shopping-cart.ejs',
+            template: './resources/html/shop/shopping-cart.ejs'
+        }),
         new HtmlWebpackPlugin({ // AUTHENTICATION - LOGIN
             filename: 'html/authentication/login.ejs',
             template: './resources/html/authentication/login.ejs'
@@ -52,6 +56,11 @@ module.exports = {
         new HtmlWebpackPlugin({ // MINI-NAVIGATION PARTIAL
             filename: 'html/partials/miniNavigation.ejs',
             template: './resources/html/partials/miniNavigation.ejs',
+            excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
+        }),
+        new HtmlWebpackPlugin({ // NAVIGATION CART PARTIAL
+            filename: 'html/partials/nav-cart.ejs',
+            template: './resources/html/partials/nav-cart.ejs',
             excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
         }),
         new HtmlWebpackPlugin({ // FLASH MESSAGES PARTIALS

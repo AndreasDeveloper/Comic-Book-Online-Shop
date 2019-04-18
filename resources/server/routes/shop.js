@@ -2,7 +2,8 @@
 const express = require('express'),
       router = express.Router();
 // - Importing MVC files - \\
-const Comicbook = require('../models/Comicbooks');
+const Comicbook = require('../models/Comicbooks'),
+      Cart = require('../models/Cart');
 // - Importing Middleware - \\
 const authMiddleware = require('../middlewares/authMiddleware');
 // - Importing Other JS Files - \\
@@ -22,7 +23,7 @@ router.get('/shop', async (req, res) => {
     }
 });
 
-// GET - Shop Product Page | - Displaying demanded product page with page numbers
+// GET - Shop Product Page | - Displaying demanded product page with page numbers - \\
 router.get('/shop/:page', async (req, res, next) => {
 // Declaring variable
 const resPerPage = 9;
@@ -47,6 +48,38 @@ let noMatch = null;
         throw new Error(err);
     }
 });
+
+
+// GET - Add To Cart | - Add item to cart route - \\
+router.get('/shop/add-to-cart/:id', async (req, res) => {
+    const productID = req.params.id;
+    const backUrl = req.header('Referer') || '/'; // Remembers the last url user was on
+    console.log(req.query);
+    try {
+        const cart = new Cart(req.session.cart ? req.session.cart : {}); // If cart exists, pass the old cart (obj with data), otherwise pass the empty cart (object)
+        const foundProduct = await Comicbook.findById(productID);
+        cart.add(foundProduct, foundProduct._id);
+        req.session.cart = cart;
+        res.redirect(backUrl);
+    } catch (err) {
+        throw new Error(err);
+    }
+});
+
+// GET - Shopping Cart Page | - Displaying shopping cart with all / or none items added to cart - \\
+router.get('/shopping-cart', async (req, res) => {
+    try {
+        if (!req.session.cart) {
+            res.render((`${__dirname}/../../../dist/html/shop/shopping-cart.ejs`), {products: null});
+        }
+        const cart = await new Cart(req.session.cart);
+        res.render((`${__dirname}/../../../dist/html/shop/shopping-cart.ejs`), {products: cart.generateArray(), totalPrice: cart.totalPrice});
+    } catch (err) {
+        throw new Error(err);
+    }
+});
+
+
 
 // Exporting Shop Router
 module.exports = router;

@@ -6,6 +6,7 @@
 const path = require('path'),
       express = require('express'),
       app = express(),
+      session = require('express-session'),
       mongoose = require('mongoose'),
       bodyParser = require('body-parser'),
       methodOverride = require('method-override'),
@@ -13,7 +14,8 @@ const path = require('path'),
       LocalStrategy = require('passport-local'),
       multer = require('multer'),
       cloudinary = require('cloudinary'),
-      flash = require('connect-flash');
+      flash = require('connect-flash'),
+      MongoStore = require('connect-mongo')(session);
 // - Importing Models | MVC - \\
 const Comicbook = require('./models/Comicbooks'),
       User = require('./models/User');
@@ -74,11 +76,13 @@ cloudinary.config({
 //  - PASSPORT SETUP - 
 // ==================== \\
 // - Express Session - \\
-app.use(require('express-session')({
+app.use(session(({
     secret: 'Accessing secret data',
     resave: false,
-    saveUninitialized: false
-}));
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: { maxAge: 180 * 60 * 1000 } // Life span of a cookie
+})));
 // - Passport Methods - \\
 app.use(passport.initialize());
 app.use(passport.session());
@@ -91,6 +95,8 @@ app.use((req, res, next) => {
     // Flash Messages Setup | Error & Success Global
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');
+    // Session
+    res.locals.session = req.session;
     next();
 });
 // ============== \\

@@ -218,10 +218,20 @@
         font-weight: 500;
         margin-bottom: .3rem;
     }
+    // Price Wrapper - Price & Quantity on nav
+    &__price-wrap { display: flex; align-items: center; }
     &__price {
         font-size: 1.2rem;
         font-weight: 400;
         color: $color-primary;
+    }
+    // Quantity
+    &__quantity {
+        border-left: .1rem solid $color-primary;
+        color: $color-primary-dark;
+        font-weight: 500;
+        padding-left: .5rem;
+        margin-left: .5rem;
     }
     // Checkout and Single buttons wrapper
     &__checkout-button { display: flex; flex-direction: row; justify-content:space-between; align-items: center; padding: 0 3rem; margin-top: 1rem; }

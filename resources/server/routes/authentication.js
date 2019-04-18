@@ -42,7 +42,7 @@ router.get('/signup', async (req, res) => {
 const userRegisterFun = (req, res, userBody) => { // Passport user register function with authentication
     return User.register(new User(userBody), userBody.password, async (err, user) => {
         passport.authenticate('local')(req, res, () => { // Local Authentication
-            res.redirect(`/user-profile/${req.user.usernameUrl.toLowerCase()}`);
+            res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
         });
     });
 };
@@ -65,19 +65,9 @@ router.post('/signup', async (req, res) => {
                     // Adding cloudinary url for the images to the user object under image & bkImage property
                     req.body.image = cloudinaryRes1.secure_url;
                     req.body.bkImage = cloudinaryRes2.secure_url;
-                    // User body as object
-                    const userBody = {
-                        username: req.body.username,
-                        usernameUrl: req.body.username,
-                        email: req.body.email,
-                        bioShort: req.body.bioShort,
-                        image: req.body.image,
-                        bkImage: req.body.bkImage,
-                        password: req.body.password
-                    };
                     // Registering user
-                    const registeredUser = await userRegisterFun(req, res, userBody);
-                    req.flash('success', `Successfully Signed In, Welcome ${userBody.username}!`);
+                    const registeredUser = await userRegisterFun(req, res, req.body);
+                    req.flash('success', `Successfully Signed In, Welcome ${req.body.username}!`);
                 }
             } catch (error) {
                 console.error(error);
