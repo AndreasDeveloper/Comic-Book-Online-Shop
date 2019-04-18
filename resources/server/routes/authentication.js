@@ -50,32 +50,41 @@ const userRegisterFun = (req, res, userBody) => { // Passport user register func
 // - POST - Creates new User | - Create New User - \\
 router.post('/signup', async (req, res) => {
     upload(req, res, async (err) => {
-        try {
-            if (err === 'LIMIT_FILE_SIZE' || err) { // if limit file size error occurs
-                req.flash('error', 'Files cannot be larger than 1MB!');
-                res.redirect('/signup');
-            } else {
-                const cloudinaryRes1 = await cloudinary.uploader.upload(req.files.image[0].path);
-                const cloudinaryRes2 = await cloudinary.uploader.upload(req.files.bkImage[0].path);
-                // Adding cloudinary url for the images to the user object under image & bkImage property
-                req.body.image = cloudinaryRes1.secure_url;
-                req.body.bkImage = cloudinaryRes2.secure_url;
-                // User body as object
-                const userBody = {
-                    username: req.body.username,
-                    usernameUrl: req.body.username,
-                    email: req.body.email,
-                    bioShort: req.body.bioShort,
-                    image: req.body.image,
-                    bkImage: req.body.bkImage,
-                    password: req.body.password
-                };
-                // Registering user
-                const registeredUser = await userRegisterFun(req, res, userBody);
-                req.flash('success', `Successfully Signed In, Welcome ${userBody.username}!`);
+        const existUserUsername = await User.findOne({username: req.body.username}).exec(),
+              existUserEmail = await User.findOne({email: req.body.email}).exec(),
+              existUserPassword = await User.findOne({password: req.body.password}).exec();
+        // If user with submitted username, email, password doesn't exist, run the code
+        if (!existUserUsername && !existUserEmail && !existUserPassword) {
+            try {
+                if (err === 'LIMIT_FILE_SIZE' || err) { // if limit file size error occurs
+                    req.flash('error', 'Files cannot be larger than 1MB!');
+                    res.redirect('/signup');
+                } else {
+                    const cloudinaryRes1 = await cloudinary.uploader.upload(req.files.image[0].path);
+                    const cloudinaryRes2 = await cloudinary.uploader.upload(req.files.bkImage[0].path);
+                    // Adding cloudinary url for the images to the user object under image & bkImage property
+                    req.body.image = cloudinaryRes1.secure_url;
+                    req.body.bkImage = cloudinaryRes2.secure_url;
+                    // User body as object
+                    const userBody = {
+                        username: req.body.username,
+                        usernameUrl: req.body.username,
+                        email: req.body.email,
+                        bioShort: req.body.bioShort,
+                        image: req.body.image,
+                        bkImage: req.body.bkImage,
+                        password: req.body.password
+                    };
+                    // Registering user
+                    const registeredUser = await userRegisterFun(req, res, userBody);
+                    req.flash('success', `Successfully Signed In, Welcome ${userBody.username}!`);
+                }
+            } catch (error) {
+                console.error(error);
             }
-        } catch (error) {
-            console.error(error);
+        } else { // If user already exists, display error
+        req.flash('error', 'User already exists!');
+        res.redirect('/signup'); 
         }
     });
 });

@@ -1,4 +1,4 @@
-// - Importing Mongoose - \\
+// - Importing Dependencies - \\
 const mongoose = require('mongoose'),
       passportLocalMongoose = require('passport-local-mongoose');
 
