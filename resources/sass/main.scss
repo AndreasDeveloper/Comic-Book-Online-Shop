@@ -20,11 +20,13 @@
 @import './components/shapes-graphics';
 // - LAYOUT - \\
 @import './layout/footer';
+@import './layout/wrappers';
 // - PAGES - \\
 @import './pages/landing';
 @import './pages/login';
 @import './pages/shop';
 @import './pages/shop-index';
+@import './pages/shopping-cart';
 @import './pages/signup';
 @import './pages/user';
 @import './pages/user-settings';

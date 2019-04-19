@@ -270,3 +270,14 @@
     text-align: center;
     margin-top: 6rem;
 }
+
+// Shop tab for non-user view | Mini Navigation (Top)
+#notUserShopNav {
+    border-left: .1rem solid $color-primary;
+    margin-left: 1rem;
+}
+
+// Cart Icon Div container for non-user views
+#notUserCartDiv {
+    span { top: .4rem; }
+}

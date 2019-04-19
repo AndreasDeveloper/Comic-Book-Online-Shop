@@ -141,3 +141,22 @@
         span i { margin-left: .8rem; }
     }
 }
+
+// * ---- CHECKOUT BUTTONS ---- * \\
+.btn-payNow {
+    display: inline;
+    color: $color-white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: .05rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1.2rem;
+    background-color: $color-primary;
+    transition: all .2s ease-in-out;
+    // On hover
+    &:hover {
+        background-color: $color-primary-light;
+        i { margin-left: .8rem; }
+    }
+}

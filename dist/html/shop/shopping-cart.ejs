@@ -19,7 +19,18 @@
         <% } else { %>
         <div class="standard-wrapper">
         <% }; %>
-        <h1>Shopping Cart</h1>
+        <div class="shopping-cart-wrapper">
+            <header class="shopping-cart-header">
+                <div class="shopping-cart-header__content">
+                    <h1>Your Shopping Cart:</h1>
+                    <div class="shopping-cart-header__content-list">
+                        <h2 class="shopping-cart-header__content-list__data-1">Items in cart: <span>0</span> &mdash;</h2>
+                        <h2 class="shopping-cart-header__content-list__data-2">Total amount to pay: <span>0&dollar;</span></h2>
+                    </div>
+                    <a href="#" class="btn-payNow shopping-cart-header__button-header">Checkout <i class="icon ion-ios-arrow-forward"></i></a>
+                </div>
+            </header>
+        </div>
     </main>
 
 <script type="text/javascript" src="../../js/bundle.js"></script></body>

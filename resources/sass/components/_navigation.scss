@@ -99,25 +99,6 @@
 .menu a:hover, .menu i:hover { color: $color-white; }
 .menu { margin-bottom: 3em; }
 
-  // - New Wrapper | Content aside of the side-nav - \\
-  .new-wrapper {
-    position: absolute;
-    left: 50px;
-    top: 7.3rem;
-    width: calc(100% - 50px);
-    transition: transform .45s cubic-bezier(0.77, 0, 0.175, 1);
-    padding: 15rem 4rem 0 5rem;
-    @media only screen and (max-width: $bp-small) { padding: 15rem 0 0 0; margin-left: -2rem; }
-    @media only screen and (max-width: $bp-vsmall-4) { margin-left: 5rem; }
-  }
-  // - Standard Wrapper | Content aside of the side-nav - \\
-  .standard-wrapper {
-    position: absolute;
-    left: 0px;
-    width: calc(100% - 0px);
-    transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
-    padding: 6rem 0rem 0 0rem;
-  }
   // Side Nav Transition / Animations for wrappers
   .openNav .new-wrapper {
     position: absolute;
@@ -128,6 +109,13 @@
   .openNav .standard-wrapper {
     position: absolute;
     transform: translate3d(250px, 0, 0);
+    width: calc(100% - 0px);
+    transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+    @media only screen and (max-width: $bp-small) { transform: translate3d(238px, 0, 0); }
+  }
+  .openNav .standard-text-wrapper {
+    position: absolute;
+    transform: translate3d(200px, 0, 0);
     width: calc(100% - 0px);
     transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
     @media only screen and (max-width: $bp-small) { transform: translate3d(238px, 0, 0); }

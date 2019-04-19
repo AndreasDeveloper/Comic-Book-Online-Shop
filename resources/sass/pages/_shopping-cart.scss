@@ -1,0 +1,69 @@
+// * --------------------- * \\
+//      - SHOPPING CART -
+// * --------------------- * \\
+
+// Main wrapper
+.shopping-cart-wrapper {
+    position: relative;
+}
+
+// Shopping Cart Header
+.shopping-cart-header {
+    position: relative;
+    background-image: linear-gradient(to bottom, rgba($color-black, .50), rgba($color-black, .50)), url(../img/bk-6.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: 60vh;
+
+    // Content
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // Header 1
+        h1 { 
+            color: $color-white;
+            font-size: 3.5rem;
+            font-weight: 400; 
+            text-align: center; 
+            @include center-vh; 
+            top: 35%;
+        }
+    }
+    // Content List - Total items, amount to pay
+    &__content-list {
+        display: flex;
+        align-items: center;
+        @include center-vh;
+        top: 45%;
+        // Data 1
+        &__data-1 {
+
+        }
+        // Data 2
+        &__data-2 {
+
+        }
+        // All of data
+        &__data-1, &__data-2 {
+            color: $color-white;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: .2rem;
+            // Span element
+            span { font-weight: 500; }
+        }
+    }
+    // Checkout Button - Header
+    &__button-header {
+        @include center-vh;
+        top: 55%;
+        margin-top: 1rem;
+        i { margin-left: .8rem; }
+        & i {
+            margin-left: .3rem;
+            transition: margin-left .2s;
+        }
+    }
+}
