@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+    <title>Checkout - Comic Book</title>
+</head>
+<body>
+
+    <!-- IMPLEMENTING NAVIGATION -->
+    <% include ../partials/navigation.ejs %>
+
+    <div class="standard-text-wrapper">
+        <div class="checkout">
+            <div class="checkout__text-content">
+            <% include ../partials/flash-messages.ejs %>
+                <h1>Checkout</h1>
+                <h2>Your Total: &dollar;<%= session.cart.totalPrice %></h2>
+            </div>
+            <div class="checkout__form-wrap">
+                <form action="/checkout" method="POST" id="checkoutForm" class="checkout-form">
+                    <input type="email" name="chEmail" placeholder="Email" id="ch-email" required>
+                    <div class="checkout-form__full-name">
+                        <input type="text" name="chFirstName" placeholder="First Name" id="ch-firstName" required>
+                        <input type="text" name="chLastName" placeholder="Last Name" id="ch-lastName" required>
+                    </div>
+                    <input type="text" name="chAddress" placeholder="Address" id="ch-address" required>
+                    <input type="text" name="chAddressInfo" placeholder="Apartment, suite, etc. (optional)" id="ch-addressInfo">
+                    <input type="text" name="chCity" placeholder="City" id="ch-city" required>
+                    <div class="checkout-form__select-options">
+                        <select class="checkout-select" required>
+                            <option>United States</option>
+                            <option>United Kingdom</option>
+                            <option>Sweden</option>
+                            <option>Australia</option>
+                            <option>France</option>
+                        </select>
+                        <select class="checkout-select" required>
+                            <option>Arizona</option>
+                            <option>Alaska</option>
+                            <option>New York</option>
+                            <option>Oklahoma</option>
+                            <option>Washington</option>
+                        </select>
+                        <input type="text" name="chZipcode" placeholder="ZIP Code" id="ch-zipcode" required>
+                    </div>
+                    <input type="number" name="chPhone" placeholder="Phone" id="ch-phone" required>
+                    <div class="credit-card-data">
+                    </div>
+                    <button type="submit" id="checkoutBtn" class="btn-checkout checkout-form__button">Continue</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- STRIPE CDN -->
+    <script src="https://js.stripe.com/v3/"></script>
+</body>
+</html>

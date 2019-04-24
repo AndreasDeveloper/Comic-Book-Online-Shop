@@ -47,6 +47,34 @@
                 </div>
             </header>
 
+            <% if (orders.length > 0) { %>
+                <section class="user-orders">
+                    <div class="user-orders__heading">
+                        <h1>&mdash; Your Orders &mdash;</h1>
+                    </div>
+                    <div class="user-orders-list">
+                        <% orders.forEach(order => { %>
+                            <% for (const product in order.cart.items) { %>
+                                <div class="up-order">
+                                    <div class="up-order__wrapper">
+                                        <img data-lazy="<%= order.cart.items[product].item.image %>" class="up-order__image">
+                                        <div class="up-order__text-wrap">
+                                            <h1 class="up-order__name"><%= order.cart.items[product].item.name %></h1>
+                                            <h2 class="up-order__desc"><%= order.cart.items[product].item.descriptionShort %></h2>
+                                            <h3 class="up-order__rating"><i class="icon ion-ios-star"></i> <%= order.cart.items[product].item.rating %></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }; %>
+                        <% }) %>
+                    </div>
+                </section>
+            <% } else { %>
+                <div class="user-orders__heading">
+                    <h1>&mdash; You don't have any orders &mdash;</h1>
+                </div>
+            <% } %>
+
             <!-- IMPLEMENTING FOOTER -->
             <% include ../partials/footer.ejs %>
         </div>

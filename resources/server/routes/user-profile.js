@@ -4,7 +4,9 @@ const express = require('express'),
       multer = require('multer'),
       cloudinary = require('cloudinary');
 // - Importing Models - \\
-const User = require('../models/User');
+const User = require('../models/User'),
+      Cart = require('../models/Cart');
+      Order = require('../models/Order');
 // - Importing Middlewares - \\
 const authMiddleware = require('../middlewares/authMiddleware');
 
@@ -33,7 +35,14 @@ router.get('/user-profile/:username', authMiddleware.isLoggedIn, async (req, res
     const userID = req.user._id;
     try {
         const userData = await User.findById(userID);
-        res.render(`${__dirname}/../../../dist/html/user-profile/user-profile.ejs`, { userData: userData });
+        const userOrders = await Order.find({user: req.user});
+        userOrders.forEach(order => {
+            const cart = new Cart(order.cart);
+            order.items = cart.generateArray();
+        });
+        console.log(userOrders);
+
+        res.render(`${__dirname}/../../../dist/html/user-profile/user-profile.ejs`, { userData: userData, orders: userOrders });
     } catch (err) {
         throw new Error(err);
     }

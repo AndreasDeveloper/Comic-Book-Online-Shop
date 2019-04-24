@@ -34,7 +34,15 @@ export const DOMElements = {
     profileFormImg: document.querySelector('#profileFormImg'),
     profileFormBkImage: document.querySelector('#profileFormBkImage'),
     inputImage: document.querySelector('#profileImg'),
-    inputBkImage: document.querySelector('#profileBkImage')
+    inputBkImage: document.querySelector('#profileBkImage'),
+    // Checkout DOM Elements
+    checkoutForm: document.querySelector('#checkoutForm'),
+    checkoutStripeToken: document.querySelector('#ch-stripeToken'),
+    checkoutFirstName: document.querySelector('#ch-firstName'),
+    checkoutLastName: document.querySelector('#ch-lastName'),
+    checkoutPhoneNum: document.querySelector('#ch-phone'),
+    checkoutFormBtn: document.querySelector('#checkoutBtn'),
+    creditCardWrap: document.querySelector('.credit-card-data'),
 };
 
 // --- Private Classes --- \\

@@ -6,6 +6,7 @@ const isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
     }
+    req.session.oldUrl = req.url; // Storing the old url
     res.redirect('/login');
 };
 

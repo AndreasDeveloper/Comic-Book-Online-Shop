@@ -212,7 +212,7 @@ body {
 .pagination__btn--next:hover span i {
   margin-left: .8rem; }
 
-.btn-payNow {
+.btn-payNow, .btn-checkout {
   display: inline;
   color: #fff;
   font-size: 1.2rem;
@@ -222,10 +222,11 @@ body {
   text-transform: uppercase;
   padding: 1.2rem;
   background-color: #c69963;
-  transition: all .2s ease-in-out; }
-  .btn-payNow:hover {
+  transition: all .2s ease-in-out;
+  cursor: pointer; }
+  .btn-payNow:hover, .btn-checkout:hover {
     background-color: #B28451; }
-    .btn-payNow:hover i {
+    .btn-payNow:hover i, .btn-checkout:hover i {
       margin-left: .8rem; }
 
 .fm-container {
@@ -874,6 +875,83 @@ textarea {
   .top-nav__auth-lo {
     border-left: 0.1rem solid #000; }
 
+.user-orders {
+  position: relative; }
+  @media only screen and (max-width: 37.5em) {
+    .user-orders {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; } }
+  @media only screen and (max-width: 20.9375em) {
+    .user-orders {
+      margin-left: 10rem; } }
+  .user-orders__heading {
+    text-align: center;
+    margin-bottom: 8rem; }
+    .user-orders__heading h1 {
+      font-size: 3.6rem;
+      font-weight: 400; }
+
+.user-orders-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 35rem));
+  grid-row-gap: 2rem;
+  margin: 0 8rem;
+  z-index: 60; }
+  @media only screen and (max-width: 86.875em) {
+    .user-orders-list {
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 29rem)); } }
+  @media only screen and (max-width: 23.75em) {
+    .user-orders-list {
+      margin: 0; } }
+
+.up-order {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8rem;
+  padding: 0 2rem;
+  width: 100%; }
+  .up-order__wrapper {
+    position: relative;
+    width: 90%;
+    z-index: 40; }
+    @media only screen and (max-width: 86.875em) {
+      .up-order__wrapper {
+        width: 105%; } }
+  .up-order:hover .up-order__text-wrap {
+    opacity: 1;
+    bottom: 35%; }
+  .up-order:hover .up-order__image {
+    -webkit-filter: brightness(45%); }
+  .up-order__image {
+    height: 35rem;
+    width: 28rem; }
+  .up-order__text-wrap {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    bottom: 2%;
+    opacity: 0;
+    z-index: 50;
+    transition: all .2s ease-in-out;
+    width: 100%; }
+  .up-order__name {
+    font-size: 1.6rem;
+    font-weight: 500; }
+  .up-order__desc {
+    font-size: 1.2rem;
+    font-weight: 400; }
+  .up-order__rating {
+    font-size: 4rem;
+    font-weight: 400;
+    margin-top: .5rem; }
+  .up-order__name, .up-order__desc, .up-order__rating {
+    color: #fff; }
+
 .shop-pagination {
   display: flex;
   margin-top: 10rem; }
@@ -1114,6 +1192,61 @@ textarea {
   width: calc(100% - 0px);
   transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
   padding: 6rem 0rem 0 5rem; }
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; }
+  .checkout__text-content {
+    text-align: center; }
+    .checkout__text-content h1 {
+      font-size: 4rem;
+      font-weight: 500; }
+    .checkout__text-content h2 {
+      font-size: 1.6rem;
+      font-weight: 500; }
+  .checkout__form-wrap {
+    margin-top: 3rem;
+    width: 40%; }
+
+.checkout-form {
+  display: flex;
+  flex-direction: column; }
+  .checkout-form input {
+    margin: 1rem .3rem;
+    padding: 1rem;
+    outline: none;
+    border: 0.1rem solid #dddddd;
+    border-radius: .5rem;
+    transition: all .2s ease-in-out; }
+    .checkout-form input:focus {
+      border: 0.1rem solid #c69963; }
+    .checkout-form input::placeholder {
+      font-size: 1.2rem; }
+  .checkout-form select {
+    outline: none;
+    border: 0.1rem solid #dddddd;
+    padding: 1rem; }
+    .checkout-form select option {
+      font-size: 1.2rem; }
+  .checkout-form__full-name {
+    display: flex;
+    width: 100%; }
+    .checkout-form__full-name input {
+      width: 50%; }
+  .checkout-form__select-options, .checkout-form__card-data {
+    width: 100%; }
+    .checkout-form__select-options select, .checkout-form__card-data select {
+      width: 33.33333333333333%; }
+    .checkout-form__select-options option, .checkout-form__card-data option {
+      width: 33.33333333333333%; }
+  .checkout-form__button {
+    margin: 0 auto;
+    margin-top: 2rem;
+    outline: none;
+    border: none; }
 
 /* -------------------------- */
 /*      - LANDING PAGE -
@@ -1751,11 +1884,14 @@ textarea {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/img/bk-6.jpg);
   background-position: center;
   background-size: cover;
-  min-height: 60vh; }
+  min-height: 70vh; }
   .shopping-cart-header__content {
     display: flex;
     justify-content: center;
     align-items: center; }
+    @media only screen and (max-width: 86.875em) {
+      .shopping-cart-header__content {
+        margin-top: 1rem; } }
     .shopping-cart-header__content h1 {
       color: #fff;
       font-size: 3.5rem;
@@ -1793,6 +1929,49 @@ textarea {
     .shopping-cart-header__button-header i {
       margin-left: .3rem;
       transition: margin-left .2s; }
+
+.cart-final {
+  position: relative; }
+  .cart-final__content {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5rem 0; }
+
+.cart-final-item {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  width: 70%; }
+  .cart-final-item__img-fig {
+    height: 25rem;
+    width: 20rem; }
+    .cart-final-item__img-fig img {
+      width: 100%;
+      height: 100%; }
+  .cart-final-item__remove {
+    font-size: 2.8rem;
+    margin-left: 1rem;
+    cursor: pointer; }
+
+.cart-final-data {
+  display: flex; }
+  .cart-final-data__name {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0 1rem; }
+  .cart-final-data__price-wrap {
+    font-size: 1.6rem;
+    display: flex;
+    margin: 0 1rem; }
+    .cart-final-data__price-wrap__price {
+      margin-right: 1rem;
+      margin-left: -1rem;
+      padding-right: 1rem;
+      border-right: 0.1rem solid #000; }
+    .cart-final-data__price-wrap__quantity {
+      font-weight: 500; }
 
 /* -------------------------- */
 /*      - SIGN UP PAGE -
@@ -1854,8 +2033,11 @@ textarea {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 92.5vh;
+  height: 100vh;
   width: 50%; }
+  @media only screen and (max-width: 86.875em) {
+    .signup-left, .signup-right {
+      min-height: 110vh; } }
   @media only screen and (max-width: 65.625em) {
     .signup-left, .signup-right {
       height: 70vh; } }

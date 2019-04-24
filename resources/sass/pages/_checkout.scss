@@ -1,0 +1,64 @@
+// * --------------------- * \\
+//        - CHECKOUT -
+// * --------------------- * \\
+
+// Main checkout wrapper
+.checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    // Text Content
+    &__text-content {
+        text-align: center;
+        h1 { font-size: 4rem; font-weight: 500; }
+        h2 { font-size: 1.6rem; font-weight: 500; }
+    }
+    // Form Wrap
+    &__form-wrap {
+        margin-top: 3rem;
+        width: 40%;
+    }
+}
+
+// Checkout Form
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    input { 
+        margin: 1rem .3rem; 
+        padding: 1rem; 
+        outline: none; 
+        border: .1rem solid $color-gray-3; 
+        border-radius: .5rem; 
+        transition: all .2s ease-in-out;
+        &:focus { border: .1rem solid $color-primary; }
+        &::placeholder { font-size: 1.2rem; }
+    }
+    select {
+        outline: none;
+        border: .1rem solid $color-gray-3;
+        padding: 1rem;
+        option { font-size: 1.2rem; }
+    }
+    // Full Name Wrapper
+    &__full-name {
+        display: flex;
+        width: 100%;
+        input { width: 50%; }
+    }
+    // Select Options & Card Data
+    &__select-options, &__card-data {
+        width: 100%;
+        select { width: 33.33333333333333%; }
+        option { width: 33.33333333333333%; }
+    }
+    // Submit Button
+    &__button {
+        margin: 0 auto;
+        margin-top: 2rem;
+        outline: none;
+        border: none;
+    }
+}

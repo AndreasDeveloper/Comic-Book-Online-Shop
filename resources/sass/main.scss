@@ -14,6 +14,7 @@
 @import './components/lazy-load';
 @import './components/navigation';
 @import './components/navigation-top';
+@import './components/order-card';
 @import './components/pagination';
 @import './components/pre-loader';
 @import './components/service-box';
@@ -22,6 +23,7 @@
 @import './layout/footer';
 @import './layout/wrappers';
 // - PAGES - \\
+@import './pages/checkout';
 @import './pages/landing';
 @import './pages/login';
 @import './pages/shop';

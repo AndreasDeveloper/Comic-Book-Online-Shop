@@ -20,16 +20,50 @@
         <div class="standard-wrapper">
         <% }; %>
         <div class="shopping-cart-wrapper">
+            <!-- HEADER | START -->
             <header class="shopping-cart-header">
                 <div class="shopping-cart-header__content">
+                <% include ../partials/flash-messages.ejs %>
+                <% if (session.cart) { %>
                     <h1>Your Shopping Cart:</h1>
                     <div class="shopping-cart-header__content-list">
-                        <h2 class="shopping-cart-header__content-list__data-1">Items in cart: <span>0</span> &mdash;</h2>
-                        <h2 class="shopping-cart-header__content-list__data-2">Total amount to pay: <span>0&dollar;</span></h2>
+                        <h2 class="shopping-cart-header__content-list__data-1">Items in cart: <span><%= session.cart.totalQnty %></span> &mdash;</h2>
+                        <h2 class="shopping-cart-header__content-list__data-2">Total amount to pay: <span><%= session.cart.totalPrice %>&dollar;</span></h2>
                     </div>
-                    <a href="#" class="btn-payNow shopping-cart-header__button-header">Checkout <i class="icon ion-ios-arrow-forward"></i></a>
+                    <a href="/checkout" class="btn-payNow shopping-cart-header__button-header">Checkout <i class="icon ion-ios-arrow-forward"></i></a>
+                <% } else { %>
+                    <h1>Your Shopping Cart is Empty</h1>
+                <%  } %>
                 </div>
             </header>
+            <!-- HEADER | END -->
+
+            <!-- ITEMS IN CART | START -->
+            <% if (session.cart) { %>
+            <section class="cart-final">
+                <div class="cart-final__content">
+                    <% for (const product in session.cart.items) { %>
+                        <div class="cart-final-item">
+                            <figure class="cart-final-item__img-fig">
+                                <img data-lazy="<%= session.cart.items[product].item.image %>">
+                            </figure>
+                            <div class="cart-final-data">
+                                <h3 class="cart-final-data__name"><%= session.cart.items[product].item.name %> &mdash;</h3>
+                                <div class="cart-final-data__price-wrap">
+                                    <h4 class="cart-final-data__price-wrap__price">&dollar; <%= session.cart.items[product].price %></h4>
+                                    <h4 class="cart-final-data__price-wrap__quantity"><%= session.cart.items[product].qnty %></h4>
+                                </div>
+                            </div>
+                            <div class="cart-final-item__remove"><i class="icon ion-ios-close"></i></div>
+                        </div>
+                    <% }; %>
+                </div>
+            </section>
+            <% } %>
+            <!-- ITEMS IN CART | END -->
+
+            <!-- IMPLEMENTING FOOTER -->
+            <% include ../partials/footer.ejs %>
         </div>
     </main>
 

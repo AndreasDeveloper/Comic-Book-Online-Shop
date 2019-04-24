@@ -42,7 +42,13 @@ router.get('/signup', async (req, res) => {
 const userRegisterFun = (req, res, userBody) => { // Passport user register function with authentication
     return User.register(new User(userBody), userBody.password, async (err, user) => {
         passport.authenticate('local')(req, res, () => { // Local Authentication
-            res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
+            if (req.session.oldUrl) { // Redirect user back to previous page (if exists)
+                const oldUrl = req.session.oldUrl; // Storing oldUrl in constant variable
+                req.session.oldUrl = null; // Clearing the oldUrl after redirecting
+                res.redirect(oldUrl);
+            } else {
+                res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
+            }
         });
     });
 };
@@ -92,7 +98,13 @@ router.get('/login', async (req, res) => {
 router.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
     async (req, res) => {
         try {
-            await res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
+            if (req.session.oldUrl) { // Redirect user back to previous page (if exists)
+                const oldUrl = req.session.oldUrl; // Storing oldUrl in constant variable
+                req.session.oldUrl = null; // Clearing the oldUrl after redirecting
+                res.redirect(oldUrl);
+            } else {
+                res.redirect(`/user-profile/${req.user.username.toLowerCase()}`);
+            }
         } catch (err) {
             throw new Error(err);
         }

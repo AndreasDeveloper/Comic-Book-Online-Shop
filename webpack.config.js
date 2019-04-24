@@ -32,6 +32,10 @@ module.exports = {
             filename: 'html/shop/shopping-cart.ejs',
             template: './resources/html/shop/shopping-cart.ejs'
         }),
+        new HtmlWebpackPlugin({ // CHECKOUT PAGE
+            filename: 'html/shop/checkout.ejs',
+            template: './resources/html/shop/checkout.ejs'
+        }),
         new HtmlWebpackPlugin({ // AUTHENTICATION - LOGIN
             filename: 'html/authentication/login.ejs',
             template: './resources/html/authentication/login.ejs'

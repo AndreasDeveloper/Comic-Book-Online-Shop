@@ -100,7 +100,7 @@
     margin-bottom: 5rem;
     // * -- MEDIA QUERIES -- * \\
     @media only screen and (max-width: $bp-small) { margin-top: -5vh; }
-    @media only screen and (max-width: $bp-vsmall-3b) {  }
+    @media only screen and (max-width: $bp-vsmall-3b) {  } // ?
     // Search text
     &__text {
         font-size: 2rem;
@@ -152,7 +152,6 @@
     opacity: 0;
     transition: all .3s .2s;
     z-index: 999;
-
     @media only screen and (max-width: $bp-small) { top: 6rem; left: -4rem; }
 
     &__list {
