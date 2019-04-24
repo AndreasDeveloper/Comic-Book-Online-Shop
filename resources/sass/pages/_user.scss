@@ -6,6 +6,8 @@
 .user-header {
     position: relative;
     height: 120vh;
+    @media only screen and (max-width: $bp-medium) { height: 55vh; }
+    @media only screen and (max-width: $bp-small) { height: 65vh; }  
     // Images wrapper (User profile image and background)
     &__images {
         display: flex;
@@ -25,6 +27,7 @@
         height: 650px;
         // * -- MEDIA QUERIES -- * \\
         @media only screen and (max-width: $bp-desktop) { width: 1400px;  height: 490px; }
+        @media only screen and (max-width: $bp-medium) { width: 862px; height: 390px; }
         @media only screen and (max-width: $bp-small) { width: 400px; height: 250px; }
     }
     // Camera Icon Wrapper
@@ -81,6 +84,7 @@
     margin-top: -25vh;
     z-index: 200;
     // * -- MEDIA QUERIES -- * \\
+    @media only screen and (max-width: $bp-medium) { margin-top: -10vh; margin-left: 5rem; }
     @media only screen and (max-width: $bp-small) { margin-top: -10vh; }
     @media only screen and (max-width: $bp-vsmall-3) { margin-left: 5rem; }
     @media only screen and (max-width: $bp-vsmall-4) { margin-left: 12rem; }
@@ -106,7 +110,7 @@
         outline: none;
         // --- MEDIA QUERIES --- \\
         @media only screen and (max-width: $bp-desktop) { top: 30%; }
-        @media only screen and (max-width: $bp-small) { top: 10%; left: 20%; padding-top: 30rem; }
+        @media only screen and (max-width: $bp-small) { top: 20%; left: 20%; padding-top: 30rem; }
     }
 }
 
@@ -120,6 +124,8 @@
     align-items: center;
     margin-top: 1.5rem;
     z-index: 250;
+    // * -- MEDIA QUERIES -- * \\
+    @media only screen and (max-width: $bp-medium) { margin-left: 5rem; }
     @media only screen and (max-width: $bp-small) { margin-left: 2rem; }
     @media only screen and (max-width: $bp-vsmall-3) { margin-left: 5rem; }
     @media only screen and (max-width: $bp-vsmall-4) { margin-left: 6rem; width: 100%; }

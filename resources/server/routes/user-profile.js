@@ -40,7 +40,6 @@ router.get('/user-profile/:username', authMiddleware.isLoggedIn, async (req, res
             const cart = new Cart(order.cart);
             order.items = cart.generateArray();
         });
-        console.log(userOrders);
 
         res.render(`${__dirname}/../../../dist/html/user-profile/user-profile.ejs`, { userData: userData, orders: userOrders });
     } catch (err) {
