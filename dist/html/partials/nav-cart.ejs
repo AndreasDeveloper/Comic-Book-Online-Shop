@@ -6,7 +6,7 @@
         <div class="user-list">
             <ul class="user-list__list user-list-cart">
                 <% for (const product in session.cart.items) { %>
-                    <li>
+                    <li style="position: relative;">
                         <a href="#" class="user-list__link">
                             <figure class="user-list__fig">
                                 <img data-lazy="<%= session.cart.items[product].item.image %>" alt="Item 1">
@@ -18,7 +18,7 @@
                                     <h4 class="user-list__quantity"><%= session.cart.items[product].qnty %></h4>
                                 </div>
                             </div>
-                            <div class="user-list__remove"><i class="icon ion-ios-close"></i></div>
+                            <a href="/reduce/<%= session.cart.items[product].item._id %>" class="user-list__remove"><i class="icon ion-ios-close"></i></a>
                         </a>
                     </li>
             <% }; %>

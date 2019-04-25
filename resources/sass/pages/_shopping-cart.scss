@@ -48,14 +48,20 @@
     }
     // Checkout Button - Header
     &__button-header {
-        @include center-vh;
-        top: 55%;
-        margin-top: 1rem;
         i { margin-left: .8rem; }
         & i {
             margin-left: .3rem;
             transition: margin-left .2s;
         }
+    }
+    // Button Wrapper
+    &__buttons {
+        @include center-vh;
+        top: 55%;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 

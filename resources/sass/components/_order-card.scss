@@ -9,6 +9,7 @@
     @media only screen and (max-width: $bp-medium) { margin-top: -5vh; margin-left: 2rem; }
     @media only screen and (max-width: $bp-ipad) { margin-top: 10vh; }
     @media only screen and (max-width: $bp-small) { display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 5rem; }
+    @media only screen and (max-width: $bp-vsmall-3b) { margin-top: 8rem; }
     @media only screen and (max-width: $bp-vsmall-4) { margin-top: 15rem; }
     // Heading
     &__heading {

@@ -30,7 +30,10 @@
                         <h2 class="shopping-cart-header__content-list__data-1">Items in cart: <span><%= session.cart.totalQnty %></span> &mdash;</h2>
                         <h2 class="shopping-cart-header__content-list__data-2">Total amount to pay: <span><%= session.cart.totalPrice %>&dollar;</span></h2>
                     </div>
-                    <a href="/checkout" class="btn-payNow shopping-cart-header__button-header">Checkout <i class="icon ion-ios-arrow-forward"></i></a>
+                    <div class="shopping-cart-header__buttons">
+                        <a href="/clear-cart" class="btn-payNow shopping-cart-header__button-header" style="margin: 0 .4rem;">Clear Cart</a>
+                        <a href="/checkout" class="btn-payNow shopping-cart-header__button-header">Checkout <i class="icon ion-ios-arrow-forward"></i></a>
+                    </div>
                 <% } else { %>
                     <h1>Your Shopping Cart is Empty</h1>
                 <%  } %>
@@ -54,7 +57,7 @@
                                     <h4 class="cart-final-data__price-wrap__quantity"><%= session.cart.items[product].qnty %></h4>
                                 </div>
                             </div>
-                            <div class="cart-final-item__remove"><i class="icon ion-ios-close"></i></div>
+                            <a href="reduce/<%= session.cart.items[product].item._id %>" class="cart-final-item__remove"><i class="icon ion-ios-close"></i></a>
                         </div>
                     <% }; %>
                 </div>

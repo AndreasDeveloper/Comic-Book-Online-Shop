@@ -891,6 +891,9 @@ textarea {
       justify-content: center;
       align-items: center;
       margin-top: 5rem; } }
+  @media only screen and (max-width: 22.5em) {
+    .user-orders {
+      margin-top: 8rem; } }
   @media only screen and (max-width: 20.9375em) {
     .user-orders {
       margin-top: 15rem; } }
@@ -2005,18 +2008,21 @@ textarea {
       margin: .2rem; }
       .shopping-cart-header__content-list__data-1 span, .shopping-cart-header__content-list__data-2 span {
         font-weight: 500; }
-  .shopping-cart-header__button-header {
+  .shopping-cart-header__button-header i {
+    margin-left: .8rem; }
+  .shopping-cart-header__button-header i {
+    margin-left: .3rem;
+    transition: margin-left .2s; }
+  .shopping-cart-header__buttons {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     top: 55%;
-    margin-top: 1rem; }
-    .shopping-cart-header__button-header i {
-      margin-left: .8rem; }
-    .shopping-cart-header__button-header i {
-      margin-left: .3rem;
-      transition: margin-left .2s; }
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 .cart-final {
   position: relative; }

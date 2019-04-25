@@ -67,6 +67,44 @@ router.get('/shop/add-to-cart/:id', async (req, res) => {
     }
 });
 
+// GET - Remove Item Quantity by one from Cart | - Removes one item from the cart - \\
+router.get('/reduce/:id', (req, res) => {
+    const productID = req.params.id;
+    const backUrl = req.header('Referer') || '/'; // Remembers the last url user was on
+    try {
+        const cart = new Cart(req.session.cart ? req.session.cart : {}); // If cart exists, pass the old cart (obj with data), otherwise pass the empty cart (object)
+        cart.reduceByOne(productID);
+        req.session.cart = cart;
+        res.redirect(backUrl);
+    } catch (err) {
+        throw new Error(err);
+    }
+});
+
+// GET - Remove Item from Cart | - Removes all of the items from cart - \\
+router.get('/remove/:id', (req, res) => {
+    const productID = req.params.id;
+    const backUrl = req.header('Referer') || '/'; // Remembers the last url user was on
+    try {
+        const cart = new Cart(req.session.cart ? req.session.cart : {}); // If cart exists, pass the old cart (obj with data), otherwise pass the empty cart (object)
+        cart.removeItem(productID);
+        req.session.cart = cart;
+        res.redirect(backUrl);
+    } catch (err) {
+        throw new Error(err);
+    }
+});
+
+router.get('/clear-cart', async (req, res) => {
+    try {
+        req.session.cart = null;
+        req.flash('success', 'Cart cleared');
+        res.redirect('/shopping-cart');
+    } catch (err) {
+        throw new Error(err);
+    }
+});
+
 // GET - Shopping Cart Page | - Displaying shopping cart with all / or none items added to cart - \\
 router.get('/shopping-cart', async (req, res) => {
     try {
@@ -74,7 +112,12 @@ router.get('/shopping-cart', async (req, res) => {
             res.render((`${__dirname}/../../../dist/html/shop/shopping-cart.ejs`), {products: null});
         }
         const cart = await new Cart(req.session.cart);
-        res.render((`${__dirname}/../../../dist/html/shop/shopping-cart.ejs`), {products: cart.generateArray(), totalPrice: cart.totalPrice});
+        if (req.session.cart.totalQnty === 0) {
+            req.session.cart = null;
+            res.render((`${__dirname}/../../../dist/html/shop/shopping-cart.ejs`), {products: cart.generateArray(), totalPrice: cart.totalPrice});
+        } else {
+            res.render((`${__dirname}/../../../dist/html/shop/shopping-cart.ejs`), {products: cart.generateArray(), totalPrice: cart.totalPrice});
+        }
     } catch (err) {
         throw new Error(err);
     }
