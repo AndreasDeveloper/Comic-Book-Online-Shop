@@ -67,6 +67,16 @@ module.exports = {
             template: './resources/html/partials/nav-cart.ejs',
             excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
         }),
+        new HtmlWebpackPlugin({ // NAVIGATION CART PARTIAL
+            filename: 'html/partials/nav-wishlist.ejs',
+            template: './resources/html/partials/nav-wishlist.ejs',
+            excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
+        }),
+        new HtmlWebpackPlugin({ // NAVIGATION CART PARTIAL
+            filename: 'html/partials/nav-notification.ejs',
+            template: './resources/html/partials/nav-notification.ejs',
+            excludeAssets: [/main.css/, /bundle.js/] // Excluding css from this file
+        }),
         new HtmlWebpackPlugin({ // FLASH MESSAGES PARTIALS
             filename: 'html/partials/flash-messages.ejs',
             template: './resources/html/partials/flash-messages.ejs',

@@ -1,0 +1,43 @@
+<% if (session.notification) { %>
+    <!-- NOTIFICATIONS | START -->
+    <div class="user-nav__icon-box">
+        <i class="icon ion-ios-notifications-outline user-nav__icon"></i>
+        <span class="user-nav__notification">0</span>
+        <div class="user-list">
+            <ul class="user-list__list">
+                <h2 class="user-list__empty">No Notifications</h2>
+                <!--
+                <li>   
+                    <a href="#" class="user-list__link">
+                        <figure class="user-list__fig">
+                            <img data-lazy="../../img/spider-man/cover-1.jpg" alt="Item 1">
+                        </figure>
+                        <div class="user-list__data">
+                            <h3 class="user-list__name">Spider-Man Vs. Venom</h3>
+                            <h4 class="user-list__price">&dollar; 45</h4>
+                        </div>
+                        <div class="user-list__remove"><i class="icon ion-ios-close"></i></div>
+                    </a>
+                </li>
+            -->
+            <div class="user-list__single-button">
+                <a href="#" class="user-list__notifications">Notifications &rarr;</a>
+            </div>
+            </ul>
+        </div>
+    </div>
+    <!-- NOTIFICATIONSS | END-->
+<% } else { %>
+        <div class="user-nav__icon-box">
+        <i class="icon ion-ios-notifications-outline user-nav__icon"></i>
+        <span class="user-nav__notification">0</span>
+        <div class="user-list">
+            <ul class="user-list__list">
+            </ul>
+            <h2 class="user-list__empty">No Notifications</h2>
+            <div class="user-list__single-button">
+                <a href="#" class="user-list__notifications">Notifications &rarr;</a>
+            </div>
+        </div>
+    </div>
+<% } %>

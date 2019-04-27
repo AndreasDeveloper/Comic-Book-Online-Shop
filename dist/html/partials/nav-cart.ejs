@@ -9,7 +9,7 @@
                     <li style="position: relative;">
                         <a href="#" class="user-list__link">
                             <figure class="user-list__fig">
-                                <img data-lazy="<%= session.cart.items[product].item.image %>" alt="Item 1">
+                                <img data-lazy="<%= session.cart.items[product].item.image %>" alt="Item">
                             </figure>
                             <div class="user-list__data">
                                 <h3 class="user-list__name"><%= session.cart.items[product].item.name %></h3>
@@ -18,7 +18,7 @@
                                     <h4 class="user-list__quantity"><%= session.cart.items[product].qnty %></h4>
                                 </div>
                             </div>
-                            <a href="/reduce/<%= session.cart.items[product].item._id %>" class="user-list__remove"><i class="icon ion-ios-close"></i></a>
+                            <a href="/remove/<%= session.cart.items[product].item._id %>" class="user-list__remove"><i class="icon ion-ios-close"></i></a>
                         </a>
                     </li>
             <% }; %>
@@ -38,6 +38,7 @@
         <div class="user-list">
             <ul class="user-list__list user-list-cart">
             </ul>
+            <h2 class="user-list__empty">Your Cart is Empty</h2>
             <div class="user-list__checkout-button">
                 <h3 class="user-list__total">Total: &dollar; 0</h3>
                 <a href="/shopping-cart" class="user-list__checkout">Checkout &rarr;</a>

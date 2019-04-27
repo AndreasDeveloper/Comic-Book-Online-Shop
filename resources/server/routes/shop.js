@@ -27,6 +27,7 @@ router.get('/shop', async (req, res) => {
 
 // GET - Shop Product Page | - Displaying demanded product page with page numbers - \\
 router.get('/shop/:page', async (req, res, next) => {
+    console.log(req.session);
 // Declaring variable
 const resPerPage = 9;
 const page = req.params.page || 1;
@@ -52,7 +53,7 @@ let noMatch = null;
 });
 
 
-// GET - Add To Cart | - Add item to cart route - \\
+// GET - Add To Cart | - Add item to cart - route - \\
 router.get('/shop/add-to-cart/:id', async (req, res) => {
     const productID = req.params.id;
     const backUrl = req.header('Referer') || '/'; // Remembers the last url user was on

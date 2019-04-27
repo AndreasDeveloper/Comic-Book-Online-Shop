@@ -11,10 +11,9 @@ class Cart {
         if (!storedItem) { // If there are no previous items
             storedItem = this.items[id] = {item: item, qnty: 0, price: 0};
         }
-        if (this.items.hasOwnProperty(storedItem)) {
+        if (storedItem.item.hasOwnProperty('name') && storedItem.item['name']===storedItem.item.name) { // if item already exists in shopping cart
             storedItem.qnty++;
             storedItem.price = storedItem.item.price * storedItem.qnty;
-            this.totalQnty = 5;
             this.totalPrice += storedItem.item.price;
         } else {
             storedItem.qnty++;
@@ -46,6 +45,7 @@ class Cart {
         delete this.items[id];
     };
 
+    // Clear Cart Totally
     clearCart () {
         this.items = {};
         this.totalQnty = 0;
@@ -62,5 +62,5 @@ class Cart {
     };
 };
 
-// Exporting Cart Model
+// Exporting Cart Class
 module.exports = Cart;

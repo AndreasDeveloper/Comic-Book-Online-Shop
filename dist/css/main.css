@@ -1892,7 +1892,8 @@ textarea {
     color: #c69963;
     font-size: 1.4rem;
     font-weight: 400;
-    align-self: center; }
+    align-self: center;
+    text-align: center; }
 
 .no-match {
   font-size: 3rem;

@@ -23,7 +23,8 @@ const Comicbook = require('./models/Comicbooks'),
 const shopRoutes = require('./routes/shop'),
       authenticationRoutes = require('./routes/authentication'),
       userProfileRoutes = require('./routes/user-profile'),
-      userProfileSettingsRoutes = require('./routes/user-settings');
+      userProfileSettingsRoutes = require('./routes/user-settings'),
+      wishlistRoutes = require('./routes/wishlist');
 // - Importing Middlewares - \\
 const authMiddleware = require('./middlewares/authMiddleware');
 // - API JSON ROUTE - \\
@@ -108,6 +109,7 @@ app.use(authenticationRoutes);
 app.use(userProfileRoutes);
 app.use(userProfileSettingsRoutes);
 app.use(comicbooksShopData);
+app.use(wishlistRoutes);
 
 // * ------------- * \\
 // - Routes | Pages - \\
