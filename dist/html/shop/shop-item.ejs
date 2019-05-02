@@ -75,18 +75,24 @@
                                     <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart-empty heartIcon"></i></a>
                                 <% } else { %>
 
+
                                     <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn rmMe" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart-empty heartIcon"></i></a>
                                     <% Object.keys(session.wishlist.items).forEach(product => { %>
                                         <% if (comicbook.name === session.wishlist.items[product].item.name) { %>
-                                           <script>
-                                                let parentEl = document.querySelector('.item-desc__bottom-wrap__button-wrap');
-                                                let childEl = document.querySelector('.rmMe');
-
-                                                parentEl.removeChild(childEl);
-                                            </script>
                                             <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart heartIcon"></i></a>
+                                            <script>
+                                                var parentEl = document.querySelectorAll('.item-desc__bottom-wrap__button-wrap');
+                                                var parentArr = [...parentEl];
+                                                console.log(parentEl);
+                                                for (let i = 0; i < parentArr.length; i++) {
+                                                    parentArr[i].firstElementChild.style.display = 'none';
+                                                    // parentArr[i].firstElementChild.style.display = 'none';
+                                                    console.log(parentArr[i]);
+                                                }
+                                            </script>
                                         <% }; %>
                                     <% }); %>
+
                                 <% }; %>
                             <% } %>
                             <a href="/shop/add-to-cart/<%=comicbook._id%>" class="btn-1 buyBtn" data-itemid='<%= comicbook._id %>'>buy</a>
