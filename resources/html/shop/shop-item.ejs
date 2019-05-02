@@ -74,14 +74,19 @@
                                 <% if (!session.wishlist || session.wishlist.totalQnty === 0) { %>
                                     <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart-empty heartIcon"></i></a>
                                 <% } else { %>
-                                    <% for (product in session.wishlist.items) { %>
-                                        <% if (comicbook.name !== session.wishlist.items[product].item.name) { %>
-                                            <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart-empty heartIcon"></i></a>
-                                        <% } %>
+
+                                    <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn rmMe" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart-empty heartIcon"></i></a>
+                                    <% Object.keys(session.wishlist.items).forEach(product => { %>
                                         <% if (comicbook.name === session.wishlist.items[product].item.name) { %>
+                                           <script>
+                                                let parentEl = document.querySelector('.item-desc__bottom-wrap__button-wrap');
+                                                let childEl = document.querySelector('.rmMe');
+
+                                                parentEl.removeChild(childEl);
+                                            </script>
                                             <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart heartIcon"></i></a>
-                                        <% } %>
-                                    <% }; %>
+                                        <% }; %>
+                                    <% }); %>
                                 <% }; %>
                             <% } %>
                             <a href="/shop/add-to-cart/<%=comicbook._id%>" class="btn-1 buyBtn" data-itemid='<%= comicbook._id %>'>buy</a>

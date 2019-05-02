@@ -17,6 +17,7 @@ export const DOMElements = {
     buyItemBtn: document.querySelector('.buyBtn'),
     wishlistItemBtnWrap: document.querySelectorAll('.wishlistBtn'),
     heartIcon: document.querySelectorAll('.heartIcon'),
+    buttonWishlistWrap: document.querySelector('.item-desc__bottom-wrap__button-wrap'),
     // User Settings DOM Elements
     settingsForm: document.querySelector('.edit-form'),
     usernameInputSett: document.querySelector('.edit-form__username'),

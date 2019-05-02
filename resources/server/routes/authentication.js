@@ -57,10 +57,9 @@ const userRegisterFun = (req, res, userBody) => { // Passport user register func
 router.post('/signup', async (req, res) => {
     upload(req, res, async (err) => {
         const existUserUsername = await User.findOne({username: req.body.username}).exec(),
-              existUserEmail = await User.findOne({email: req.body.email}).exec(),
-              existUserPassword = await User.findOne({password: req.body.password}).exec();
+              existUserEmail = await User.findOne({email: req.body.email}).exec();
         // If user with submitted username, email, password doesn't exist, run the code
-        if (!existUserUsername && !existUserEmail && !existUserPassword) {
+        if (!existUserUsername && !existUserEmail) {
             try {
                 if (err === 'LIMIT_FILE_SIZE' || err) { // if limit file size error occurs
                     req.flash('error', 'Files cannot be larger than 1MB!');

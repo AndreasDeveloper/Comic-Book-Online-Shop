@@ -40,7 +40,7 @@ class Cart {
 
     // Remove item from cart
     removeItem (id) {
-        this.totalQnty -= this.items[id].qnty;
+        this.totalQnty -= 1;
         this.totalPrice -= this.items[id].price;
         delete this.items[id];
     };

@@ -9,11 +9,10 @@ class Wishlist {
     add (item, id) {
         let storedItem = this.items[id];
         if (!storedItem) { // If there are no previous items
-            storedItem = this.items[id] = {item: item, qnty: 0};
+            storedItem = this.items[id] = {item: item};
         }
-        console.log(storedItem);
         if (storedItem.item.hasOwnProperty('name') && storedItem.item['name'] === storedItem.item.name) { // if item already exists in shopping cart
-            storedItem.qnty++;
+            return null;
         } else {
             storedItem.qnty++;
             this.totalQnty++;
@@ -22,7 +21,7 @@ class Wishlist {
 
     // Remove item from cart
     removeItem (id) {
-        this.totalQnty -= this.items[id].qnty;
+        this.totalQnty -= 1;
         delete this.items[id];
     };
 

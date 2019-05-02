@@ -27,7 +27,6 @@ router.get('/shop', async (req, res) => {
 
 // GET - Shop Product Page | - Displaying demanded product page with page numbers - \\
 router.get('/shop/:page', async (req, res, next) => {
-    console.log(req.session);
 // Declaring variable
 const resPerPage = 9;
 const page = req.params.page || 1;
