@@ -1,6 +1,7 @@
 // - Importing Dependencies - \\
 const mongoose = require('mongoose'),
-      passportLocalMongoose = require('passport-local-mongoose');
+      passportLocalMongoose = require('passport-local-mongoose'),
+      bcrypt = require('bcrypt');
 
 // -- User Schema -- \\
 const UserSchema = new mongoose.Schema({

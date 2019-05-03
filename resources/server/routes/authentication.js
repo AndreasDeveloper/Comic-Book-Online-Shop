@@ -4,7 +4,8 @@ const express = require('express'),
       path = require('path'),
       passport = require('passport'),
       cloudinary = require('cloudinary'),
-      multer = require('multer');
+      multer = require('multer'),
+      bcrypt = require('bcrypt');
 // - Importing Models - \\
 const User = require('../models/User');
 
@@ -39,8 +40,9 @@ router.get('/signup', async (req, res) => {
 });
 
 // - * Helper Function For POST Req * - \\
-const userRegisterFun = (req, res, userBody) => { // Passport user register function with authentication
-    return User.register(new User(userBody), userBody.password, async (err, user) => {
+const userRegisterFun = (req, res, userBody, userBodyPw) => { // Passport user register function with authentication
+    return User.register(new User(userBody), userBodyPw, async (err, user) => {
+        console.log(userBody.password);
         passport.authenticate('local')(req, res, () => { // Local Authentication
             if (req.session.oldUrl) { // Redirect user back to previous page (if exists)
                 const oldUrl = req.session.oldUrl; // Storing oldUrl in constant variable
@@ -65,13 +67,33 @@ router.post('/signup', async (req, res) => {
                     req.flash('error', 'Files cannot be larger than 1MB!');
                     res.redirect('/signup');
                 } else {
+                    // Encrypting Password
+                    const salt = await bcrypt.genSalt(5);
+                    const hash = await bcrypt.hash(req.body.password, salt);
+                    // Uploading Images to Cloudinary
                     const cloudinaryRes1 = await cloudinary.uploader.upload(req.files.image[0].path);
                     const cloudinaryRes2 = await cloudinary.uploader.upload(req.files.bkImage[0].path);
                     // Adding cloudinary url for the images to the user object under image & bkImage property
                     req.body.image = cloudinaryRes1.secure_url;
                     req.body.bkImage = cloudinaryRes2.secure_url;
+                    // User Data Body
+                    const userBodyPass = req.body.password;
+                    const userBodyData = {
+                        username: req.body.username,
+                        email: req.body.email,
+                        bioShort: req.body.bioShort,
+                        password: hash,
+                        image: req.body.image,
+                        bkImage: req.body.bkImage
+                    };
                     // Registering user
-                    const registeredUser = await userRegisterFun(req, res, req.body);
+                    const registeredUser = await userRegisterFun(req, res, userBodyData, userBodyPass);
+                    const result = await bcrypt.compare(req.body.password, hash);
+                    if (result === false) {
+                        console.log('Password No Match');
+                    } else {
+                        console.log('Password Match');
+                    }
                     req.flash('success', `Successfully Signed In, Welcome ${req.body.username}!`);
                 }
             } catch (error) {

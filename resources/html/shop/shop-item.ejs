@@ -75,20 +75,19 @@
                                     <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart-empty heartIcon"></i></a>
                                 <% } else { %>
 
-
-                                    <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn rmMe" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart-empty heartIcon"></i></a>
+                                    <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn rmMe" data-itemid='<%= comicbook._id %>'><i id="heartEmpt" class="icon ion-ios-heart-empty heartIcon"></i></a>
                                     <% Object.keys(session.wishlist.items).forEach(product => { %>
                                         <% if (comicbook.name === session.wishlist.items[product].item.name) { %>
                                             <a href="/add-to-wishlist/<%=comicbook._id%>" class="btn-2-i wishlistBtn" data-itemid='<%= comicbook._id %>'><i class="icon ion-ios-heart heartIcon"></i></a>
                                             <script>
-                                                var parentEl = document.querySelectorAll('.item-desc__bottom-wrap__button-wrap');
-                                                var parentArr = [...parentEl];
-                                                console.log(parentEl);
-                                                for (let i = 0; i < parentArr.length; i++) {
-                                                    parentArr[i].firstElementChild.style.display = 'none';
-                                                    // parentArr[i].firstElementChild.style.display = 'none';
-                                                    console.log(parentArr[i]);
-                                                }
+                                                var aEl = document.querySelectorAll('.rmMe');
+                                                var aElArr = [...aEl];
+                                                console.log(aEl);
+                                                for (let i = 0; i < aElArr.length; i++) {
+                                                    if (aElArr[i].firstChild.className === 'icon ion-ios-heart-empty heartIcon') { // AND IF NOT INCLUDING FULL HEART
+                                                        aElArr[i].style.display = 'none';
+                                                    }
+                                                };
                                             </script>
                                         <% }; %>
                                     <% }); %>

@@ -42,6 +42,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "cloudinary": "^1.14.0",
     "connect-flash": "^0.1.1",
